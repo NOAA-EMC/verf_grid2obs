@@ -1,0 +1,146 @@
+.------------------------------------------------------------------------------.
+| ------------   USER DEFINITIONS FOR TABLE-A TABLE-B TABLE D   -------------- |
+|------------------------------------------------------------------------------|
+| MNEMONIC | NUMBER | DESCRIPTION                                              |
+|----------|--------|----------------------------------------------------------|
+|          |        |                                                          |
+| ADPUPA   | A60240 | UPPER-AIR (RAOB, PIBAL, RECCO, DROPS) REPORTS            |
+| AIRCAR   | A60241 | ACARS AIRCRAFT REPORTS                                   |
+| AIRCFT   | A60242 | CONVENTIONAL (AIREP, PIREP) AND ASDAR AIRCRAFT REPORTS   |
+| SATWND   | A60243 | SATELLITE-DERIVED WIND REPORTS                           |
+| PROFLR   | A60244 | WIND PROFILER REPORTS                                    |
+| VADWND   | A60245 | VAD (NEXRAD) WIND REPORTS                                |
+| SATEMP   | A60246 | TOVS SATELLITE DATA (SOUNDINGS, RETRIEVALS, RADIANCES)   |
+| ADPSFC   | A60247 | SURFACE LAND (SYNOPTIC, METAR) REPORTS                   |
+| SFCSHP   | A60248 | SURFACE MARINE (SHIP, BUOY, C-MAN PLATFORM) REPORTS      |
+| SFCBOG   | A60249 | MEAN SEA-LEVEL PRESSURE BOGUS REPORTS                    |
+| SPSSMI   | A60250 | SSM/I RETRIEVAL PRODUCTS (REPROCESSED WIND SPEED, TPW)   |
+| SYNDAT   | A60251 | SYNTHETIC TROPICAL CYCLONE BOGUS REPORTS                 |
+| ERS1DA   | A60252 | ERS SCATTEROMETER DATA (REPROCESSED WIND SPEED)          |
+| GOESND   | A60253 | GOES SATELLITE DATA (SOUNDINGS, RETRIEVALS, RADIANCES)   |
+| AIRNOW   | A60254 | AIRNOW                                                   |
+|          |        |                                                          |
+| HEADR    | 361001 | TABLE D ENTRY - REPORT HEADER SEQUENCE                   |
+| PLEVL    | 361002 | TABLE D ENTRY - PRESSURE LEVEL SEQUENCE                  |
+| OBLVL    | 361003 | TABLE D ENTRY - OBSERVATION    SEQUENCE                  |
+|          |        |                                                          |
+| PEVN     | 362101 | TABLE D ENTRY - PRESSURE EVENT SEQUENCE                  |
+| QEVN     | 362102 | TABLE D ENTRY - SPECIFIC HUMIDITY EVENT SEQUENCE         |
+| TEVN     | 362103 | TABLE D ENTRY - TEMPERATURE EVENT SEQUENCE               |
+| ZEVN     | 362104 | TABLE D ENTRY - HEIGHT EVENT SEQUENCE                    |
+| WEVN     | 362105 | TABLE D ENTRY - WIND EVENT SEQUENCE                      |
+| OZON     | 362106 | TABLE D ENTRY - OZONE            SEQUENCE                |
+| CTPEVN   | 362107 | TABLE D ENTRY - CLOUD TOP PRESSURE SEQUENCE              |
+|          |        |                                                          |
+| SID      | 001192 | TABLE B ENTRY - STATION IDENTIFICATION                   |
+| TYP      | 001193 | TABLE B ENTRY - OI/SSI REPORT TYPE                       |
+| ITP      | 002001 | TABLE B ENTRY - INSTRUMENT TYPE                          |
+| DHR      | 004192 | TABLE B ENTRY - OBSERVATION TIME MINUS CYCLE TIME        |
+| YOB      | 005002 | TABLE B ENTRY - LATITUDE                                 |
+| XOB      | 006002 | TABLE B ENTRY - LONGITUDE                                |
+| ELV      | 010194 | TABLE B ENTRY - STATION ELEVATION                        |
+| T29      | 055006 | TABLE B ENTRY - NMC OFFICE NOTE 29 REPORT TYPE           |
+|          |        |                                                          |
+| SRC      | 001198 | TABLE B ENTRY - FILE NAME OF DATA SOURCE                 |
+| FHR      | 001200 | TABLE B ENTRY - FORECAST LENGTH                          |
+|          |        |                                                          |
+| CAT      | 001194 | TABLE B ENTRY - NMC OFFICE NOTE 29 CATEGORY              |
+|          |        |                                                          |
+| PRC      | 007192 | TABLE B ENTRY - PRESSURE COORDINATE                      |
+| PMO      | 010192 | TABLE B ENTRY - MEAN SEA-LEVEL PRESSURE OBSERVATION      |
+| ZOB      | 010195 | TABLE B ENTRY - HEIGHT OBSERVATION                       |
+| ZQM      | 010196 | TABLE B ENTRY - HEIGHT (QUALITY) MARKER                  |
+| POB      | 010197 | TABLE B ENTRY - (SURFACE) PRESSURE OBSERVATION           |
+| PQM      | 010198 | TABLE B ENTRY - PRESSURE (QUALITY) MARKER                |
+| UOB      | 011003 | TABLE B ENTRY - U-COMPONENT WIND OBSERVATION             |
+| VOB      | 011004 | TABLE B ENTRY - V-COMPONENT WIND OBSERVATION             |
+| WQM      | 011192 | TABLE B ENTRY - WIND (QUALITY) MARKER                    |
+| TOB      | 012192 | TABLE B ENTRY - REPORTED TEMPERATURE OBSERVATION LATER   |
+| TQM      | 012195 | TABLE B ENTRY - REPORTED TEMPERATURE (QUALITY) MARKER    |
+| QOB      | 013192 | TABLE B ENTRY - SPECIFIC HUMIDITY OBSERVATION            |
+| QQM      | 013193 | TABLE B ENTRY - SPECIFIC HUMIDITY (QUALITY) MARKER       |
+|          |        |                                                          |
+| QCIND    | 033020 | QUALITY CONTROL INDICATION OF FOLLOWING DATA             |
+| TPHR     | 004024 | TIME PERIOD OR DISPLACEMENT                              |
+| COPO     | 015026 | CONCENTRATION OF POLLUTANT                               |
+|          |        |                                                          |
+| CAPE     | 050192 |                                                          |
+| CINH     | 050193 |                                                          |
+| LI       | 050194 |                                                          |
+|          |        |                                                          |
+| GCDTT    | 012210 | GOES CLOUD TOP TEMPERATURE OBSERVATION                   |
+| TOCC     | 020010 | CLOUD COVER (TOTAL)                                      |
+| CDTP     | 020016 | CLOUD TOP PRESSURE OBSERVATION                           |
+| CDTP_QM  | 020207 | CLOUD TOP PRESSURE (QUALITY) MARKER                      |
+|          |        |                                                          |
+|------------------------------------------------------------------------------|
+| MNEMONIC | SEQUENCE                                                          |
+|----------|-------------------------------------------------------------------|
+|          |                                                                   |
+| ADPUPA   | HEADR  {PLEVL}                                                    |
+| AIRCAR   | HEADR  {PLEVL}                                                    |
+| AIRCFT   | HEADR  {PLEVL}                                                    |
+| SATWND   | HEADR  {PLEVL}                                                    |
+| PROFLR   | HEADR  {PLEVL}                                                    |
+| ADPSFC   | HEADR  {PLEVL}                                                    |
+| SFCSHP   | HEADR  {PLEVL}                                                    |
+| VADWND   | HEADR  {PLEVL}                                                    |
+| SATEMP   | HEADR  {PLEVL}                                                    |
+| GOESND   | HEADR  {PLEVL}                                                    |
+| SFCBOG   | HEADR  {PLEVL}                                                    |
+| SPSSMI   | HEADR  {PLEVL}                                                    |
+| SYNDAT   | HEADR  {PLEVL}                                                    |
+| ERS1DA   | HEADR  {PLEVL}                                                    |
+| AIRNOW   | HEADR  {PLEVL}                                                    |
+|          |                                                                   |
+| HEADR    | SID XOB YOB DHR ELV TYP T29 ITP                                   |
+| PLEVL    | CAT PRC PQM QQM TQM ZQM WQM QCIND   [OBLVL]                       |
+| OBLVL    | SRC FHR <PEVN> <QEVN> <TEVN> <ZEVN> <WEVN> <OZON>                 |
+|          |                                                                   |
+| PEVN     | POB  PMO                                                          |
+| QEVN     | QOB                                                               |
+| TEVN     | TOB                                                               |
+| ZEVN     | ZOB                                                               |
+| WEVN     | UOB  VOB                                                          |
+| OZON     | TPHR  QCIND COPO                                                  |
+| CTPEVN   | CDTP GCDTT TOCC                                                   |
+|          |                                                                   |
+|------------------------------------------------------------------------------|
+| MNEMONIC | SCAL | REFERENCE   | BIT | UNITS                    |-------------|
+|----------|------|-------------|-----|--------------------------|-------------|
+|          |      |             |     |                          |-------------|
+| SID      |    0 |           0 |  64 | CCITT IA5                |-------------|
+| XOB      |    2 |      -18000 |  16 | DEG E                    |-------------|
+| YOB      |    2 |       -9000 |  15 | DEG N                    |-------------|
+| DHR      |    2 |       -2400 |  13 | HOURS                    |-------------|
+| ELV      |    0 |       -1000 |  17 | METER                    |-------------|
+| TYP      |    0 |           0 |   9 | CODE TABLE               |-------------|
+| T29      |    0 |           0 |  10 | CODE TABLE               |-------------|
+| ITP      |    0 |           0 |   8 | CODE TABLE               |-------------|
+| FHR      |    1 |           0 |  12 | HOUR                     |-------------|
+| SRC      |    0 |           0 |  24 | CCITT IA5                |-------------|
+| CAT      |    0 |           0 |   6 | CODE TABLE               |-------------|
+| POB      |    1 |           0 |  14 | MB                       |-------------|
+| PMO      |    1 |           0 |  14 | MB                       |-------------|
+| PRC      |    1 |           0 |  14 | MB                       |-------------|
+| PQM      |    0 |           0 |   5 | CODE TABLE               |-------------|
+| QOB      |    0 |           0 |  16 | MG/KG                    |-------------|
+| QQM      |    0 |           0 |   5 | CODE TABLE               |-------------|
+| TOB      |    1 |       -2732 |  14 | DEG C                    |-------------|
+| TQM      |    0 |           0 |   5 | CODE TABLE               |-------------|
+| ZOB      |    0 |       -1000 |  17 | METER                    |-------------|
+| ZQM      |    0 |           0 |   5 | CODE TABLE               |-------------|
+| UOB      |    1 |       -4096 |  13 | M/S                      |-------------|
+| VOB      |    1 |       -4096 |  13 | M/S                      |-------------|
+| WQM      |    0 |           0 |   5 | CODE TABLE               |-------------|
+| CAPE     |    0 |           0 |  14 | J/KG                     |-------------|
+| CINH     |    0 |       -3890 |  12 | J/KG                     |-------------|
+| LI       |    1 |         -50 |  10 | DEG K                    |-------------|
+| GCDTT    |    2 |           0 |  16 | DEGREES KELVIN           |-------------|
+| TOCC     |    0 |           0 |   7 | PERCENT                  |-------------|
+| CDTP     |   -1 |           0 |  14 | PASCALS                  |-------------|
+| CDTP_QM  |    0 |           0 |   5 | CODE TABLE               |-------------|
+| QCIND    |    0 |           0 |   3 | CODE TABLE               |-------------|
+| COPO     |    9 |           0 |   9 | MOLE/MOLE                |-------------|
+| TPHR     |    0 |       -2048 |  12 | HOURS                    |-------------|
+`------------------------------------------------------------------------------'

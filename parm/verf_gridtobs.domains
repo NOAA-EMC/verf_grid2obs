@@ -1,0 +1,170 @@
+#REGION||NET|RUN|MODEL|PLL3|SFHR|EFHR|INC|FILNAM1|FILNAM2|FILNAM3|TMKK|DOCYGB|CGRID|GRDNAM|GRIB|
+### AQM ###
+ozone|ozone|aqm|CMAQ5X|CMAQ5X|00|48|06|awpozcon| | | |NO| |148|grib2|
+ozone1|ozone|aqm|CMAQ5XBC|CMAQ5XBC|00|48|06|awpozcon_bc| | | |NO| |148|grib2|
+pm|pm|aqm|CMAQ5X|CMAQ5X|00|48|06|pm25| | | |NO| |148|grib2|
+pm1|pm|aqm|CMAQ5XBC|CMAQ5XBC|00|48|06|pm25_bc| | | |NO| |148|grib2|
+### AOD ###
+ngac|ngac|ngac|NGAC|NGAC|00|120|06|a2d| | | |NO| |3|grib2|
+### GFS ###
+gfs|global|gfs|GFS|GFS|00|84|06|pgrb2.1p00.f| | | |NO| |3|grib2|
+gfs12|global12|gfs|GFS|GFS|00|84|06|master.grb2f| | | |NO|lambert:265.000:25.000:25.000:35.000 226.541:614:12190.58 12.190:428:12190.58|218|grib2|
+gfs12ak|globalak|gfs|GFS|GFS|00|12|06|master.grb2f| | | |NO|nps:225.000:60.000 187.000:553:11250 30.000:425:11250|242|grib2|
+#
+### GDAS ###
+gdas|global|gdas|GDAS|GDAS|00|09|06|pgrb2.1p00.f| | | |NO| |3|grib2|
+#
+### NAM ###
+nam|meso|nam|NAM|NAM|00|84|06|awphys|awip12|awip32|.tm00.grib2|NO| |218|grib2|
+namak|mesoak|nam|NAM|NAM|00|84|06|awak3d|awak3d| |.tm00.grib2|NO| |242|grib2|
+namhi|mesohi|nam|NAM|NAM|00|84|06|awiphi|awiphi| |.tm00.grib2|NO| |243|grib2|
+nam32|meso32|nam|NAM|NAM32|00|84|06|awip32|awip32| |.tm00.grib2|NO| |221|grib2|
+#
+### FIREWX ###
+fwis|fwis|nam|FWIS|FWIS|00|36|01|firewxnest.hiresf| | |.tm00.grib2|NO| |255|grib2|
+### CONUSNEST ###
+conusnest|meso|nam|CONUSNEST|CONUSNEST|00|60|06|hiresf| | |.tm00.grib2|NO| |255|grib2|
+### AKNEST ###
+aknest|mesoak|nam|AKNEST|AKNEST|00|60|06|hiresf| | |.tm00.grib2|NO| |198|grib2|
+### HAWAIINEST ###
+hawaiinest|mesohi|nam|HAWAIINEST|HAWAIINEST|00|60|06|hiresf| | |.tm00.grib2|NO| |196|grib2|
+### PRICONEST ###
+priconest|mesopr|nam|PRICONEST|PRICONEST|00|60|06|hiresf| | |.tm00.grib2|NO| |194|grib2|
+#
+### NDAS ###
+ndas|meso|ndas|NDAS|NDAS|00|03|03|awip3d| | |.grib2|NO| |212|grib2|
+#
+### RAP ###
+rapak|rapak|rap|RAP|RAP|00|21|01|awp242| | |.grib2|NO| |242|grib2|
+rap13|rap|rap|RAP|RAP|00|21|01|awp130pgrb| | |.grib2|NO| |130|grib2|
+#
+##### HRRR ####
+hrrr|hrrr|hrrr|HRRR|HRRR|00|18|01|wrfprsf| | |.grib2|NO| |255|grib2|
+### NARRE ##
+narre|rap|narre|NARRE|NARRE|01|12|01|mean.grd130| | |.grib2|NO| |130|grib2|
+### RTMA ###
+rtma|rtma|rtma|RTMA|RTMA|00|00|01|2dvaranl_ndfd.grb2| | | |NO| |255|grib2|
+rtma2p5|rtma|rtma2p5|RTMA2P5|RTMA2P5|00|00|01|2dvaranl_ndfd.grb2| | | |NO| |255|grib2|
+akrtma|akrtma|akrtma|AKRTMA|AKRTMA|00|00|01|2dvaranl_ndfd.grb2| | | |NO| |198|grib2|
+hirtma|hirtma|hirtma|HIRTMA|HIRTMA|00|00|01|2dvaranl_ndfd.grb2| | | |NO| |255|grib2|
+prrtma|prrtma|prrtma|PRRTMA|PRRTMA|00|00|01|2dvaranl_ndfd.grb2| | | |NO| |255|grib2|
+urma2p5|urma|urma2p5|URMA2P5|URMA2P5|00|00|01|2dvaranl_ndfd.grb2| | | |NO| |255|grib2|
+#
+### DGEX ###
+dgexco|dgexco|dgex_conus|DGEX|DGEX|84|192|06|awpgrb2185| | |.tm00|NO| |185|grib2|
+dgexak|dgexak|dgex_alaska|DGEX|DGEX|84|192|06|awpgrb2186| | |.tm00|NO| |186|grib2|
+#
+### GFSE ###
+### GFSE ###
+gfseco|dgexco|gfs|GFSE|GFSE|84|204|06|master.grb2f| | | |NO|lambert:262:40:40 234.907:491:12000 19.9432:303:12000|185|grib2|
+gfseak|dgexak|gfs|GFSE|GFSE|84|204|06|master.grb2f| | | |NO|nps:203:60 174.759:377:11945 44.196:237:11945|186|grib2|
+#
+### HIRESW ###
+conusarw|meso|conusarw|CONUSARW|CONUSARW|00|48|12|arw_5km.f| | |.conus.grib2|NO| |227|grib2|
+conusnmmb|meso|conusnmmb|CONUSNMMB|CONUSNMMB|00|48|12|nmmb_5km.f| | |.conus.grib2|NO| |227|grib2|
+eastconusarw|mesoeast|conusarw|EASTCONUSARW|EASTCONUSARW|00|48|12|arw_5km.f| | |.conuseast.grib2|NO| |255|grib2|
+eastconusnmmb|mesoeast|conusnmmb|EASTCONUSNMMB|EASTCONUSNMMB|00|48|12|nmmb_5km.f| | |.conuseast.grib2|NO| |255|grib2|
+westconusarw|mesowest|conusarw|WESTCONUSARW|WESTCONUSARW|00|48|12|arw_5km.f| | |.conuswest.grib2|NO| |255|grib2|
+westconusnmmb|mesowest|conusnmmb|WESTCONUSNMMB|WESTCONUSNMMB|00|48|12|nmmb_5km.f| | |.conuswest.grib2|NO| |255|grib2|
+akarw|mesoak|akarw|AKARW|AKARW|00|48|12|arw_3km.f| | |.ak.grib2|NO| |255|grib2|
+aknmmb|mesoak|aknmmb|AKNMMB|AKNMMB|00|48|12|nmmb_3km.f| | |.ak.grib2|NO| |255|grib2|
+prarw|mesopr|prarw|PRARW|PRARW|00|48|12|arw_5km.f| | |.pr.grib2|NO| |255|grib2|
+prnmmb|mesopr|prnmmb|PRNMMB|PRNMMB|00|48|12|nmmb_5km.f| | |.pr.grib2|NO| |255|grib2|
+hiarw|mesohi|hiarw|HIARW|HIARW|00|48|12|arw_2p5km.f| | |.hi.grib2|NO| |255|grib2|
+hinmmb|mesohi|hinmmb|HINMMB|HINMMB|00|48|12|nmmb_2p5km.f| | |.hi.grib2|NO| |255|grib2|
+nssl4arw|meso|nssl4arw|NSSL4ARW|NSSL4ARW|00|36|06|wrf4nssl| | |.tm00|NO| |255|grib2|
+#
+### SMARTINIT ###
+smartconus|meso|nam|SMARTCONUS|SMARTCONUS|00|84|06|smartconus|nam| |.tm00.grib2|NO| |197|grib2|
+smartak|mesoak|nam|SMARTAK|SMARTAK|00|84|06|smartak|nam| |.tm00.grib2|NO| |198|grib2|
+smartpr|mesopr|nam|SMARTPR|SMARTPR|00|84|06|smartpr|nam| |.tm00.grib2|NO| |195|grib2|
+smarthi|mesohi|nam|SMARTHI|SMARTHI|00|84|06|smarthi|nam| |.tm00.grib2|NO| |196|grib2|
+smartconus2p5|meso|nam|SMARTCONUS2P5|SMARTCONUS2P5|00|60|06|smartconus2p5|nam| |.tm00.grib2|NO| |184|grib2|
+smartak3|mesoak|nam|SMARTAK3|SMARTAK3|00|60|06|smartak3|nam| |.tm00.grib2|NO| |91|grib2|
+#
+### SREF ###
+srnmbc|sref|sref_nmb|SRNMBCTL|SRNMBCTL|00|87|06|pgrb132.ctl| | | |NO| |132|grib2|
+srnmbn1|sref|sref_nmb|SRNMBN1|SRNMBN1|00|87|06|pgrb132.n1| | | |NO| |132|grib2|
+srnmbp1|sref|sref_nmb|SRNMBP1|SRNMBP1|00|87|06|pgrb132.p1| | | |NO| |132|grib2|
+srnmbn2|sref|sref_nmb|SRNMBN2|SRNMBN2|00|87|06|pgrb132.n2| | | |NO| |132|grib2|
+srnmbp2|sref|sref_nmb|SRNMBP2|SRNMBP2|00|87|06|pgrb132.p2| | | |NO| |132|grib2|
+srnmbn3|sref|sref_nmb|SRNMBN3|SRNMBN3|00|87|06|pgrb132.n3| | | |NO| |132|grib2|
+srnmbp3|sref|sref_nmb|SRNMBP3|SRNMBP3|00|87|06|pgrb132.p3| | | |NO| |132|grib2|
+srnmbn4|sref|sref_nmb|SRNMBN4|SRNMBN4|00|87|06|pgrb132.n4| | | |NO| |132|grib2|
+srnmbp4|sref|sref_nmb|SRNMBP4|SRNMBP4|00|87|06|pgrb132.p4| | | |NO| |132|grib2|
+srnmbn5|sref|sref_nmb|SRNMBN5|SRNMBN5|00|87|06|pgrb132.n5| | | |NO| |132|grib2|
+srnmbp5|sref|sref_nmb|SRNMBP5|SRNMBP5|00|87|06|pgrb132.p5| | | |NO| |132|grib2|
+srnmbn6|sref|sref_nmb|SRNMBN6|SRNMBN6|00|87|06|pgrb132.n6| | | |NO| |132|grib2|
+srnmbp6|sref|sref_nmb|SRNMBP6|SRNMBP6|00|87|06|pgrb132.p6| | | |NO| |132|grib2|
+srarwc|sref|sref_arw|SRARWCTL|SRARWCTL|00|87|06|pgrb132.ctl| | | |NO| |132|grib2|
+srarwn1|sref|sref_arw|SRARWN1|SRARWN1|00|87|06|pgrb132.n1| | | |NO| |132|grib2|
+srarwp1|sref|sref_arw|SRARWP1|SRARWP1|00|87|06|pgrb132.p1| | | |NO| |132|grib2|
+srarwn2|sref|sref_arw|SRARWN2|SRARWN2|00|87|06|pgrb132.n2| | | |NO| |132|grib2|
+srarwp2|sref|sref_arw|SRARWP2|SRARWP2|00|87|06|pgrb132.p2| | | |NO| |132|grib2|
+srarwn3|sref|sref_arw|SRARWN3|SRARWN3|00|87|06|pgrb132.n3| | | |NO| |132|grib2|
+srarwp3|sref|sref_arw|SRARWP3|SRARWP3|00|87|06|pgrb132.p3| | | |NO| |132|grib2|
+srarwn4|sref|sref_arw|SRARWN4|SRARWN4|00|87|06|pgrb132.n4| | | |NO| |132|grib2|
+srarwp4|sref|sref_arw|SRARWP4|SRARWP4|00|87|06|pgrb132.p4| | | |NO| |132|grib2|
+srarwn5|sref|sref_arw|SRARWN5|SRARWN5|00|87|06|pgrb132.n5| | | |NO| |132|grib2|
+srarwp5|sref|sref_arw|SRARWP5|SRARWP5|00|87|06|pgrb132.p5| | | |NO| |132|grib2|
+srarwn6|sref|sref_arw|SRARWN6|SRARWN6|00|87|06|pgrb132.n6| | | |NO| |132|grib2|
+srarwp6|sref|sref_arw|SRARWP6|SRARWP6|00|87|06|pgrb132.p6| | | |NO| |132|grib2|
+srmean|sref|sref|SRMEAN|SRMEAN|00|87|06|pgrb212.mean_3hrly| | | |NO| |221|grib2|
+srnmbcak|srefak|sref_nmb|SRNMBCTL|SRNMBCTL|00|87|06|pgrb216.ctl| | | |NO| |216|grib2|
+srnmbn1ak|srefak|sref_nmb|SRNMBN1|SRNMBN1|00|87|06|pgrb216.n1| | | |NO| |216|grib2|
+srnmbp1ak|srefak|sref_nmb|SRNMBP1|SRNMBP1|00|87|06|pgrb216.p1| | | |NO| |216|grib2|
+srnmbn2ak|srefak|sref_nmb|SRNMBN2|SRNMBN2|00|87|06|pgrb216.n2| | | |NO| |216|grib2|
+srnmbp2ak|srefak|sref_nmb|SRNMBP2|SRNMBP2|00|87|06|pgrb216.p2| | | |NO| |216|grib2|
+srnmbn3ak|srefak|sref_nmb|SRNMBN3|SRNMBN3|00|87|06|pgrb216.n3| | | |NO| |216|grib2|
+srnmbp3ak|srefak|sref_nmb|SRNMBP3|SRNMBP3|00|87|06|pgrb216.p3| | | |NO| |216|grib2|
+srnmbn4ak|srefak|sref_nmb|SRNMBN4|SRNMBN4|00|87|06|pgrb216.n4| | | |NO| |216|grib2|
+srnmbp4ak|srefak|sref_nmb|SRNMBP4|SRNMBP4|00|87|06|pgrb216.p4| | | |NO| |216|grib2|
+srnmbn5ak|srefak|sref_nmb|SRNMBN5|SRNMBN5|00|87|06|pgrb216.n5| | | |NO| |216|grib2|
+srnmbp5ak|srefak|sref_nmb|SRNMBP5|SRNMBP5|00|87|06|pgrb216.p5| | | |NO| |216|grib2|
+srnmbn6ak|srefak|sref_nmb|SRNMBN6|SRNMBN6|00|87|06|pgrb216.n6| | | |NO| |216|grib2|
+srnmbp6ak|srefak|sref_nmb|SRNMBP6|SRNMBP6|00|87|06|pgrb216.p6| | | |NO| |216|grib2|
+srarwcak|srefak|sref_arw|SRARWCTL|SRARWCTL|00|87|06|pgrb216.ctl| | | |NO| |216|grib2|
+srarwn1ak|srefak|sref_arw|SRARWN1|SRARWN1|00|87|06|pgrb216.n1| | | |NO| |216|grib2|
+srarwp1ak|srefak|sref_arw|SRARWP1|SRARWP1|00|87|06|pgrb216.p1| | | |NO| |216|grib2|
+srarwn2ak|srefak|sref_arw|SRARWN2|SRARWN2|00|87|06|pgrb216.n2| | | |NO| |216|grib2|
+srarwp2ak|srefak|sref_arw|SRARWP2|SRARWP2|00|87|06|pgrb216.p2| | | |NO| |216|grib2|
+srarwn3ak|srefak|sref_arw|SRARWN3|SRARWN3|00|87|06|pgrb216.n3| | | |NO| |216|grib2|
+srarwp3ak|srefak|sref_arw|SRARWP3|SRARWP3|00|87|06|pgrb216.p3| | | |NO| |216|grib2|
+srarwn4ak|srefak|sref_arw|SRARWN4|SRARWN4|00|87|06|pgrb216.n4| | | |NO| |216|grib2|
+srarwp4ak|srefak|sref_arw|SRARWP4|SRARWP4|00|87|06|pgrb216.p4| | | |NO| |216|grib2|
+srarwn5ak|srefak|sref_arw|SRARWN5|SRARWN5|00|87|06|pgrb216.n5| | | |NO| |216|grib2|
+srarwp5ak|srefak|sref_arw|SRARWP5|SRARWP5|00|87|06|pgrb216.p5| | | |NO| |216|grib2|
+srarwn6ak|srefak|sref_arw|SRARWN6|SRARWN6|00|87|06|pgrb216.n6| | | |NO| |216|grib2|
+srarwp6ak|srefak|sref_arw|SRARWP6|SRARWP6|00|87|06|pgrb216.p6| | | |NO| |216|grib2|
+srmeanak|srefak|sref|SRMEAN|SRMEAN|00|87|06|pgrb216.mean_3hrly| | | |NO| |216|grib2|
+srefens|srefens|sref|SREFENS|SREFENS|00|87|06|pgrb212| | | |NO| |212|
+#
+### SREF-BIAS-CORRECTION ###
+srnmbcx|sref|sref_nmb|SRNMBCTLX|SRNMBCTLX|00|87|06|pgrb212.ctl| | | |NO| |212|grib2|
+srnmbn1x|sref|sref_nmb|SRNMBN1X|SRNMBN1X|00|87|06|pgrb212.n1| | | |NO| |212|grib2|
+srnmbp1x|sref|sref_nmb|SRNMBP1X|SRNMBP1X|00|87|06|pgrb212.p1| | | |NO| |212|grib2|
+srnmbn2x|sref|sref_nmb|SRNMBN2X|SRNMBN2X|00|87|06|pgrb212.n2| | | |NO| |212|grib2|
+srnmbp2x|sref|sref_nmb|SRNMBP2X|SRNMBP2X|00|87|06|pgrb212.p2| | | |NO| |212|grib2|
+srnmbn3x|sref|sref_nmb|SRNMBN3X|SRNMBN3X|00|87|06|pgrb212.n3| | | |NO| |212|grib2|
+srnmbp3x|sref|sref_nmb|SRNMBP3X|SRNMBP3X|00|87|06|pgrb212.p3| | | |NO| |212|grib2|
+srnmbn4x|sref|sref_nmb|SRNMBN4X|SRNMBN4X|00|87|06|pgrb212.n4| | | |NO| |212|grib2|
+srnmbp4x|sref|sref_nmb|SRNMBP4X|SRNMBP4X|00|87|06|pgrb212.p4| | | |NO| |212|grib2|
+srnmbn5x|sref|sref_nmb|SRNMBN5X|SRNMBN5X|00|87|06|pgrb212.n5| | | |NO| |212|grib2|
+srnmbp5x|sref|sref_nmb|SRNMBP5X|SRNMBP5X|00|87|06|pgrb212.p5| | | |NO| |212|grib2|
+srnmbn6x|sref|sref_nmb|SRNMBN6X|SRNMBN6X|00|87|06|pgrb212.n6| | | |NO| |212|grib2|
+srnmbp6x|sref|sref_nmb|SRNMBP6X|SRNMBP6X|00|87|06|pgrb212.p6| | | |NO| |212|grib2|
+srarwcx|sref|sref_arw|SRARWCTLX|SRARWCTLX|00|87|06|pgrb212.ctl| | | |NO| |212|grib2|
+srarwn1x|sref|sref_arw|SRARWN1X|SRARWN1X|00|87|06|pgrb212.n1| | | |NO| |212|grib2|
+srarwp1x|sref|sref_arw|SRARWP1X|SRARWP1X|00|87|06|pgrb212.p1| | | |NO| |212|grib2|
+srarwn2x|sref|sref_arw|SRARWN2X|SRARWN2X|00|87|06|pgrb212.n2| | | |NO| |212|grib2|
+srarwp2x|sref|sref_arw|SRARWP2X|SRARWP2X|00|87|06|pgrb212.p2| | | |NO| |212|grib2|
+srarwn3x|sref|sref_arw|SRARWN3X|SRARWN3X|00|87|06|pgrb212.n3| | | |NO| |212|grib2|
+srarwp3x|sref|sref_arw|SRARWP3X|SRARWP3X|00|87|06|pgrb212.p3| | | |NO| |212|grib2|
+srarwn4x|sref|sref_arw|SRARWN4X|SRARWN4X|00|87|06|pgrb212.n4| | | |NO| |212|grib2|
+srarwp4x|sref|sref_arw|SRARWP4X|SRARWP4X|00|87|06|pgrb212.p4| | | |NO| |212|grib2|
+srarwn5x|sref|sref_arw|SRARWN5X|SRARWN5X|00|87|06|pgrb212.n5| | | |NO| |212|grib2|
+srarwp5x|sref|sref_arw|SRARWP5X|SRARWP5X|00|87|06|pgrb212.p5| | | |NO| |212|grib2|
+srarwn6x|sref|sref_arw|SRARWN6X|SRARWN6X|00|87|06|pgrb212.n6| | | |NO| |212|grib2|
+srarwp6x|sref|sref_arw|SRARWP6X|SRARWP6X|00|87|06|pgrb212.p6| | | |NO| |212|grib2|
+srmeanx|sref|sref|SRMEANX|SRMEANX|00|87|06|pgrb212.mean_3hrly| | | |NO| |212|grib2|
+srefensx|srefens|sref|SREFENSX|SREFENSX|00|87|06|pgrb212| | | |NO| |212|

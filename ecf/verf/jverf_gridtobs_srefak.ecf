@@ -1,0 +1,58 @@
+#BSUB -J %E%verf_gridtobs_srefak_%CYC%
+#BSUB -o /com/output/%ENVIR%/today/verf_gridtobs_srefak_%CYC%.o%J
+#BSUB -e /com/output/%ENVIR%/today/verf_gridtobs_srefak_%CYC%.o%J
+#BSUB -L /bin/sh
+#BSUB -q %QUEUE%
+#BSUB -P %PROJ%
+##BSUB -R rusage[mem=17000] 
+#BSUB -R affinity[core]
+#BSUB -R span[ptile=2] 
+#BSUB -n 27
+#BSUB -a poe
+#BSUB -x
+#BSUB -cwd /tmpnwprd
+#BSUB -W 01:00
+
+%include <head.h>
+
+set -x
+export envir=%ENVIR%
+export cyc=%CYC%
+export cycles="%CYCLES%"
+export model=srefak
+export NET=sref
+export RUN=sref
+export job=verf_gridtobs_srefak_%CYC%
+
+export INDIR=${INDIR:-/com2/${NET}/${envir}/${RUN}}
+
+export RM_DATA=NO
+
+VERSION_FILE=/nw${envir}/versions/verf_gridtobs.ver
+if [ -f $VERSION_FILE ]; then
+  . $VERSION_FILE
+else
+  ecflow_client --msg="***JOB ${ECFNAME} ERROR: Version File $VERSION_FILE
+does not exist ***"
+  ecflow_client --abort
+  exit
+fi
+
+/nw${envir}/verf_gridtobs.${model_ver}/jobs/JVERF_GRIDTOBS_FITS
+
+%include <tail.h>
+%manual
+#################################################################################
+#TASKSCRIPT DOCUMENTATION BLOCK
+#
+#PURPOSE:  To execute the job that creates the ncepdate on IBMSP
+#######################################################################
+
+#######################################################################
+## Job specific troubleshooting instructions:
+#  see generic troubleshoot manual page
+#
+######################################################################
+
+%end
+

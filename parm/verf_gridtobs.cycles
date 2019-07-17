@@ -1,0 +1,147 @@
+REGION|CYCLES
+ozone|06 12|
+ozone1|06 12|
+ozonemax|06 12|
+pm|06 12|
+pm1|06 12|
+ngac|00|
+gfs|00 06 12 18|
+gfs12|00 06 12 18|
+gfsak|00 06 12 18|
+gfs12ak|00 06 12 18|
+gdas|00 06 12 18|
+nam|00 06 12 18|
+aknest|00 06 12 18|
+conusnest|00 06 12 18|
+hawaiinest|00 06 12 18|
+priconest|00 06 12 18|
+fwis|00 06 12 18|
+nam40|00 06 12 18|
+namak|00 06 12 18|
+nam40ak|00 06 12 18|
+namhi|00 06 12 18|
+ndas|00 06 12 18|
+rap|00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23|
+rapak|00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23|
+rap13|00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23|
+hrrr|00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23|
+rtma|00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23|
+rtma2p5|00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23|
+urma2p5|00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23|
+akrtma|00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23|
+hirtma|00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23|
+prrtma|00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23|
+narre|00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23|
+dgexco|06 18|
+dgexak|00 12|
+gfseco|00 06 12 18|
+gfseak|00 06 12 18|
+nssl4arw|00 12|
+conusnmmb|00 12|
+conusarw|00 12|
+eastconusnmmb|00 12|
+eastconusarw|00 12|
+westconusnmmb|00 12|
+westconusarw|00 12|
+aknmmb|06 18|
+akarw|06 18|
+prnmmb|06 18|
+prarw|06 18|
+hinmmb|00 12|
+hiarw|00 12|
+aknmm|18|
+akarw|18|
+prnmm|06 18|
+prarw|06 18|
+hinmm|00 12|
+hiarw|00 12|
+smartconus|00 06 12 18|
+smartak|00 06 12 18|
+smartpr|00 06 12 18|
+smarthi|00 06 12 18|
+smartconus2p5|00 06 12 18|
+smartak3|00 06 12 18|
+srarwc|03 09 15 21|
+srarwp1|03 09 15 21|
+srarwn1|03 09 15 21|
+srarwp2|03 09 15 21|
+srarwn2|03 09 15 21|
+srarwp3|03 09 15 21|
+srarwn3|03 09 15 21|
+srarwp4|03 09 15 21|
+srarwn4|03 09 15 21|
+srarwp5|03 09 15 21|
+srarwn5|03 09 15 21|
+srarwp6|03 09 15 21|
+srarwn6|03 09 15 21|
+srnmbc|03 09 15 21|
+srnmbp1|03 09 15 21|
+srnmbn1|03 09 15 21|
+srnmbp2|03 09 15 21|
+srnmbn2|03 09 15 21|
+srnmbp3|03 09 15 21|
+srnmbn3|03 09 15 21|
+srnmbp4|03 09 15 21|
+srnmbn4|03 09 15 21|
+srnmbp5|03 09 15 21|
+srnmbn5|03 09 15 21|
+srnmbp6|03 09 15 21|
+srnmbn6|03 09 15 21|
+srmean|03 09 15 21|
+srarwcak|03 09 15 21|
+srarwp1ak|03 09 15 21|
+srarwn1ak|03 09 15 21|
+srarwp2ak|03 09 15 21|
+srarwn2ak|03 09 15 21|
+srarwp3ak|03 09 15 21|
+srarwn3ak|03 09 15 21|
+srarwp4ak|03 09 15 21|
+srarwn4ak|03 09 15 21|
+srarwp5ak|03 09 15 21|
+srarwn5ak|03 09 15 21|
+srarwp6ak|03 09 15 21|
+srarwn6ak|03 09 15 21|
+srnmbcak|03 09 15 21|
+srnmbp1ak|03 09 15 21|
+srnmbn1ak|03 09 15 21|
+srnmbp2ak|03 09 15 21|
+srnmbn2ak|03 09 15 21|
+srnmbp3ak|03 09 15 21|
+srnmbn3ak|03 09 15 21|
+srnmbp4ak|03 09 15 21|
+srnmbn4ak|03 09 15 21|
+srnmbp5ak|03 09 15 21|
+srnmbn5ak|03 09 15 21|
+srnmbp6ak|03 09 15 21|
+srnmbn6ak|03 09 15 21|
+srmeanak|03 09 15 21|
+srefens|03 09 15 21|
+srarwcx|03 09 15 21|
+srarwp1x|03 09 15 21|
+srarwn1x|03 09 15 21|
+srarwp2x|03 09 15 21|
+srarwn2x|03 09 15 21|
+srarwp3x|03 09 15 21|
+srarwn3x|03 09 15 21|
+srarwp4x|03 09 15 21|
+srarwn4x|03 09 15 21|
+srarwp5x|03 09 15 21|
+srarwn5x|03 09 15 21|
+srarwp6x|03 09 15 21|
+srarwn6x|03 09 15 21|
+srnmbcx|03 09 15 21|
+srnmbp1x|03 09 15 21|
+srnmbn1x|03 09 15 21|
+srnmbp2x|03 09 15 21|
+srnmbn2x|03 09 15 21|
+srnmbp3x|03 09 15 21|
+srnmbn3x|03 09 15 21|
+srnmbp4x|03 09 15 21|
+srnmbn4x|03 09 15 21|
+srnmbp5x|03 09 15 21|
+srnmbn5x|03 09 15 21|
+srnmbp6x|03 09 15 21|
+srnmbn6x|03 09 15 21|
+srmeanx|03 09 15 21|
+srmeanxak|03 09 15 21|
+srefensx|03 09 15 21|

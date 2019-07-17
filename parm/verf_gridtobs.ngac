@@ -1,0 +1,12 @@
+V01   10
+    1  MODNAM/GRDNAM
+    1  19
+    1  MODIS
+    4  G148
+  GGLB
+  GAFR
+  G216
+    2  SL1L2
+ FHO
+    1  OPTD 11 0.1 0.1 0.2 0.3 0.4 0.5 0.6 0.8 1.0 1.5 2.0
+    1  SFC

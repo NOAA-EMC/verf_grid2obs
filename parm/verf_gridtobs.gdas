@@ -1,0 +1,123 @@
+V01   10
+    1  MODNAM/GRDNAM
+    1  19
+    1  ADPUPA
+    4  G236
+  G245
+  G246
+  G247
+    1  SL1L2
+    4  Z
+  T
+  RH
+  VWND
+   11  P1000
+  P850
+  P700
+  P500
+  P400
+  P300
+  P250
+  P200
+  P150
+  P100
+  P50
+V01   10
+    1  MODNAM/GRDNAM
+    1  19
+    3  ANYAIR
+  PROFLR
+  VADWND
+    1  G236
+    1  SL1L2
+    2  T
+  VWND
+    9  P1000-850
+  P850-700
+  P700-550
+  P550-400
+  P400-300
+  P300-250
+  P250-200
+  P200-150
+  P150-50
+V01   10
+    1  MODNAM/GRDNAM
+    1  19
+    1  ONLYSF
+   14  G104/NWC
+  G104/SWC
+  G104/NMT
+  G104/SMT
+  G104/GRB
+  G104/SWD
+  G104/NPL
+  G104/SPL
+  G104/MDW
+  G104/LMV
+  G104/GMC
+  G104/NEC
+  G104/SEC
+  G104/APL
+    1  SL1L2
+    4  SLP
+  T
+  RH
+  VWND
+    1  SFC
+V01   10
+    1  MODNAM/GRDNAM
+    1  19
+    1  ONLYSF
+   10 G104/HWI
+  G104/NPO
+  G104/SPO
+  G104/NAO
+  G104/SAO
+  G104/GLF
+  G104/PRI
+  G104/CAR
+  G104/CAM
+  G104/NSA
+    1  SL1L2
+    4  SLP
+  T
+  RH
+  VWND
+    1  SFC
+V01   10
+    1  MODNAM/GRDNAM
+    1  19
+    1  ONLYSF
+   13  G104/HWI
+  G104/NPO
+  G104/SPO
+  G104/NAO
+  G104/SAO
+  G104/GLF
+  G104/PRI
+  G104/CAR
+  G104/CAM
+  G104/NSA
+  G104/WCA
+  G104/ECA
+  G104/MEX
+    1  SL1L2
+    4  SLP
+  T
+  RH
+  VWND
+    1  SFC
+V01   10
+    1  MODNAM/GRDNAM
+    2  00
+  06
+    1  19
+    1  ONLYSF
+    1  G236
+    1  SL1L2
+    4  SLP
+  T
+  RH
+  VWND
+    1  SFC

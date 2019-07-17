@@ -1,0 +1,159 @@
+PRES:mean sea level
+VIS:surface
+UGRD:planetary boundary layer
+VGRD:planetary boundary layer
+VRATE:planetary boundary layer
+GUST:surface
+UGRD:50 mb
+VGRD:50 mb
+HGT:50 mb
+TMP:50 mb
+RH:50 mb
+SPFH:50 mb
+UGRD:100 mb
+VGRD:100 mb
+HGT:100 mb
+TMP:100 mb
+RH:100 mb
+SPFH:100 mb
+UGRD:150 mb
+VGRD:150 mb
+HGT:150 mb
+TMP:150 mb
+RH:150 mb
+SPFH:150 mb
+UGRD:200 mb
+VGRD:200 mb
+HGT:200 mb
+TMP:200 mb
+RH:200 mb
+SPFH:200 mb
+UGRD:250 mb
+VGRD:250 mb
+HGT:250 mb
+TMP:250 mb
+RH:250 mb
+SPFH:250 mb
+UGRD:300 mb
+VGRD:300 mb
+HGT:300 mb
+TMP:300 mb
+RH:300 mb
+SPFH:300 mb
+UGRD:350 mb
+VGRD:350 mb
+HGT:350 mb
+TMP:350 mb
+RH:350 mb
+SPFH:350 mb
+UGRD:400 mb
+VGRD:400 mb
+HGT:400 mb
+TMP:400 mb
+RH:400 mb
+SPFH:400 mb
+UGRD:450 mb
+VGRD:450 mb
+HGT:450 mb
+TMP:450 mb
+RH:450 mb
+SPFH:450 mb
+UGRD:500 mb
+VGRD:500 mb
+HGT:500 mb
+TMP:500 mb
+RH:500 mb
+SPFH:500 mb
+UGRD:550 mb
+VGRD:550 mb
+HGT:550 mb
+TMP:550 mb
+RH:550 mb
+SPFH:550 mb
+UGRD:600 mb
+VGRD:600 mb
+HGT:600 mb
+TMP:600 mb
+RH:600 mb
+SPFH:600 mb
+UGRD:650 mb
+VGRD:650 mb
+HGT:650 mb
+TMP:650 mb
+RH:650 mb
+SPFH:650 mb
+UGRD:700 mb
+VGRD:700 mb
+HGT:700 mb
+TMP:700 mb
+RH:700 mb
+SPFH:700 mb
+UGRD:750 mb
+VGRD:750 mb
+HGT:750 mb
+TMP:750 mb
+RH:750 mb
+SPFH:750 mb
+UGRD:800 mb
+VGRD:800 mb
+HGT:800 mb
+TMP:800 mb
+RH:800 mb
+SPFH:800 mb
+UGRD:850 mb
+VGRD:850 mb
+HGT:850 mb
+TMP:850 mb
+RH:850 mb
+SPFH:850 mb
+UGRD:900 mb
+VGRD:900 mb
+HGT:900 mb
+TMP:900 mb
+RH:900 mb
+SPFH:900 mb
+UGRD:925 mb
+VGRD:925 mb
+HGT:925 mb
+TMP:925 mb
+RH:925 mb
+SPFH:925 mb
+UGRD:950 mb
+VGRD:950 mb
+HGT:950 mb
+TMP:950 mb
+RH:950 mb
+SPFH:950 mb
+HINDEX:surface
+UGRD:1000 mb
+VGRD:1000 mb
+HGT:1000 mb
+TMP:1000 mb
+RH:1000 mb
+SPFH:1000 mb
+MSLET MSLP (Eta model reduction) [Pa]:mean sea level
+PRES:surface
+HGT:surface
+TMP:2 m above ground
+DPT:2 m above ground
+SPFH:2 m above ground
+RH: 2 m above ground
+TMAX:2 m above ground
+TMIN:2 m above ground
+UGRD:10 m above ground
+VGRD:10 m above ground
+PLI:30-0 mb above ground
+CAPE:surface
+CAPE:180-0 mb above ground
+CAPE:255-0 mb above ground
+CIN:surface
+PWAT:entire atmosphere (considered as a single layer)
+TCDC:low cloud layer
+TCDC:middle cloud layer
+TCDC:high cloud layer
+TCDC:entire atmosphere
+HGT:tropopause
+UGRD:80 m above ground
+VGRD:80 m above ground
+HPBL:surface
+PRMSL:mean sea level

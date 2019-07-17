@@ -1,0 +1,55 @@
+#BSUB -J %E%verf_gridtobs_prrtma_%CYC%
+#BSUB -o /com/output/%ENVIR%/today/verf_gridtobs_prrtma_%CYC%.o%J
+#BSUB -e /com/output/%ENVIR%/today/verf_gridtobs_prrtma_%CYC%.o%J
+#BSUB -L /bin/sh
+#BSUB -q %QUEUE%
+#BSUB -P %PROJ%
+##BSUB -R rusage[mem=25000] -R affinity[core]
+#BSUB -R affinity[core]
+#BSUB -n 1
+#BSUB -x
+#BSUB -cwd /tmpnwprd
+#BSUB -W 00:30
+
+%include <head.h>
+
+export MP_SHARED_MEMORY=yes
+
+set -x
+export envir=%ENVIR%
+export cyc=%CYC%
+export cycles="%CYCLES%"
+export model=prrtma
+export NET=rtma
+export RUN=prrtma
+export job=verf_gridtobs_prrtma_%CYC%
+
+export INDIR=${INDIR:-/com2/${NET}/${envir}/${RUN}}
+
+VERSION_FILE=/nw${envir}/versions/verf_gridtobs.ver
+if [ -f $VERSION_FILE ]; then
+  . $VERSION_FILE
+else
+  ecflow_client --msg="***JOB ${ECFNAME} ERROR: Version File $VERSION_FILE
+does not exist ***"
+  ecflow_client --abort
+  exit
+fi
+
+/nw$envir/verf_gridtobs.${model_ver}/jobs/JVERF_GRIDTOBS_FITS
+
+%include <tail.h>
+%manual
+#######################################################################
+## Purpose: To execute the job that runs the wave multi-grid model
+##          forecast on the IBMSP
+########################################################################
+
+#######################################################################
+## Job specific troubleshooting instraptions:
+#  see generic troubleshoot manual page
+#
+######################################################################
+
+%end
+

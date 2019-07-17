@@ -1,0 +1,26 @@
+119c119
+<  
+---
+> 
+139d138
+<  
+192a192
+> c       if(within(n)) print*,'n,within(n)=',n,within(n)
+206a207
+> c         print*,'within(n),keep=',n,within(n),keep
+240c241
+<           print*,'isub=',isub
+---
+> c         print*,'isub=',isub
+242c243
+<           print*,'obtyp=',iobtyp
+---
+> c         print*,'isub,iobtyp=',isub,iobtyp
+258c259
+< c         print*,'After call to raddate',idate,dhr(isub),bdate
+---
+>           print*,'After call to raddate',idate,dhr(isub),bdate
+263c264
+<           print*,'iobtyp=',iobtyp
+---
+> c         print*,'iobtyp=',iobtyp

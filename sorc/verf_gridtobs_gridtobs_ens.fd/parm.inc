@@ -1,0 +1,7 @@
+	PARAMETER (maxmod = 26,mxfcst = 21,mxdate = 16,maxobs = 10)
+	PARAMETER (mxarea = 18,mxstat = 8,mxvrbl = 10,maxlvl = 19)
+	PARAMETER (mxb = 21)
+	PARAMETER (maxj = 110)
+        PARAMETER (mxthr = 20)
+	PARAMETER (factor = 3.1415926 / 180.0)
+	PARAMETER (maxmodp1 = maxmod + 1)

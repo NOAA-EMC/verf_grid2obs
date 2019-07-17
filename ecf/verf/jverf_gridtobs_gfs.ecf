@@ -1,0 +1,37 @@
+#BSUB -J %E%verf_gridtobs_gfs_%CYC%
+#BSUB -o /com/output/%ENVIR%/today/verf_gridtobs_gfs_%CYC%.o%J
+#BSUB -L /bin/sh
+#BSUB -q %QUEUE%
+#BSUB -P %PROJ%
+#BSUB -R affinity[core]
+#BSUB -n 1
+#BSUB -x
+#BSUB -cwd /tmpnwprd
+#BSUB -W 03:30
+
+%include <head.h>
+
+export envir=%ENVIR%
+export cyc=%CYC%
+export cycles="%CYCLES%"
+export model=gfs
+export NET=gfs
+export RUN=gfs
+export job=verf_gridtobs_gfs_%CYC%
+export INDIR=/gpfs/dell1/nco/ops/com/${NET}/${envir}/${RUN}
+
+VERSION_FILE=/nw${envir}/versions/verf_gridtobs.ver
+if [ -f $VERSION_FILE ]; then
+  . $VERSION_FILE
+else
+  ecflow_client --abort="***JOB ${ECF_NAME} ERROR: Version File $VERSION_FILE does not exist ***"
+  exit
+fi
+
+/nw${envir}/verf_gridtobs.${model_ver}/jobs/JVERF_GRIDTOBS_FITS
+
+%include <tail.h>
+
+%manual
+%end
+

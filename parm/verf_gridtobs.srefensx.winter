@@ -1,0 +1,98 @@
+V01   VER_NUM  SREFX/MODNAM
+    1  19
+    1  ADPUPA
+    4  G236
+  G245
+  G246
+  G247
+    4  ESL1L2
+  PBS
+  RHNT
+  RHET
+    4  Z
+  T < 3 -5.0 0.0 5.0
+  RH > 3 50.0 70.0 90.0
+  VWND
+   11  P1000
+  P850
+  P700
+  P500
+  P400
+  P300
+  P250
+  P200
+  P150
+  P100
+  P50
+V01   VER_NUM  SREFX/MODNAM
+    1  19
+    3  ANYAIR
+  PROFLR
+  VADWND
+    1  G236
+    4  ESL1L2
+  PBS
+  RHNT
+  RHET
+    2  T < 3 -5.0 0.0 5.0
+  VWND
+    9  P1000-850
+  P850-700
+  P700-550
+  P550-400
+  P400-300
+  P300-250
+  P250-200
+  P200-150
+  P150-50
+V01   VER_NUM  SREFX/MODNAM
+    1  19
+    1  ONLYSF
+    2  G104/APL
+  G104/GMC
+    4  ESL1L2
+  PBS
+  RHNT
+  RHET
+    4  SLP
+  T < 3 -5.0 0.0 5.0
+  RH > 3 50.0 70.0 90.0
+  VWND
+    1  SFC
+V01   VER_NUM  SREFX/MODNAM
+    1  19
+    1  ONLYSF
+   12  G104/GRB
+  G104/LMV
+  G104/MDW
+  G104/NEC
+  G104/NMT
+  G104/NPL
+  G104/NWC
+  G104/SEC
+  G104/SMT
+  G104/SPL
+  G104/SWC
+  G104/SWD
+    4  ESL1L2
+  PBS
+  RHNT
+  RHET
+    4  SLP
+  T  < 3 -5.0 0.0 5.0
+  RH > 3 50.0 70.0 90.0
+  VWND
+    1  SFC
+V01   VER_NUM  SREFX/MODNAM
+    1  19
+    1  ONLYSF
+    1  G236
+    4  ESL1L2
+  PBS
+  RHNT
+  RHET
+    4  SLP
+  T < 3 -5.0 0.0 5.0
+  RH > 3 50.0 70.0 90.0
+  VWND
+    1  SFC

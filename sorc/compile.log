@@ -1,0 +1,356 @@
+Making verf_gridtobs_avegrib_pm.fd/
+ifort -heap-arrays  -c -o getbak.o getbak.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o prepfits.o prepfits.f
+ifort -heap-arrays -o verf_gridtobs_avegrib_pm getbak.o raddate.o prepfits.o  -L/nwprod/lib -lw3nco_4 -lw3emc_4 -lbufr_s_64 -lbacio_4
+
+
+Making verf_gridtobs_editbufr.fd/
+ifort -heap-arrays  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays  -c -o editbufr.o editbufr.f
+ifort -heap-arrays  -o verf_gridtobs_editbufr gtgdef.o  raddate.o  w3fi71.o  editbufr.o -L/nwprod/lib -lw3nco_4 -lw3emc_4 -lbufr_4_64 -lbacio_4
+
+
+Making verf_gridtobs_editbufr_ozone.fd/
+ifort -heap-arrays   -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays   -c -o raddate.o raddate.f
+ifort -heap-arrays   -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays   -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays   -c -o editbufr.o editbufr.f
+ifort -heap-arrays  -o verf_gridtobs_editbufr_ozone gtgdef.o raddate.o w3fi63.o w3fi71.o editbufr.o -L/nwprod/lib -lw3emc_4 -lw3nco_4 -lbufr_4_64 -lbacio_4 
+
+
+Making verf_gridtobs_editbufr_ozonemax.fd/
+ifort -heap-arrays  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays  -c -o ireadpb.o ireadpb.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays  -c -o editbufr.o editbufr.f
+ifort -heap-arrays -o verf_gridtobs_editbufr_ozonemax gtgdef.o ireadpb.o raddate.o w3fi63.o w3fi71.o editbufr.o -L/nwprod/lib -lw3emc_4 -lw3nco_4 -lbufr_4_64 -lbacio_4
+
+
+Making verf_gridtobs_editbufr_pmave.fd/
+ifort -heap-arrays -g -traceback  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -g -traceback  -c -o ireadpb.o ireadpb.f
+ifort -heap-arrays -g -traceback  -c -o raddate.o raddate.f
+ifort -heap-arrays -g -traceback  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays -g -traceback  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -g -traceback  -c -o editbufr.o editbufr.f
+ifort -heap-arrays -g -traceback -o verf_gridtobs_editbufr_pmave gtgdef.o ireadpb.o raddate.o w3fi63.o w3fi71.o editbufr.o -L/nwprod/lib -lw3nco_4 -lw3emc_4 -lbufr_4_64 -lbacio_4
+
+
+Making verf_gridtobs_editbufr_pm.fd/
+ifort -heap-arrays  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays  -c -o editbufr.o editbufr.f
+ifort -heap-arrays -o verf_gridtobs_editbufr_pm gtgdef.o raddate.o w3fi63.o w3fi71.o editbufr.o -L/nwprod/lib -lw3nco_4 -lw3emc_4 -lbufr_4_64 -lbacio_4 
+
+
+Making verf_gridtobs_editbufr_pmmax.fd/
+ifort -heap-arrays -g -traceback  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -g -traceback  -c -o ireadpb.o ireadpb.f
+ifort -heap-arrays -g -traceback  -c -o raddate.o raddate.f
+ifort -heap-arrays -g -traceback  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays -g -traceback  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -g -traceback  -c -o editbufr.o editbufr.f
+ifort -heap-arrays -g -traceback -o verf_gridtobs_editbufr_pmmax gtgdef.o ireadpb.o raddate.o w3fi63.o w3fi71.o editbufr.o -L/nwprod/lib -lw3nco_4 -lw3emc_4 -lbufr_4_64 -lbacio_4
+
+
+Making verf_gridtobs_gridtobs_aod.fd/
+ifort -heap-arrays -i4   -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -i4   -c -o igotdata.o igotdata.f
+ifort -heap-arrays -i4   -c -o inarea.o inarea.f
+ifort -heap-arrays -i4   -c -o inlayer.o inlayer.f
+ifort -heap-arrays -i4   -c -o isitob.o isitob.f
+ifort -heap-arrays -i4   -c -o readcntl.o readcntl.f
+ifort -heap-arrays -i4   -c -o setarea.o setarea.f
+ifort -heap-arrays -i4   -c -o setfcst.o setfcst.f
+ifort -heap-arrays -i4   -c -o setlevel.o setlevel.f
+ifort -heap-arrays -i4   -c -o setmodel.o setmodel.f
+ifort -heap-arrays -i4   -c -o setobtyp.o setobtyp.f
+ifort -heap-arrays -i4   -c -o stclst.o stclst.f
+ifort -heap-arrays -i4   -c -o stldsp.o stldsp.f
+ifort -heap-arrays -i4   -c -o stlstr.o stlstr.f
+ifort -heap-arrays -i4   -c -o stnumb.o stnumb.f
+ifort -heap-arrays -i4   -c -o stread.o stread.f
+ifort -heap-arrays -i4   -c -o streadfho.o streadfho.f
+ifort -heap-arrays -i4   -c -o streal.o streal.f
+ifort -heap-arrays -i4   -c -o strmbl.o strmbl.f
+ifort -heap-arrays -i4   -c -o strxbl.o strxbl.f
+ifort -heap-arrays -i4   -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -i4   -c -o gridtobs.o gridtobs.f
+ifort -heap-arrays -i4  -g  -o verf_gridtobs_gridtobs_aod gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o streadfho.o streal.o strmbl.o strxbl.o w3fi71.o gridtobs.o -L/nwprod/lib -lw3nco_4 -lw3emc_4 -lbufr_4_64 -lbacio_4
+
+
+Making verf_gridtobs_gridtobs_ens.fd/
+ifort -g -pg -O -xHost -i4  -c -o getnumber.o getnumber.f
+ifort -g -pg -O -xHost -i4  -c -o gtgdef.o gtgdef.f
+ifort -g -pg -O -xHost -i4  -c -o igotdata.o igotdata.f
+ifort -g -pg -O -xHost -i4  -c -o inarea.o inarea.f
+ifort -g -pg -O -xHost -i4  -c -o inlayer.o inlayer.f
+ifort -g -pg -O -xHost -i4  -c -o isitob.o isitob.f
+ifort -g -pg -O -xHost -i4  -c -o readcntl.o readcntl.f
+ifort -g -pg -O -xHost -i4  -c -o setarea.o setarea.f
+ifort -g -pg -O -xHost -i4  -c -o setfcst.o setfcst.f
+ifort -g -pg -O -xHost -i4  -c -o setlevel.o setlevel.f
+ifort -g -pg -O -xHost -i4  -c -o setmodel.o setmodel.f
+ifort -g -pg -O -xHost -i4  -c -o setobtyp.o setobtyp.f
+ifort -g -pg -O -xHost -i4  -c -o stclst.o stclst.f
+ifort -g -pg -O -xHost -i4  -c -o stldsp.o stldsp.f
+ifort -g -pg -O -xHost -i4  -c -o stlstr.o stlstr.f
+ifort -g -pg -O -xHost -i4  -c -o stnumb.o stnumb.f
+ifort -g -pg -O -xHost -i4  -c -o stread.o stread.f
+ifort -g -pg -O -xHost -i4  -c -o strmbl.o strmbl.f
+ifort -g -pg -O -xHost -i4  -c -o strxbl.o strxbl.f
+ifort -g -pg -O -xHost -i4  -c -o w3fb06.o w3fb06.f
+ifort -g -pg -O -xHost -i4  -c -o w3fb11.o w3fb11.f
+ifort -g -pg -O -xHost -i4  -c -o w3fb71.o w3fb71.f
+ifort -g -pg -O -xHost -i4  -c -o gridtobs.o gridtobs.f
+ifort -g -pg -O -xHost -i4 -o verf_gridtobs_gridtobs_ens getnumber.o gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o strmbl.o strxbl.o w3fb06.o w3fb11.o w3fb71.o gridtobs.o -L/nwprod/lib -lw3nco_4 -lw3emc_4 -lbufr_4_64 -lbacio_4
+
+
+Making verf_gridtobs_gridtobs.fd/
+ifort -heap-arrays -i4   -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -i4   -c -o igotdata.o igotdata.f
+ifort -heap-arrays -i4   -c -o inarea.o inarea.f
+ifort -heap-arrays -i4   -c -o inlayer.o inlayer.f
+ifort -heap-arrays -i4   -c -o isitob.o isitob.f
+ifort -heap-arrays -i4   -c -o readcntl.o readcntl.f
+ifort -heap-arrays -i4   -c -o setarea.o setarea.f
+ifort -heap-arrays -i4   -c -o setfcst.o setfcst.f
+ifort -heap-arrays -i4   -c -o setlevel.o setlevel.f
+ifort -heap-arrays -i4   -c -o setmodel.o setmodel.f
+ifort -heap-arrays -i4   -c -o setobtyp.o setobtyp.f
+ifort -heap-arrays -i4   -c -o stclst.o stclst.f
+ifort -heap-arrays -i4   -c -o stldsp.o stldsp.f
+ifort -heap-arrays -i4   -c -o stlstr.o stlstr.f
+ifort -heap-arrays -i4   -c -o stnumb.o stnumb.f
+ifort -heap-arrays -i4   -c -o stread.o stread.f
+ifort -heap-arrays -i4   -c -o streadfho.o streadfho.f
+ifort -heap-arrays -i4   -c -o streal.o streal.f
+ifort -heap-arrays -i4   -c -o strmbl.o strmbl.f
+ifort -heap-arrays -i4   -c -o strxbl.o strxbl.f
+ifort -heap-arrays -i4   -c -o w3fa09a.o w3fa09a.f
+ifort -heap-arrays -i4   -c -o gridtobs.o gridtobs.f
+ifort -heap-arrays -i4  -g  -o verf_gridtobs_gridtobs gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o streadfho.o streal.o strmbl.o strxbl.o w3fa09a.o gridtobs.o -L/nwprod/lib -lw3emc_4 -lw3nco_4 -lbufr_4_64 -lbacio_4
+
+
+Making verf_gridtobs_gridtobs_fwis.fd/
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o gtgdef.o gtgdef.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o igotdata.o igotdata.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o inarea.o inarea.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o inlayer.o inlayer.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o isitob.o isitob.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o readcntl.o readcntl.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o setarea.o setarea.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o setfcst.o setfcst.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o setlevel.o setlevel.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o setmodel.o setmodel.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o setobtyp.o setobtyp.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o stclst.o stclst.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o stldsp.o stldsp.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o stlstr.o stlstr.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o stnumb.o stnumb.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o stread.o stread.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o streadfho.o streadfho.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o streal.o streal.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o strmbl.o strmbl.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o strxbl.o strxbl.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o maskdef.o maskdef.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o gridtobs.o gridtobs.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4-shared-intel -g  -o verf_gridtobs_gridtobs_fwis gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o streadfho.o streal.o strmbl.o strxbl.o maskdef.o gridtobs.o -L/nwprod/lib -lg2_4 -ljasper -lw3nco_4 -lw3emc_4 -lbufr_4_64 -lbacio_4 -lpng -lz
+
+
+Making verf_gridtobs_gridtobs_ozone.fd/
+ifort -heap-arrays  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays  -c -o igotdata.o igotdata.f
+ifort -heap-arrays  -c -o inarea.o inarea.f
+ifort -heap-arrays  -c -o inlayer.o inlayer.f
+ifort -heap-arrays  -c -o isitob.o isitob.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o readcntl.o readcntl.f
+ifort -heap-arrays  -c -o setarea.o setarea.f
+ifort -heap-arrays  -c -o setfcst.o setfcst.f
+ifort -heap-arrays  -c -o setlevel.o setlevel.f
+ifort -heap-arrays  -c -o setmodel.o setmodel.f
+ifort -heap-arrays  -c -o setobtyp.o setobtyp.f
+ifort -heap-arrays  -c -o stclst.o stclst.f
+ifort -heap-arrays  -c -o stldsp.o stldsp.f
+ifort -heap-arrays  -c -o stlstr.o stlstr.f
+ifort -heap-arrays  -c -o stnumb.o stnumb.f
+ifort -heap-arrays  -c -o stread.o stread.f
+ifort -heap-arrays  -c -o strmbl.o strmbl.f
+ifort -heap-arrays  -c -o strxbl.o strxbl.f
+ifort -heap-arrays  -c -o ufbin3.o ufbin3.f
+ifort -heap-arrays  -c -o w3fb06.o w3fb06.f
+ifort -heap-arrays  -c -o w3fb11.o w3fb11.f
+ifort -heap-arrays  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays  -c -o gridtobs.o gridtobs.f
+ifort -heap-arrays -o verf_gridtobs_gridtobs_ozone gtgdef.o igotdata.o inarea.o inlayer.o isitob.o raddate.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o strmbl.o strxbl.o ufbin3.o w3fb06.o w3fb11.o w3fi63.o w3fi71.o gridtobs.o -L/nwprod/lib -lw3nco_4 -lw3emc_4 -lbufr_4_64
+
+
+Making verf_gridtobs_gridtobs_pm.fd/
+ifort -heap-arrays -i4  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -i4  -c -o igotdata.o igotdata.f
+ifort -heap-arrays -i4  -c -o inarea.o inarea.f
+ifort -heap-arrays -i4  -c -o inlayer.o inlayer.f
+ifort -heap-arrays -i4  -c -o isitob.o isitob.f
+ifort -heap-arrays -i4  -c -o raddate.o raddate.f
+ifort -heap-arrays -i4  -c -o readcntl.o readcntl.f
+ifort -heap-arrays -i4  -c -o setarea.o setarea.f
+ifort -heap-arrays -i4  -c -o setfcst.o setfcst.f
+ifort -heap-arrays -i4  -c -o setlevel.o setlevel.f
+ifort -heap-arrays -i4  -c -o setmodel.o setmodel.f
+ifort -heap-arrays -i4  -c -o setobtyp.o setobtyp.f
+ifort -heap-arrays -i4  -c -o stclst.o stclst.f
+ifort -heap-arrays -i4  -c -o stldsp.o stldsp.f
+ifort -heap-arrays -i4  -c -o stlstr.o stlstr.f
+ifort -heap-arrays -i4  -c -o stnumb.o stnumb.f
+ifort -heap-arrays -i4  -c -o stread.o stread.f
+ifort -heap-arrays -i4  -c -o strmbl.o strmbl.f
+ifort -heap-arrays -i4  -c -o strxbl.o strxbl.f
+ifort -heap-arrays -i4  -c -o ufbin3.o ufbin3.f
+ifort -heap-arrays -i4  -c -o w3fb06.o w3fb06.f
+ifort -heap-arrays -i4  -c -o w3fb11.o w3fb11.f
+ifort -heap-arrays -i4  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays -i4  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -i4  -c -o gets1loc.o gets1loc.f
+ifort -heap-arrays -i4  -c -o gridtobs.o gridtobs.f
+ifort -heap-arrays -i4 -o verf_gridtobs_gridtobs_pm gtgdef.o igotdata.o inarea.o inlayer.o isitob.o raddate.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o strmbl.o strxbl.o ufbin3.o w3fb06.o w3fb11.o w3fi63.o w3fi71.o gets1loc.o gridtobs.o -L/nwprod/lib -lw3emc_4 -lw3nco_4 -lbufr_4_64 -lbacio_4
+
+
+Making verf_gridtobs_maxgrib_ozone.fd/
+ifort -heap-arrays  -c -o getbak.o getbak.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o prepfits.o prepfits.f
+ifort -heap-arrays -o verf_gridtobs_maxgrib_ozone getbak.o raddate.o prepfits.o  -L/nwprod/lib -lw3emc_4 -lw3nco_4 -lbufr_4_64 -lbacio_4
+
+
+Making verf_gridtobs_maxgrib_pm.fd/
+ifort -heap-arrays -i4  -c -o getbak.o getbak.f
+ifort -heap-arrays -i4  -c -o raddate.o raddate.f
+ifort -heap-arrays -i4  -c -o prepfits.o prepfits.f
+ifort -heap-arrays -i4 -o verf_gridtobs_maxgrib_pm getbak.o raddate.o prepfits.o  -L/nwprod/lib -lw3emc_4 -lw3nco_4 -lbufr_4_64 -lbacio_4
+
+
+Making verf_gridtobs_prepfits_aod.fd/
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o grid3d.o grid3d.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o surfce.o surfce.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o gridef.o gridef.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o observ.o observ.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o backgv.o backgv.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o guesfc.o guesfc.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o guess.o guess.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o itotal.o itotal.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o obstrs.o obstrs.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o weights.o weights.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o debug.o debug.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o counts.o counts.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o vdates.o vdates.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o vrtfac.o vrtfac.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o guser.o guser.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o satimg.o satimg.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o adddate.o adddate.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o calcape.o calcape.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o calpbl.o calpbl.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o calpw.o calpw.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o getbak.o getbak.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o getfct.o getfct.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o getprof_upr.o getprof_upr.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o htindex.o htindex.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o ireadpb.o ireadpb.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o obscape.o obscape.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o obspbl.o obspbl.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o raddate.o raddate.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o setterp.o setterp.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o ufbxy3.o ufbxy3.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o ufbxy3_goes.o ufbxy3_goes.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o w3fa09a.o w3fa09a.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o w3fb11a.o w3fb11a.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o w3fb14.o w3fb14.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o windchill.o windchill.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4  -c -o prepfits.o prepfits.f
+ifort -heap-arrays -i4 -I/nwprod/lib/incmod/g2_4 -g  -o verf_gridtobs_prepfits_aod grid3d.o surfce.o gridef.o observ.o backgv.o guesfc.o guess.o itotal.o obstrs.o  weights.o debug.o counts.o vdates.o vrtfac.o guser.o satimg.o adddate.o calcape.o calpbl.o calpw.o  getbak.o getfct.o getprof_upr.o htindex.o ireadpb.o obscape.o obspbl.o  raddate.o setterp.o ufbxy3.o ufbxy3_goes.o w3fa09a.o w3fb11a.o w3fb14.o w3fi71.o windchill.o prepfits.o -L /nwprod/lib -lg2_4 -lw3emc_4 -lw3nco_4 -lbufr_4_64 -lbacio_4 -L/usrx/local/64bit.cirrus/lib -ljasper -lpng -lz  
+
+
+Making verf_gridtobs_prepfits.fd/
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o anl.o anl.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o grid3d.o grid3d.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o surfce.o surfce.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o gridef.o gridef.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o observ.o observ.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o backgv.o backgv.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o guesfc.o guesfc.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o guess.o guess.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o itotal.o itotal.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o obstrs.o obstrs.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o weights.o weights.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o debug.o debug.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o counts.o counts.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o vdates.o vdates.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o vrtfac.o vrtfac.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o guser.o guser.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o adddate.o adddate.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o calcape.o calcape.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o calpbl.o calpbl.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o calpw.o calpw.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o getanl.o getanl.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o getbak.o getbak.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o getfct.o getfct.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o getprof_upr.o getprof_upr.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o htindex.o htindex.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o ireadpb.o ireadpb.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o obscape.o obscape.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o obspbl.o obspbl.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o calshear.o calshear.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o raddate.o raddate.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o setterp.o setterp.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o ufbxy3.o ufbxy3.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o windchill.o windchill.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o haines.o haines.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4   -c -o prepfits.o prepfits.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4 -shared-intel  -g  -o verf_gridtobs_prepfits anl.o grid3d.o surfce.o gridef.o observ.o backgv.o guesfc.o guess.o itotal.o obstrs.o  weights.o debug.o counts.o vdates.o vrtfac.o guser.o adddate.o calcape.o calpbl.o calpw.o  getanl.o getbak.o getfct.o getprof_upr.o htindex.o ireadpb.o obscape.o obspbl.o  calshear.o raddate.o setterp.o ufbxy3.o windchill.o haines.o prepfits.o -L/nwprod/lib -lg2_4 -ljasper -lw3nco_4 -lw3emc_4 -lbufr_s_64 -lbacio_4 -lpng -lz
+
+
+Making verf_gridtobs_prepfits_ozone.fd/
+ifort -heap-arrays   -c -o calcape.o calcape.f
+ifort -heap-arrays   -c -o adddate.o adddate.f
+ifort -heap-arrays   -c -o getbak.o getbak.f
+ifort -heap-arrays   -c -o getfct.o getfct.f
+ifort -heap-arrays   -c -o getprof.o getprof.f
+ifort -heap-arrays   -c -o ireadpb.o ireadpb.f
+ifort -heap-arrays   -c -o raddate.o raddate.f
+ifort -heap-arrays   -c -o setterp.o setterp.f
+ifort -heap-arrays   -c -o ufbxy3.o ufbxy3.f
+ifort -heap-arrays   -c -o w3fb13.o w3fb13.f
+ifort -heap-arrays   -c -o prepfits.o prepfits.f
+ifort -heap-arrays  -o verf_gridtobs_prepfits_ozone calcape.o adddate.o getbak.o getfct.o getprof.o ireadpb.o raddate.o setterp.o ufbxy3.o w3fb13.o prepfits.o -L/nwprod/lib -lw3emc_4 -lw3nco_4 -lbufr_4_64 -lbacio_4
+
+
+Making verf_gridtobs_prepfits_pm.fd/
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o calcape.o calcape.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o adddate.o adddate.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o getbak.o getbak.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o getfct.o getfct.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o getprof.o getprof.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o ireadpb.o ireadpb.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o raddate.o raddate.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o setterp.o setterp.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o ufbxy3.o ufbxy3.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o w3fb13.o w3fb13.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4  -c -o prepfits.o prepfits.f
+ifort -i4 -g -traceback -I/nwprod/lib/incmod/g2_4 -shared-intel -o verf_gridtobs_prepfits_pm calcape.o adddate.o getbak.o getfct.o getprof.o ireadpb.o raddate.o setterp.o ufbxy3.o w3fb13.o prepfits.o -L/nwprod/lib -lg2_4 -ljasper -lw3nco_4 -lw3emc_4 -lbufr_s_64 -lbacio_4 -lpng -lz
+
+
+Making verf_gridtobs_writemask.fd/
+ifort -i4 -I/nwprod/lib/incmod/g2_4  -c -o writemask.o writemask.f
+ifort -i4 -I/nwprod/lib/incmod/g2_4 -g  -o verf_gridtobs_writemask writemask.o  -L/nwprod/lib -lg2_4 -ljasper -lw3nco_4 -lw3emc_4 -lbufr_s_64 -lbacio_4 -lpng -lz
+
+

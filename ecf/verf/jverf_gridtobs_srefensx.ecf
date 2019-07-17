@@ -1,0 +1,58 @@
+#BSUB -J %E%verf_gridtobs_srefensx_%CYC%
+#BSUB -o /com/output/%ENVIR%/today/verf_gridtobs_srefensx_%CYC%.o%J
+#BSUB -e /com/output/%ENVIR%/today/verf_gridtobs_srefensx_%CYC%.o%J
+#BSUB -L /bin/sh
+#BSUB -q %QUEUE%
+#BSUB -P %PROJ%
+#BSUB -R span[ptile=16]
+#BSUB -a poe
+#BSUB -n %NPROC%
+#BSUB -x 
+#BSUB -cwd /tmpnwprd
+#BSUB -W 02:00
+
+%include <head.h>
+
+set -x
+export envir=%ENVIR%
+export cyc=%CYC%
+export cycles="%CYCLES%"
+export model=srefensx
+export NET=sref
+export RUN=sref
+export job=verf_gridtobs_srefensx_%CYC%
+
+export INDIR=${INDIR:-/com2/${NET}/${envir}/${RUN}}
+
+export RM_DATA=NO
+
+VERSION_FILE=/nw${envir}/versions/verf_gridtobs.ver
+if [ -f $VERSION_FILE ]; then
+  . $VERSION_FILE
+else
+  ecflow_client --msg="***JOB ${ECFNAME} ERROR: Version File $VERSION_FILE
+does not exist ***"
+  ecflow_client --abort
+  exit
+fi
+
+/nw${envir}/verf_gridtobs.${model_ver}/jobs/JVERF_GRIDTOBS_FITS
+
+%include <tail.h>
+%manual
+#################################################################################
+#TASKSCRIPT DOCUMENTATION BLOCK
+#
+#PURPOSE:  To execute the job that creates the ncepdate on IBMSP
+#
+# This job is running *not_shared* due to high I/O consumption
+#######################################################################
+
+#######################################################################
+## Job specific troubleshooting instructions:
+#  see generic troubleshoot manual page
+#
+######################################################################
+
+%end
+

@@ -1,0 +1,144 @@
+#!/bin/ksh
+
+export RUN_ENVIR=prod
+########################################
+# Preliminary data setup step
+########################################
+set -xa
+
+# ###################################
+# SET SHELL PROCESSING VARIABLES
+# ###################################
+export PS4='$SECONDS + ' 
+date
+
+###########################################################
+# obtain unique LSF id (jobid) and make temp directories
+###########################################################
+export pid=$$
+export jobid=${jobid:-${job}.$LSB_JOBID}
+export DATA_IN=${DATA_IN:-/tmpnwprd}
+# JY export DATA=$DATA_IN/${job}.${pid}
+export DATA=$DATA_IN/${jobid}
+
+rm -rf $DATA
+mkdir -p $DATA
+cd $DATA 
+####################################
+# File To Log Msgs
+####################################
+export jlogfile=${jlogfile:-/com/logs/jlogfiles/jlogfile.${job}.${pid}}
+
+####################################
+# Determine Job Output Name on System
+####################################
+# JY export outid="LL$job"
+# JY export jobid="${outid}.o${pid}"
+export pgmout="OUTPUT.${pid}"
+
+export cycle=t${cyc}z 
+
+###############################
+# Specify NET and RUN name
+###############################
+export NET=${NET:-verf}
+export RUN=${RUN:-gridtobs}
+
+##################################################
+# SAVEGES  - Copy Files From TMPDIR to $GESdir
+# SENDECF  - Flag Events on ecFLOW
+# SENDCOM  - Copy Files From TMPDIR to $COMOUT
+# SENDDBN  - Issue DBNet Client Calls
+##################################################
+export SENDCOM=${SENDCOM:-YES}
+export SENDDBN=${SENDDBN:-YES}
+export SENDECF=${SENDECF:-YES}
+
+export DCOMROOT=${DCOMROOT:-/dcom}
+export HOMEverf_gridtobs=${HOMEverf_gridtobs:-/nw${envir}/verf_gridtobs.${model_ver}}
+export EXECverf_gridtobs=${EXECverf_gridtobs:-$HOMEverf_gridtobs/exec}
+export FIXverf_gridtobs=${FIXverf_gridtobs:-$HOMEverf_gridtobs/fix}
+export PARMverf_gridtobs=${PARMverf_gridtobs:-$HOMEverf_gridtobs/parm}
+export USHverf_gridtobs=${USHverf_gridtobs:-$HOMEverf_gridtobs/ush}
+
+###################################
+# Set up the UTILITIES
+###################################
+export utilscript=/nwprod/util/ush
+export utilexec=/nwprod/util/exec
+export EXECutil=/nwprod/util/exec
+
+# Run setup to initialize working directory and utility scripts
+sh $utilscript/setup.sh
+
+# Run setpdy and initialize PDY variables
+sh $utilscript/setpdy.sh
+. PDY
+
+export vday=$PDYm1
+
+if [ $model = "aqm" -o $model = "aqm1" -o $model = "aqmmax" -o $model = "pm" -o $model = "pmmax" -o $model = "pm1" -o $model = "pmmax1" -o $model = "aqmmax1" ]
+then
+   vday=$PDYm2
+fi
+
+# Define COMIN/COMOUT variables:
+export INDIR=${INDIR:-/com/${NET}/prod/${RUN}}
+
+if [ $model = srefens -o $model = srefensx ]; then
+  export COM_IN=/com/verf/${envir}
+else
+  export COM_IN=${COM_IN:-/com/verf/${envir}}
+fi
+
+export COM_OUT=${COM_OUT:-/com/verf/${envir}}
+export COMIN=$COM_IN/gridtobs.$vday
+export COMOUT=$COM_OUT/gridtobs.$vday
+export COMVSDB=${COMVSDB:-/com/verf/${envir}/vsdb/gridtobs}
+
+export COMG=${COMG:-/gpfs/dell1/nco/ops/com/gfs/prod}
+export COMN=${COMN:-/com2/nam/prod}
+export COMR=${COMR:-/com2/rtma/prod}
+
+# Define the directory where the PREPBUFR file comes from:
+export COMBUFR=${COMBUFR:-/com/hourly/prod}
+
+mkdir -p -m 775 $COMVSDB
+mkdir -p -m 750 $COMOUT
+chgrp rstprod $COMOUT
+
+
+#######################################################################
+# Execute the script.
+if [ $model = srefens -o $model = srefensx ]
+then
+  export vdate=${vday}${cyc}
+  export vcyc=$cyc
+  export inc=06
+  export frange=87
+  $USHverf_gridtobs/verf_gridtobs_ens_sref.sh $model
+elif [ $model = sref2ens ]
+then
+  export vdate=${vday}${cyc}
+  export vcyc=$cyc
+  export inc=06
+  export frange=87
+  sh $USHverf_gridtobs/verf_gridtobs_ens_sref.sh_test $model
+elif [ $model = "aqmmax" -o $model = "pmmax" -o $model = pmmax1 -o $model = "aqmmax1" ]
+then
+  export vcyc=$cyc
+  export vdate=$vday$vcyc
+  $USHverf_gridtobs/verf_gridtobs_aqmmax.sh $model $bc
+else
+   . $HOMEverf_gridtobs/scripts/exverf_gridtobs_fits.sh.ecf $vday $model 
+fi
+
+cat $pgmout
+
+msg="JOB $job HAS COMPLETED NORMALLY."
+postmsg "$jlogfile" "$msg"
+
+cd $DATA_IN
+rm -rf $DATA
+
+date
