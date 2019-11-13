@@ -4,8 +4,8 @@
 #BSUB -L /bin/sh
 #BSUB -q %QUEUE%
 #BSUB -P %PROJ%
-#BSUB -R span[ptile=16]
-#BSUB -a poe
+#BSUB -R "span[ptile=7]"
+#BSUB -R "affinity[core(4)]"
 #BSUB -n %NPROC%
 #BSUB -x 
 #BSUB -cwd /tmpnwprd

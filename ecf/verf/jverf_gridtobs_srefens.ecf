@@ -4,9 +4,9 @@
 #BSUB -L /bin/sh
 #BSUB -q %QUEUE%
 #BSUB -P %PROJ%
-#BSUB -a poe
 #BSUB -n %NPROC%
-#BSUB -R span[ptile=16]
+#BSUB -R "span[ptile=7]"
+#BSUB -R "affinity[core(4)]"
 #BSUB -x
 #BSUB -cwd /tmpnwprd
 #BSUB -W 02:00
