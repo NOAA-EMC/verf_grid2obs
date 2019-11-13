@@ -15,12 +15,13 @@ C************************************************************************
       CHARACTER*8 dumstn
       CHARACTER*8 stnlist
       COMMON /stndef/ nstns (mxarea), stnlist (mxarea,maxj)
-C-------------------------------------------------------------------------
+C------------- -----------------------------------------------------------
       nam24 = namarea
       mode(iar) = 0
       iqstn = INDEX ( nam24, '.STNS' )
+      print*,'nam24=',nam24
       if(nam24.eq.'GGLB'.or.nam24.eq.'GAFR') then
-        mode(iar) = 1
+        mode(iar) = 1    
         return
       endif
       IF (nam1(1).eq.'G' .and. iqstn .eq. 0 ) THEN

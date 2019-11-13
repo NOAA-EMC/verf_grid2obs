@@ -1,6 +1,6 @@
 SHELL=          /bin/sh
-LIBS=           -L/nwprod/lib -lw3emc_4 -lw3nco_4 -lbufr_4_64 -lbacio_4
-###LIBS=           -L/u/Jack.Woollen/lib -lw3_4 -lbufr_sc -lbacio_4
+LIBS=            $(W3EMC_LIB4) $(W3NCO_LIB4) $(BUFR_LIB4) $(BACIO_LIB4)
+###LIBS=           -L/u/Jack.Woollen/lib -lw3_4 -lbufr_sc $(BACIO_LIB4)
 FC=             ifort
 FFLAGS=         -heap-arrays -i4 
 LDFLAGS=       
@@ -12,7 +12,7 @@ OBJS=       gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o \
             setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o \
             stlstr.o stnumb.o stread.o streadfho.o streal.o strmbl.o strxbl.o \
             w3fa09a.o gridtobs.o
-CMD=        verf_gridtobs_gridtobs
+CMD=        ../../exec/verf_gridtobs_gridtobs
 
 all:	$(CMD)
 

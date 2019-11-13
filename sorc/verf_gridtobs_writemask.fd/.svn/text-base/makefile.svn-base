@@ -1,0 +1,15 @@
+SHELL=          /bin/sh
+LIBS=           -L/nwprod/lib -lw3_4 -lbufr_s_64 -lbacio_4
+FC=             ncepxlf90
+FFLAGS=         -qcheck -qextchk -qfixed
+LDFLAGS=       -bnoquiet
+SRCS=       writemask.f
+OBJS=       writemask.o 
+CMD=        writemask
+
+all:    $(CMD)
+
+$(CMD): $(OBJS)
+	$(FC) $(FFLAGS)$(LDFLAGS) -g  -o $(@) $(OBJS) $(LIBS)
+clean:
+	-rm -rf *.o *.lst

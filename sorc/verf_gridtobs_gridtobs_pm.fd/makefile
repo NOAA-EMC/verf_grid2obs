@@ -4,11 +4,13 @@ OBJS	= gtgdef.o igotdata.o inarea.o inlayer.o isitob.o raddate.o readcntl.o \
 	w3fi63.o w3fi71.o gets1loc.o gridtobs.o
 
 SHELL=          /bin/sh
-LIBS=           -L/nwprod/lib -lw3emc_4 -lw3nco_4 -lbufr_4_64 -lbacio_4
+LIBS=            $(W3EMC_LIB4) $(W3NCO_LIB4) $(BUFR_LIB4) $(BACIO_LIB4)
 FC=             ifort
 FFLAGS=         -heap-arrays -i4
 CMD	= verf_gridtobs_gridtobs_pm
 
 $(CMD):	$(OBJS)
 	$(FC) $(FFLAGS) -o $(@) $(OBJS) $(LIBS)
+clean:
+	rm -f *.o $(CMD)
 

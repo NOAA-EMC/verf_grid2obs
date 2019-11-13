@@ -1,5 +1,5 @@
 SHELL=          /bin/sh
-LIBS=           -L/nwprod/lib -lw3emc_4 -lw3nco_4 -lbufr_4_64 -lbacio_4
+LIBS=            $(W3EMC_LIB4) $(W3NCO_LIB4) $(BUFR_LIB4) $(BACIO_LIB4)
 FC=             ifort
 FFLAGS=         -heap-arrays -i4
 OBJS	= getbak.o raddate.o prepfits.o 
@@ -7,4 +7,5 @@ CMD	= verf_gridtobs_maxgrib_pm
 
 $(CMD):	$(OBJS)
 	$(FC) $(FFLAGS) -o $(@) $(OBJS) $(LIBS)
-
+clean:
+	rm -f *.o $(CMD)

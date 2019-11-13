@@ -89,8 +89,10 @@ C     CHECK FOR CAPE
 C     CHECK FOR COPO
       ELSE IF ((nchrvarbl(ivr).eq.4.and.namvarbl(ivr).eq.'COPO' ).or.
      +   (nchrvarbl(ivr).eq.8.and.namvarbl(ivr).eq.'COPO_THR')) THEN
+          if(obs(5,nlv,nfcs).lt.bmiss) then
            print*,'---obsval=',(obs(ii,nlv,nprp),ii=3,5)
            print*,'---forcst=',(obs(ii,nlv,nfcs),ii=3,5)
+          endif
          IF (obs(5,nlv,nprp).lt.bmiss.and.obs(5,nlv,nfcs).lt.bmiss
      +       .and.obs(4,nlv,nprp).eq.0.)
      +               THEN

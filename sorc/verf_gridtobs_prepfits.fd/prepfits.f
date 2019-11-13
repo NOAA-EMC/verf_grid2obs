@@ -193,9 +193,9 @@ C     8 & 9 - reserved
       endif
  
       lubfi = 20
-      luges = 21
+      luges = 31
       lundx = 22
-      lugbi = 23
+      lugbi = 61
       lubfo = 50
 
       kntgsf = 0
@@ -310,8 +310,12 @@ C     MAKE SURE THE BACKGROUNDS ARE CHRONOLOGICAL AND TRANSFORM THEM
 C     --------------------------------------------------------------
  
       DO ibak = 1, nbak
-        CLOSE (luges)
-        CLOSE (lugbi)
+c       CLOSE (luges)
+c       CLOSE (lugbi)
+c       call baclose(luges,iret)
+c       call baclose(lugbi,iret)
+        luges=luges+1
+        lugbi=lugbi+1
 c       ishl = ishell('assign -a '//file(ibak)//' -s unblocked fort.21')
 c       ishi = ishell('assign -a '//fndx(ibak)//' -s unblocked fort.23')
 c       ishl = system('ln -s -f '//file(ibak)//'  fort.21')
@@ -320,8 +324,9 @@ c       call system('ln -s -f '//file(ibak)//'  fort.21',ishl)
 c       call system('ln -s -f '//fndx(ibak)//'  fort.23',ishi)
 c       open(21,file=file(ibak),form='unformatted',iostat=ishl)
 c       open(23,file=fndx(ibak),form='unformatted',iostat=ishi)
-        call baopenr(21,file(ibak),ishl)
-        call baopenr(23,fndx(ibak),ishi)
+        call baopenr(luges,file(ibak),ishl)
+        call baopenr(lugbi,fndx(ibak),ishi)
+        print*,'luges,lugbi=',luges,lugbi
 c       ishl=0
 c       ishi=0
      
@@ -329,6 +334,7 @@ C       For each background, call GETBAK and then call GETPROF
 C       To get a background profile at each ob location
 C       -------------------------------------------------
         IF (ishl.eq.0.and.ishi.eq.0) THEN
+          print*,'getbak for ',file(ibak)
           CALL getbak(luges,lugbi,numlev,
      +           iearth,ismart,ipcp,iges(ibak),fhours(ibak),source)
           print*,'between getbak and getprof'
@@ -360,6 +366,7 @@ C     OPEN THE OUTPUT FILE (POSITION MOD IF THE FILE EXISTS)
 C     ------------------------------------------------------
  
       CALL datebf(lubfo,iy,im,id,ih,idate)
+      print*,'idate=',idate
       IF (idate.ge.0) CALL openbf(lubfo,'APN',lubfo)
       IF (idate.lt.0) CALL openbf(lubfo,'OUT',lundx)
 
@@ -663,6 +670,7 @@ c           PRINT *, 'NLEV=1,QMS: ', (qms(i,1),I=1,5)
 c         END IF
  
           nlev = mlev
+          print*,'are we here?'
 
 C         MAKE SURE THERE IS DATA TO WRITE OUT
           IF (nlev.gt.0) THEN
@@ -672,11 +680,13 @@ C           USING THE CURRENT SUBSET NAME (SSLAST) IN CASE IREADPB CHANGED IT
 C           ------------------------------------------------------------------
 
             call datelen(10)
+            print*,'openmb'
             CALL openmb(lubfo,sslast,idate)
 
 C           WRITE OUT THE REGISTRATION DATA FOR EACH REPORT
 C           -----------------------------------------------
  
+            print*,'ufbint'
             CALL ufbint(lubfo,hdr,10,1,iret,headr)
  
 C           WRITE OUT THE REGISTRATION DATA FOR EACH LEVEL

@@ -22,7 +22,7 @@ postmsg "$jlogfile" "$msg"
 model=$1
 bc=$2
 
-wgrib2=${wgrib2:-/nwprod/util/exec/wgrib2}
+wgrib2=${wgrib2:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.1/exec/wgrib2}
 
 if [ $bc -eq 0 ]
 then
@@ -46,11 +46,11 @@ regions="pmave pmmax"
 fi
 #####regions="ozonemax pmave pmmax"
 
-vdaym1=`/nwprod/util/exec/ndate -24 $vdate |cut -c1-8`
-vdaym2=`/nwprod/util/exec/ndate -48 $vdate |cut -c1-8`
-vdayp1=`/nwprod/util/exec/ndate +24 $vdate |cut -c1-8`
-vdayp2=`/nwprod/util/exec/ndate +48 $vdate |cut -c1-8`
-vdatep1=`/nwprod/util/exec/ndate +24 $vdate`
+vdaym1=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate -24 $vdate |cut -c1-8`
+vdaym2=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate -48 $vdate |cut -c1-8`
+vdayp1=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate +24 $vdate |cut -c1-8`
+vdayp2=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate +48 $vdate |cut -c1-8`
+vdatep1=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate +24 $vdate`
 
 if [ $SENDCOM = YES ]
 then
@@ -62,6 +62,8 @@ then
 #  fi
 fi
 
+envir=prod
+
 echo $regions
 
 for field in $regions
@@ -71,7 +73,7 @@ do
               filnam="aqm.t12z.awpozcon"
               filbufr="prepbufr.tm00"
               avg_hr=24
-              COMBUFR=/com/hourly/prod
+              COMBUFR=/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com/hourly/prod
               COMBUFR_IN1=$COMBUFR/hourly.$vday
               COMBUFR_IN2=$COMBUFR/hourly.$vdayp1
               network="ozone"
@@ -81,8 +83,8 @@ do
               filnam="aqm.t${cyc}z.25pm"
               filbufr="anowpm.pb.tm024"
               avg_hr=30
-              COMBUFR=/com/hourly/prod
-              INDIR=${INDIR:-/gpfs/hps/nco/com/aqm/$envir/aqm}
+              COMBUFR=/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com/hourly/prod
+              INDIR=/gpfs/hps/nco/ops/com/aqm/$envir/aqm
               COMBUFR_IN1=$COMBUFR/hourly.$vdayp1
               COMBUFR_IN2=$COMBUFR/hourly.$vdayp2
               network="pm"
@@ -92,8 +94,8 @@ do
               filnam="aqm.t${cyc}z.25pm"
               filbufr="anowpm.pb.tm024"
               avg_hr=30
-              COMBUFR=/com/hourly/prod
-              INDIR=${INDIR:-/gpfs/hps/nco/com/aqm/$envir/aqm}
+              COMBUFR=/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com/hourly/prod
+              INDIR=/gpfs/hps/nco/ops/com/aqm/$envir/aqm
               COMBUFR_IN1=$COMBUFR/hourly.$vdayp1
               COMBUFR_IN2=$COMBUFR/hourly.$vdayp2
               network="pm"
@@ -243,8 +245,10 @@ EOF_LEVCAT
 
      if [ $cyc -eq 12 ]
      then
-     $wgrib2 AWIP3D12.tm00_1hr_${cmaqday} | grep "7-16 hour ave" | $wgrib2 -i AWIP3D12.tm00_1hr_${cmaqday} -grib oz1hr_$cmaqday
-     $wgrib2 AWIP3D12.tm00_8hr_${cmaqday} | grep "1-22 hour ave" | $wgrib2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
+#     $wgrib2 AWIP3D12.tm00_1hr_${cmaqday} | grep "7-16 hour ave" | $wgrib2 -i AWIP3D12.tm00_1hr_${cmaqday} -grib oz1hr_$cmaqday
+#     $wgrib2 AWIP3D12.tm00_8hr_${cmaqday} | grep "1-22 hour ave" | $wgrib2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
+      $wgrib2 AWIP3D12.tm00_1hr_${cmaqday} | grep "2147483641" | $wgrib2 -i AWIP3D12.tm00_1hr_${cmaqday} -grib oz1hr_$cmaqday
+      $wgrib2 AWIP3D12.tm00_8hr_${cmaqday} | grep "2147483647" | $wgrib2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
      fi
 
      else
@@ -309,7 +313,7 @@ eof
     rm prepfits.${field}.${vdate}_$cmaqday
  
     export pgm=verf_gridtobs_editbufr
-    . $DATA/prep_step
+    . $utilscript/prep_step
 
 #    export XLFUNIT_20=prepda.${vdate}
 #    export XLFUNIT_21=prepda.${vdatep1}
@@ -323,17 +327,17 @@ eof
      ln -sf $PARMverf_gridtobs/verf_gridtobs.prepfits.tab_${network} fort.22
      ln -sf bufrout_${field} fort.70
 
-    $DATA/startmsg
+    $utilscript/startmsg
 #    $EXECverf_gridtobs/verf_gridtobs_editbufr${XC}max < gridtobs.keeplist.${field} >>editbufr_${field}_${cmaqday}.out
     $EXECverf_gridtobs/verf_gridtobs_editbufr_${field} < gridtobs.keeplist.${field} >>editbufr_${field}_${cmaqday}.out
-    export err=$?; $DATA/err_chk
+    export err=$?; $utilscript/err_chk
 
     # ---------------------
     # Run prepfits step
     # ---------------------
 
     export pgm=verf_gridtobs_prepfits
-    . $DATA/prep_step
+    . $utilscript/prep_step
 
 #    export XLFUNIT_11=gridtobs.levcat.${network}
 #    export XLFUNIT_20=bufrout_${field}
@@ -351,9 +355,9 @@ eof
     ln -sf airnow1_list fort.101
     ln -sf airnow8_list fort.108
 
-    $DATA/startmsg
+    $utilscript/startmsg
     $EXECverf_gridtobs/verf_gridtobs_prepfits${XC} < input_hour >>prepfits_${field}_${cmaqday}${bctag}.out
-    export err=$?; $DATA/err_chk
+    export err=$?; $utilscript/err_chk
 
     if [ $SENDCOM = YES ]
     then
@@ -367,7 +371,7 @@ eof
     # Run gridtobs step
     # ----------------------
     pgm=verf_gridtobs_gridtobs
-    . $DATA/prep_step
+    . $utilscript/prep_step
 
 #    export XLFUNIT_10=prepfits.${field}.${vdate}_${cmaqday}
 #    export XLFUNIT_20=$PARMverf_gridtobs/verf_gridtobs.grid104
@@ -381,9 +385,9 @@ eof
     ln -sf $PARMverf_gridtobs/verf_gridtobs.regions fort.21
     ln -sf ${field}_${vdate}_${cmaqday}${bctag}.vdb fort.50
 
-    $DATA/startmsg
+    $utilscript/startmsg
     $EXECverf_gridtobs/verf_gridtobs_gridtobs${XC} <gridtobs_${field}_${cmaqday} >gto_${field}_${cmaqday}${bctag}.out
-    export err=$?; $DATA/err_chk
+    export err=$?; $utilscript/err_chk
 
     cat ${field}_${vdate}_${cmaqday}${bctag}.vdb >>${field}_${vdate}.vsdb
 

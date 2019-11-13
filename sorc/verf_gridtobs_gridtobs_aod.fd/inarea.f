@@ -25,7 +25,7 @@ C*
 C-----------------------------------------------------------------------
       inarea = -1
 
-c     print*,'namarea=',namarea
+      print*,'namarea=',namarea
 C
        if(xobi.gt.180) then
         xob=xobi-360.0

@@ -109,9 +109,9 @@ C     8 & 9 - reserved
       WRITE (iwrite,levcat)
  
       lubfi = 20
-      luges = 21
+      luges = 31
       lundx = 22
-      lugbi = 23
+      lugbi = 61
       lubfo = 50
 
       kntgsf = 0
@@ -166,8 +166,10 @@ C     MAKE SURE THE BACKGROUNDS ARE CHRONOLOGICAL AND TRANSFORM THEM
 C     --------------------------------------------------------------
  
       DO ibak = 1, nbak
-        CLOSE (luges)
-        CLOSE (lugbi)
+c       CLOSE (luges)
+c       CLOSE (lugbi)
+        luges=luges+1
+        lugbi=lugbi+1
 c       ishl = ishell('assign -a '//file(ibak)//' -s unblocked fort.21')
 c       ishi = ishell('assign -a '//fndx(ibak)//' -s unblocked fort.23')
 c       ishl = system('ln -s -f '//file(ibak)//'  fort.21')
@@ -176,8 +178,8 @@ c       call system('ln -s -f '//file(ibak)//'  fort.21',ishl)
 c       call system('ln -s -f '//fndx(ibak)//'  fort.23',ishi)
 c       open(21,file=file(ibak),form='unformatted',iostat=ishl)
 c       open(23,file=fndx(ibak),form='unformatted',iostat=ishi)
-        call baopen(21,file(ibak),ishl)
-        call baopen(23,fndx(ibak),ishi)
+        call baopen(luges,file(ibak),ishl)
+        call baopen(lugbi,fndx(ibak),ishi)
 c       ishl=0
 c       ishi=0
      

@@ -4,16 +4,16 @@
 ##################################################################
 if [ $RUN_ENVIR = dev ]
 then
-  export HOMEverf_gridtobs=/nwprod/ 
+  export HOMEverf_gridtobs=/gpfs/dell1/nco/ops/nwprod/ 
   export EXECverf_gridtobs=$HOMEverf_gridtobs/exec
   export PARMverf_gridtobs=$HOMEverf_gridtobs/parm
   export USHverf_gridtobs=$HOMEverf_gridtobs/ush
   export FIXverf_gridtobs=$HOMEverf_gridtobs/fix
 
-  export INDIR=${INDIR:-/com/${NET}/prod/${RUN}}
-  export COM_IN=${COM_IN:-/com/verf/prod}
-  export COM_OUT=${COM_OUT:-/com/verf/prod}
-  export COMVSDB=${COMVSDB:-/com/verf/prod/vsdb/gridtobs}
+  export INDIR=${INDIR:-/gpfs/dell1/nco/ops/com/${NET}/prod/${RUN}}
+  export COM_IN=${COM_IN:-/gpfs/dell1/nco/ops/com/verf/prod}
+  export COM_OUT=${COM_OUT:-/gpfs/dell1/nco/ops/com/verf/prod}
+  export COMVSDB=${COMVSDB:-/gpfs/dell1/nco/ops/com/verf/prod/vsdb/gridtobs}
   export COMBUFR=${COMBUFR:-/com/hourly/prod}
   export RECOVERY=${RECOVERY:-/com/verf/prod/recovery}
 

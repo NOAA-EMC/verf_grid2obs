@@ -106,8 +106,14 @@ C
 C     Also read in logical flag (T or F) to convert virtual temperature
 C     observed into actual temperature.
 C     
+c     READ (5,'(A)',END=160) input
+c     CALL ST_CLST ( input, ' ', ' ', 3, substr, num, ier )
+c     namversion = substr (1)
+c     CALL ST_NUMB ( substr (2), lunin, ier )
       READ (5,*,END=160) namversion,lunin
       PRINT '(A3,I5)', namversion, lunin
+c     vtflg = ( substr (3) .eq. 't' .or. substr (3) .eq. 'T' )
+c     PRINT '(A3,I5)', namversion, lunin
 
       CALL datebf(lunin,iy,im,id,ih,idate)
       print*,'iy,im,id,ih=',iy,im,id,ih
@@ -255,6 +261,12 @@ c    *                   'TROP PWO')
 c                    obst=bmiss
                      obstr='SRC FHR OPTD'
                      call ufbin3(lunin,obst,3,1,mxb,nlev,nevn,obstr)
+c                 print*,'nevn=',nevn
+c                 print*,'nlev=',nlev
+c                   do n=1,nevn
+c                   print*,'n,obst(3,1,n),obst(2,1,n)=',n
+c    *               ,obst(3,1,n),obst(2,1,n)
+c                   enddo
                endif
                       CALL ufbint(lunin,qms,7,255,nlev,qmstr)
 C                     
@@ -302,6 +314,7 @@ c            if(stnid.eq.'D0695  a') print*,'before igotdata'
      +                                     iob,rm1,rm2,subset,stnid,iar)
      +                                      .eq.0) THEN
 
+                     print*,'namfcst(ifh)=',namfcst(ifh)
                      DO 200 ist=1,numstat
               
                      IF(namstat(ist).eq.'FHO') THEN
@@ -351,6 +364,17 @@ c            endif
 c            endif
 
                      ELSEIF(namstat(ist).eq.'SL1L2') THEN
+c     if(namvfyobs(iob).eq.'ONLYSF'.and.namarea(iar).eq.'G236'.
+c    *   and.namfcst(ifh).eq.'12'.and.namvarbl(ivr).eq.'DPT') then
+c        if(ifh.lt.15.and.count(ifh,ivr,ilv,iar,iob,ist).ne.
+c    *      count(ifh+1,ivr,ilv,iar,iob,ist))
+c    *     then
+c          print*,'UNEQUAL!!!'
+c        endif
+c        print*,'count=',count(ifh,ivr,ilv,iar,iob,ist),
+c    *      ifh,ivr,ilv,iar,iob,ist,hdrt(7),hdrt(8)
+c        print*,'stnid,subset=',stnid,subset
+c     endif       
 
                                   mae=abs(forcst-obsval)
                                   summ=summae(ifh,ivr,ilv,iar,iob)*

@@ -1,0 +1,17 @@
+SHELL=          /bin/sh
+LIBS=           /home/decdev/lib/libbufr_s_64.a /nwprod/lib/libw3_4.a /nwprod/lib/libbacio_4.a
+FC=             xlf
+FFLAGS=         -qcheck -qextchk -qfixed 
+LDFLAGS=       
+SRCS=        adddate.f calcape.f calpbl.f calpw.f  getbak.f getfct.f getprof.f getprof_upr.f htindex.f ireadpb.f \
+             obscape.f obspbl.f  raddate.f setterp.f ufbxy3.f w3fb13.f w3fb14.f w3fi71.f windchill.f prepfits.f
+OBJS=        adddate.o calcape.o calpbl.o calpw.o  getbak.o getfct.o getprof.o getprof_upr.o htindex.o ireadpb.o \
+             obscape.o obspbl.o  raddate.o setterp.o ufbxy3.o w3fb13.o w3fb14.o w3fi71.o windchill.o prepfits.o
+CMD=            verf_gridtobs_prepfits
+
+all:	$(CMD)
+
+$(CMD):	$(OBJS)
+	$(FC) $(FFLAGS)$(LDFLAGS) -g  -o $(@) $(OBJS) $(LIBS)
+clean:
+	-rm -rf *.o *.lst

@@ -69,15 +69,18 @@ do
     mv poe_ens cmdfile
     chmod +x cmdfile
 
-    export MP_CMDFILE=cmdfile
-    export MP_EUIDEVICE=sn_all
-    export MP_EUILIB=us
-    export MP_PGMMODEL=mpmd
-    export MP_TASK_AFFINITY=cpu
-    export MP_LABELIO=YES
-    export MP_INFOLEVEL=3
-    export MP_PULSE=0
-    mpirun.lsf
+#    export MP_CMDFILE=cmdfile
+#    export MP_EUIDEVICE=sn_all
+#    export MP_EUILIB=us
+#    export MP_PGMMODEL=mpmd
+#    export MP_TASK_AFFINITY=cpu
+#    export MP_LABELIO=YES
+#    export MP_INFOLEVEL=3
+#    export MP_PULSE=0
+##    mpirun.lsf
+##    mpirun
+#    mpirun -configfile cmdfile
+     mpirun cfp cmdfile
   else
     $USHverf_gridtobs/verf_gridtobs_fits.sh $model $vday $vcyc
   fi

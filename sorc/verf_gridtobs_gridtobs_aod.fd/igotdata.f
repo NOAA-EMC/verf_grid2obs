@@ -92,10 +92,15 @@ C     CHECK FOR NON-MISSING SEA-LEVEL PRESSURE WITH PROPER QUALITY MARK
         END IF
 C     CHECK FOR AEROSOL OPTICAL DEPTH
       ELSE IF (nchrvarbl(ivr).eq.4.and.namvarbl(ivr).eq.'OPTD') then
+c      if(ifh.eq.6) then
+c      print*,'obst(3,1,nprp)=',obst(3,1,nprp)
+c      print*,'obst(3,1,nfcs)=',obst(3,1,nfcs)
+c      endif
        IF (obst(3,1,nprp).lt.bmiss.and.obst(3,1,nfcs).lt.bmiss)
      *     THEN
             obsval=obst(3,1,nprp)
             forcst=obst(3,1,nfcs)
+c           print*,'obsval,forcst=',obsval,forcst
             igotdata = 0
             RETURN
        ENDIF
@@ -263,6 +268,7 @@ c     CHECK FOR CLOUD BASE
           return
         endif
 c    CHECK FOR PRECIPITABLE WATER
+c     print*,'namvarbl(ivr)=',namvarbl(ivr),subset
       else if (nchrvarbl(ivr).eq.3.and.namvarbl(ivr).eq.'PWO' 
      *      .and.nlv.le.2.and.(subset(:6).eq.'ADPUPA'.or
      *      .subset(:6).eq.'GPSIPW')) then
@@ -286,6 +292,7 @@ c    CHECK FOR PRECIPITABLE WATER
      *       .and.nlv.le.2) then
          if (obs4(5,1,nprp).lt.bmiss.and.obs4(5,1,nfcs).lt.bmiss)
      *        THEN
+c         print*,'TROP nlv=',nlv
           obsval = obs4(5,1,nprp)
           forcst = obs4(5,1,nfcs)
           igotdata = 0
@@ -305,6 +312,12 @@ C     CHECK FOR NON-MISSING HEIGHT WITH PROPER QUALITY MARK
         END IF
 C     CHECK FOR NON-MISSING TEMPERATURE WITH PROPER QUALITY MARK
       ELSE IF (namvarbl(ivr).eq.'T'.and.nchrvarbl(ivr).eq.1) THEN
+c       if(stnid.eq.'D0695  a') then
+c           print*,'iqmod(iob)=',iqmod(iob)
+c           print*,'qms(5,nlv)=',qms(5,nlv)
+c           print*,'obs(5,nlv,nprp)=',obs(5,nlv,nprp)
+c           print*,'obs(5,nlv,nfcs)=',obs(5,nlv,nfcs)
+c       endif
         IF ((iqmod(iob).eq.1.and.qms(5,nlv).lt.3.).or.(iqmod(iob).eq.2
      +              .and.qms(5,nlv).ge.3.)) THEN
           IF (obs(5,nlv,nprp).lt.bmiss.and.obs(5,nlv,nfcs).lt.bmiss) 
@@ -386,6 +399,12 @@ c             print*,'obsval,forcst=',obsval,forcst
 C     CHECK FOR NON-MISSING U-COMP WITH PROPER QUALITY MARK
       ELSE IF ((namvarbl(ivr).eq.'U'.and.nchrvarbl(ivr).eq.1).or.
      +            namvarbl(ivr).eq.'VWND') THEN
+c       if(stnid.eq.'C2280   ') then
+c           print*,'iqmod(iob)=',iqmod(iob)
+c           print*,'qms(7,nlv)=',qms(7,nlv)
+c           print*,'obs(7,nlv,nprp)=',obs(7,nlv,nprp)
+c           print*,'obs(7,nlv,nfcs)=',obs(7,nlv,nfcs)
+c       endif
         IF ((iqmod(iob).eq.1.and.qms(7,nlv).lt.3.).or.(iqmod(iob).eq.2
      +              .and.qms(7,nlv).ge.3.)) THEN
           IF (obs(7,nlv,nprp).lt.bmiss.and.obs(7,nlv,nfcs).lt.bmiss) 

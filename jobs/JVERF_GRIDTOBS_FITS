@@ -64,9 +64,9 @@ export USHverf_gridtobs=${USHverf_gridtobs:-$HOMEverf_gridtobs/ush}
 ###################################
 # Set up the UTILITIES
 ###################################
-export utilscript=/nwprod/util/ush
-export utilexec=/nwprod/util/exec
-export EXECutil=/nwprod/util/exec
+export utilscript=/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/ush
+export utilexec=/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec
+export EXECutil=/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec
 
 # Run setup to initialize working directory and utility scripts
 sh $utilscript/setup.sh
@@ -86,19 +86,19 @@ fi
 export INDIR=${INDIR:-/com/${NET}/prod/${RUN}}
 
 if [ $model = srefens -o $model = srefensx ]; then
-  export COM_IN=/com/verf/${envir}
+  export COM_IN=/gpfs/dell1/nco/ops/com/verf/${envir}
 else
-  export COM_IN=${COM_IN:-/com/verf/${envir}}
+  export COM_IN=${COM_IN:-/gpfs/dell1/nco/ops/com/verf/${envir}}
 fi
 
-export COM_OUT=${COM_OUT:-/com/verf/${envir}}
+export COM_OUT=${COM_OUT:-/gpfs/dell1/nco/ops/com/verf/${envir}}
 export COMIN=$COM_IN/gridtobs.$vday
 export COMOUT=$COM_OUT/gridtobs.$vday
-export COMVSDB=${COMVSDB:-/com/verf/${envir}/vsdb/gridtobs}
+export COMVSDB=${COMVSDB:-/gpfs/dell1/nco/ops/com/verf/${envir}/vsdb/gridtobs}
 
 export COMG=${COMG:-/gpfs/dell1/nco/ops/com/gfs/prod}
-export COMN=${COMN:-/com2/nam/prod}
-export COMR=${COMR:-/com2/rtma/prod}
+export COMN=${COMN:-/gpfs/dell1/nco/ops/com/nam/prod}
+export COMR=${COMR:-/gpfs/dell2/nco/ops/com/rtma/prod}
 
 # Define the directory where the PREPBUFR file comes from:
 export COMBUFR=${COMBUFR:-/com/hourly/prod}

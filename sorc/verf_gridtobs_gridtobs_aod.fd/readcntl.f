@@ -36,8 +36,10 @@ C   optional wind rotation grid # for the model.
 C
 C   Note:  no adherence to format is necessary for this input.
 C
+c     READ(5,*) numodel,namodel(1)
       read(5,'(i5,2x,a24)') numodel,namodel(1)
       nchrmodel(1) = LEN(TRIM(namodel(1)))
+c     print*,'numodel=',numodel
       nmbgrd(1) = -1
 C
 C     NUMBER OF VERIFYING MODELS IS LIMITED TO MAXMOD
@@ -84,6 +86,7 @@ C     READ THE REST OF THE FCST HRS IF NECESSARY
 C
       IF ( numfcst.gt.1) THEN
          DO i = 2,numfcst
+C           READ(5,'(a4)') namfcst(i)
             READ(5,*) namfcst(i)
             nchrfcst(i) = LEN(TRIM(namfcst(i)))
          ENDDO
@@ -97,6 +100,7 @@ C
 C     
 C     READ NUMBER OF VERIFICATION DATES
 C     
+C     READ(5,'(i2,a4)') numvfdate,namvfdate(1)
       READ(5,*) numvfdate,namvfdate(1)
       nchrvfdate(1) = LEN(TRIM(namvfdate(1)))
 C
@@ -118,6 +122,7 @@ C
          ENDDO
       ENDIF
 
+c     print*,'end of namvfdate'
 C     
 C       READ NUMVFDATE VERIFICATION PNEMONICS AND GET CHARACTER COUNT
 C     
@@ -139,6 +144,8 @@ C*      NUMBER OF VERIFYING OBS IS LIMITED TO MAXOBS
          DO i = 2,numvfyobs
             READ(5,*) namvfyobs(i)
             nchrvfyobs(i) = LEN(TRIM(namvfyobs(i)))
+c           print*,'length of ob typ=',nchrvfyobs(i)
+c           print*,'i,namvfyobs(i)=',i,namvfyobs(i)
          ENDDO
       ENDIF
 C     
@@ -151,7 +158,9 @@ C
 c     print*,'end of namvfyobs'
 C     READ NUMBER OF VERIFICATION AREAS
 C     
+c     READ(5,*) numarea,namarea(1)
       read(5,'(i5,2x,a24)') numarea,namarea(1)
+      print*,'namarea(1)=',namarea(1)
       nchrarea(1) = LEN(TRIM(namarea(1)))
 C
 C*      NUMBER OF VERIFYING AREAS IS LIMITED TO MXAREA
@@ -165,21 +174,27 @@ C*      NUMBER OF VERIFYING AREAS IS LIMITED TO MXAREA
 
       IF ( numarea.gt.1 ) THEN
          DO i = 2,numarea
+c           READ(5,*) namarea(i)
             read(5,'(2x,a24)') namarea(i)
+            print*,'i,namarea(i)=',i,namarea(i)
             nchrarea(i) = LEN(TRIM(namarea(i)))
+c           print*,'length of area string=',nchrarea(i)
          ENDDO
       ENDIF
 C     
 C       SET NUMAREA DOMAIN PNEMONICS
 C     
         DO 140 n = 1, numarea
+          print*,'n,before setarea=',n
           CALL setarea(n,namarea(n),nchrarea(n))
   140   CONTINUE
 
+      print*,'end of namarea'
 C     
 C     READ NUMBER OF STATISTICAL SCORES
 C     
       READ(5,*) numstat,namstat(1)
+      print *,'numstat,namstat(1)=',numstat,namstat(1)
       nchrstat(1) = LEN(TRIM(namstat(1)))
 C
 C       NUMBER OF STATISTICS IS LIMITED TO MXSTAT
@@ -194,15 +209,19 @@ C       NUMBER OF STATISTICS IS LIMITED TO MXSTAT
       IF (numstat.gt.1) THEN
          DO i = 2,numstat
             READ(5,*) namstat(i)
+            print*,'i,namstat(i)=',i,namstat(i)
             nchrstat(i) = LEN(TRIM(namstat(i)))
+c           print*,'length of stat string=',nchrstat(i)
          ENDDO
       ENDIF
 
+      print*,'end of namstat'
 C     
 C     READ THE VARIABLES TO BE VERIFIED.  THIS IS FUNKY, BECAUSE
 C     YOU NEED TO CARRY ALONG A LONGER STRING IF YOU HAPPEN TO WANT
 C     FHO VERIFICATION FOR ANY PARTICULAR VARIABLE
 C     
+c     READ(5,*) numvarbl, fhovar1
       read(5,'(3x,i2,2x,a80)') numvarbl,fhovar1
       fhovar(1) = fhovar1
       print*,'FIRST VARIABLE',numvarbl,fhovar1
@@ -225,21 +244,28 @@ C       NUMBER OF VARIABLES IS LIMITED TO MXVRBL
          tempstr = fhovar(i)
          olen = LEN(fhovar(i))
          nlen = LEN(TRIM(fhovar(i)))
+         print*,'olen,nlen= ',olen,nlen
+         print*,'tempstr=',tempstr
          nindex = INDEX(tempstr(1:nlen),' ')
+         print*, 'nindex= ',nindex
          IF (nindex.eq.0) THEN
             namvarbl(i)=fhovar(i)
             nchrvarbl(i)=LEN(TRIM(namvarbl(i)))
+c           print*,'NO THRESHOLDS FOR VARIABLE ',namvarbl(i)
             numthr(i) = 0
             thresh(i,:) = 0
          ELSE
             namvarbl(i)=tempstr(1:nindex-1)
             nchrvarbl(i)=LEN(TRIM(namvarbl(i)))
+            print*,'namvarbl(i)=',namvarbl(i)
             ndelim = 0
 C     FIND THE LOCATIONS OF ALL THE SPACES
             DO j = 1,nlen
                IF (tempstr(j:j) == ' ') THEN
                   ndelim = ndelim + 1
                   idelim(ndelim) = j
+                  print*,'ndelim= ',ndelim
+                  print*,'idelim= ',idelim(ndelim)
                ENDIF
             ENDDO
 C     USE THE LOCATIONS OF THE SPACES TO EXTRACT THE INFO
@@ -250,8 +276,10 @@ C     THRESHOLD VALUES ARE
      +             ' THRESHOLDS FOR VARIABLE ',namvarbl(i)
             DO j = 1,numthr(i)-1
                READ(tempstr(idelim(j+1)+1:idelim(j+2)-1),*) thresh(i,j)
+c              print*, 'THRESHOLD VALUES = ',thresh(i,j)
             ENDDO
             ibeg = numthr(i)+1
+c           print*,'ibeg,nlen = ',ibeg,nlen
             READ(tempstr(idelim(ibeg)+1:nlen),*) thresh(i,numthr(i))
             DO j = 1,numthr(i)
                print*, 'THRESHOLD VALUES = ',thresh(i,j)

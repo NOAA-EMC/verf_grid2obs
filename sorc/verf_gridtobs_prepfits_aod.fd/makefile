@@ -1,9 +1,9 @@
 SHELL=          /bin/sh
-LIBS =  -L /nwprod/lib -lg2_4 -lw3emc_4 -lw3nco_4 -lbufr_4_64 -lbacio_4 \
-        -L/usrx/local/64bit.cirrus/lib -ljasper -lpng -lz  
+LIBS =   $(G2_LIB4) $(W3EMC_LIB4) $(W3NCO_LIB4) $(BUFR_LIB4) $(BACIO_LIB4)\
+        -L/usrx/local/64bit.cirrus/lib $(JASPER_LIB) $(PNG_LIB) $(Z_LIB)
 FC=             ifort
-INC =           /nwprod/lib/incmod/g2_4
-FFLAGS=         -heap-arrays -i4 -I$(INC)
+INC =           $(G2_INC4)
+FFLAGS=         -heap-arrays -i4 -O0 -I$(INC)
 LDFLAGS=       
 SRCS=        grid3d.f surfce.f gridef.f observ.f backgv.f guesfc.f guess.f itotal.f obstrs.f weights.f debug.f counts.f vdates.f vrtfac.f guser.f satimg.f adddate.f calcape.f calpbl.f calpw.f  getbak.f getfct.f getprof_upr.f htindex.f ireadpb.f \
              obscape.f obspbl.f  raddate.f setterp.f ufbxy3.f ufbxy3_goes.f w3fa09a.f w3fb11a.f w3fb14.f w3fi71.f windchill.f  prepfits.f

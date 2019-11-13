@@ -28,15 +28,15 @@ export vcyc=$3
 export network GRDNAM MODNAM 
 export vdate=${vday}${vcyc}
 
-export wgrib=${wgrib:-/nwprod/util/exec/wgrib}
-export copygb=${copygb:-/nwprod/util/exec/copygb}
+export wgrib=${wgrib:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.1/exec/wgrib}
+export copygb=${copygb:--/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.1/exec/copygb}
 
 
 mkdir -p $DATA/$vcyc
 cd $DATA/$vcyc
 
 ###typeset -L8 pll3
-/nwprod/util/ush/setup.sh
+$utilscript/setup
                                                                                          
 echo "here"
 echo $regions
@@ -187,7 +187,7 @@ do
     ## Special treatment for the AQM model:
     if [ $model = "aqm" -o $model = "pm1" -o $model = "pm" -o $model = "aqm1" ]
     then
-       vdatep1=`/nwprod/util/exec/ndate +24 $vdate`
+       vdatep1=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate +24 $vdate`
        if [ $vcyc = 24 ]
        then 
           TIME_WIN=${vdatep1}
@@ -216,7 +216,7 @@ do
   fi
 
   export pgm=verf_gridtobs_editbufr${XCE}
-  . /nwprod/util/ush/prep_step.sh
+  . $utilscript/prep_step
 
    pwd
    echo $DATA
@@ -227,9 +227,9 @@ do
    ln -sf $DATA/$vcyc/prepda.${vdate} fort.20
    ln -sf $DATA/$vcyc/bufrout_${domain} fort.50
 
-  /nwprod/util/ush/startmsg.sh
+  $utilscript/startmsg
   $EXECverf_gridtobs/verf_gridtobs_editbufr${XCE} < gridtobs.keeplist.${network} >>$pgmout
-  export err=$?; /nwprod/util/ush/err_chk.sh
+  export err=$?; $utilscript/err_chk
 
   rm fort.*
 
@@ -264,7 +264,9 @@ EOF_LEVCAT
        echo "Warning: Input file is empty, no verification for model $domain"
     else
        export pgm=verf_gridtobs_prepfits
-       . /nwprod/util/ush/prep_step.sh
+       . $utilscript/prep_step
+
+       ls -l $DATA/$vcyc
 
 #       export XLFUNIT_11=gridtobs.levcat.${domain}
 #       export XLFUNIT_20=bufrout_${domain}
@@ -276,13 +278,13 @@ EOF_LEVCAT
        ln -sf $PARMverf_gridtobs/verf_gridtobs.prepfits.tab${XCT} fort.22
        ln -sf $DATA/$vcyc/prepfits.${domain}.${vdate} fort.50
 
-       /nwprod/util/ush/startmsg.sh
+       $utilscript/startmsg
        echo "datacard"
        echo $datacard
        $EXECverf_gridtobs/verf_gridtobs_prepfits${XC} < $datacard >>prepfit.out.${domain}
        export err=$?
        cat prepfit.out.${domain} >>$pgmout
-       /nwprod/util/ush/err_chk.sh
+       $utilscript/err_chk
 
        ## Save the "prepfits" files 
        chmod 640 prepfits.${domain}.${vdate}
@@ -370,7 +372,7 @@ EOF_LEVCAT
 #       $utilexec/grbindex firemask.grb firemaski.grb       
  
        pgm=verf_gridtobs_gridtobs
-       . /nwprod/util/ush/prep_step.sh
+       . $utilscript/prep_step
 
 #       export XLFUNIT_10=prepfits.${domain}.${vdate}
 #       export XLFUNIT_20=$PARMverf_gridtobs/verf_gridtobs.grid104
@@ -384,9 +386,9 @@ EOF_LEVCAT
        ln -sf $PARMverf_gridtobs/verf_gridtobs.regions fort.21
        ln -sf $DATA/$vcyc/${domain}_${vdate}.vdb fort.50
 
-       /nwprod/util/ush/startmsg.sh
+       $utilscript/startmsg
        $EXECverf_gridtobs/verf_gridtobs_gridtobs${XC} <gridtobs_${domain} >gto.${domain}${vcyc}.out
-       export err=$?; /nwprod/util/ush/err_chk.sh
+       export err=$?; $utilscript/err_chk
 
        cat gto.${domain}${vcyc}.out >>$pgmout
 
@@ -394,7 +396,8 @@ EOF_LEVCAT
 #
 # REPEAT GRIDTOBS FOR VERIF ON FIRE WX DOMAINS FOR NAM AND RUC - 5 Apr 2011 - PS
 #
-       if [ $model = "nam" -o $model = "namak" -o $model = "rap" -o $model = "rapak" -o $model = "conusnest" -o $model = "aknest" -o $model = "hrrr" -o $model = "hiresw" -o $model = "nssl4arw" ]
+#       if [ $model = "namtest" -o $model = "namak" -o $model = "rap" -o $model = "rapak" -o $model = "conusnest" -o $model = "aknest" -o $model = "hrrr" -o $model = "hiresw" -o $model = "nssl4arw" ]
+        if [ $model = "oyvey" ]
          then
           cp $PARMverf_gridtobs/verf_gridtobs.${network}_fwis  verf_gridtobs.${domain}_fwis 
 
@@ -452,7 +455,7 @@ EOF_LEVCAT
        mv gridtobs_${domain}_fwis.new gridtobs_${domain}_fwis
 
        pgm=verf_gridtobs_gridtobs_fwis
-       . /nwprod/util/ush/prep_step.sh
+       . $utilscript/prep_step
 
 #       export XLFUNIT_10=prepfits.${domain}.${vdate}
 #       export XLFUNIT_20=$PARMverf_gridtobs/verf_gridtobs.grid104
@@ -492,9 +495,9 @@ EOF_LEVCAT
         ln -sf firemask7.grb fort.43
         ln -sf firemask7i.grb fort.44
         ln -sf ${domain}_${vdate}_fwis.vdb fort.50
-       /nwprod/util/ush/startmsg.sh
+       $utilscript/startmsg
        $EXECverf_gridtobs/verf_gridtobs_gridtobs_fwis <gridtobs_${domain}_fwis >gto.${domain}${vcyc}_fwis.out
-       export err=$?; /nwprod/util/ush/err_chk.sh
+       export err=$?; $utilscript/err_chk
 
        cat gto.${domain}${vcyc}_fwis.out >>$pgmout
 

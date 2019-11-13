@@ -138,6 +138,8 @@ C     8 & 9 - reserved
       fit(8) = .false.
       fit(9) = .false.
 
+      print*,'start of getanl'
+
       call datelen(10)
 
       iread=11
@@ -158,9 +160,9 @@ C     8 & 9 - reserved
  
       lubfi = 20
       luges = 21
-      lundx = 22
+c     lundx = 22
       lugbi = 23
-      lubfo = 51
+c     lubfo = 51
 
       kntgsf = 0
  
@@ -204,7 +206,8 @@ c==        READ (5,'(A8,1X,A50)',END=10) src(n), file(n)
            READ (5,*) fhour, sourcer
            rewind(5)
            source=trim(sourcer)
-c==        print*,'file=',file(n)
+c          print*,'file=',file(n)
+           print*,'file=',source
 c==        READ (5,'(A8,1X,A50)',END=10) src(n), fndx(n)
 c==      END DO
   
@@ -470,7 +473,7 @@ C           ----------------------------------------------------------
 c-- For backgroung moisture instead of obs moisture---
             DO l = 1, nlev
               qtemp(l,irep) = bak(2,l)
-              print*,'==anl,irep=',irep,qtemp(l,irep),l
+c             print*,'==anl,irep=',irep,qtemp(l,irep),l
             END DO
 
               ELSE
@@ -495,7 +498,7 @@ C     CLOSE THE BUFR FILES
 C     --------------------
  
       CALL closbf(lubfi)
-      CALL closbf(lubfo)
+c     CALL closbf(lubfo)
       PRINT *, '************************************'
       PRINT *, 'WROTE OUT FITS FOR ', irepo, ' REPORTS'
       PRINT *, '************************************'
@@ -566,6 +569,8 @@ C     ------------------
         deallocate(rm1)
         deallocate(rm2)
         deallocate(vrterp)
+c       call baclose(luges,iret)
+c       call baclose(lugbi,iret)
        endif
       RETURN
    30 call errmsg('PREPFITS - BAD OR MISSING PREPBUFR DATE')

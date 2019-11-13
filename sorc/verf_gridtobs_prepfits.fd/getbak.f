@@ -121,7 +121,7 @@ c      INTEGER levs(40,6), ivar(6)
 C GRIB2
       type(gribfield) :: gfld
       integer ifile,j,jdisc,jpdtn,jgdtn,iret
-      integer,dimension(200) :: jids,jpdt,jgdt
+      integer,dimension(300) :: jids,jpdt,jgdt
       real fldmin,fldmax,firstval,lastval
       logical :: unpack=.true.
 c     character(255) :: cin
@@ -201,15 +201,18 @@ C
       ifdate = 0
       ricdat = 0
       print*,'imax,jmax=',imax,jmax
+      print*,'lugb,lugi=',lugb,lugi
 C     
 !for pdt, define catogory, parameter and level
-!eg: tmp at 500 hpa
+!eg: tmp at 2 m
+      print*,'fhour=',fhour
       j=0
       jpdt(1)=0      ! table 4.1
       jpdt(2)=0      ! table 4.2-0-0
       jpdt(10)=103   ! table 4.5
       jpdt(12)=2
       jpdt(20)=fhour
+c     jpdt(20)=-9999
 !-- set grid def template
       jgdtn=-1
 !-- set product def array
@@ -219,8 +222,9 @@ C
           jpdt(10)=1
           jpdt(12)=-9999
         endif
-        call getgb2(lugb,0,j,jdisc,jids,jpdtn,jpdt,jgdtn,jgdt,
+        call getgb2(lugb,lugi,j,jdisc,jids,jpdtn,jpdt,jgdtn,jgdt,
      *         unpack,j,gfld,iret)
+c       print*,'iret check=',iret
        if(iret.ne.0) then
           if(src(:5).eq.'NARRE') then
            print*,'setting for narre'
@@ -229,7 +233,10 @@ C
            jpdt(10)=103
            jpdt(12)=10
           endif
-          call getgb2(lugb,0,j,jdisc,jids,jpdtn,jpdt,jgdtn,jgdt,
+c         do i=1,20
+c          print*,'i,jpdt(i)=',i,jpdt(i)
+c         enddo
+          call getgb2(lugb,lugi,j,jdisc,jids,jpdtn,jpdt,jgdtn,jgdt,
      *         unpack,j,gfld,iret)
           if(iret.ne.0) then
            print*,'iret=',iret

@@ -1,5 +1,5 @@
 SHELL=          /bin/sh
-LIBS=           -L/nwprod/lib -lw3nco_4 -lw3emc_4 -lbufr_4_64 -lbacio_4
+LIBS=            $(W3EMC_LIB4) $(W3NCO_LIB4) $(BUFR_LIB4) $(BACIO_LIB4)
 FC=             ifort
 FFLAGS=         -heap-arrays -i4 
 SRCS=       gtgdef.f igotdata.f inarea.f inlayer.f isitob.f readcntl.f \

@@ -1,0 +1,88 @@
+      program writemask
+
+      character*12 fname
+      character*13 fnamei
+      character*11 maskfile
+
+      parameter (ilim=1000,jlim=1000)
+
+      logical*1 mask(ilim*jlim)
+      dimension grid(ilim*jlim)
+      real imask(ilim*jlim)
+      real imask2(ilim*jlim)
+      integer jpds(200),jgds(200),kpds(200),kgds(200)
+    
+      read(5,'(a12)') fname
+      read(5,'(a13)') fnamei
+      read(5,'(a11)') maskfile
+
+      print*,'fname=',fname
+      print*,'fnamei=',fnamei
+      print*,'maskfile=',maskfile
+
+      call baopen(30,fname,iret)
+      call baopen(31,fnamei,iret)
+      call baopen(32,maskfile,iret)
+    
+      j=0
+      jf=ilim*jlim
+      jpds=-1
+      jgds=-1
+      jpds(5)=11
+      jpds(6)=105
+      jpds(7)=2
+      call getgb(30,31,jf,j,jpds,jgds,kf,k,kpds,kgds,mask,grid,iret)
+      print*,'kpds(14)=',kpds(14)
+      if(iret.ne.0) then
+        print*,'iret=',iret
+        print*,'kpds=',kpds
+        print*,'kgds=',kgds
+        stop
+      endif
+
+      do i=1,kf
+       if(mask(i)) then
+        imask(i)=1
+       else
+        imask(i)=0
+       endif
+c     print*,'i,mask(i),imask(i)=',i,mask(i),imask(i)
+      if(imask(i).eq.0.and.grid(i).gt.200) print*,'grid(i),mask(i)=',
+     *   grid(i),mask(i)
+      enddo
+
+      call putgb(32,kf,kpds,kgds,mask,imask,iret)
+c     print*,'putgb iret=',iret
+
+      j=0
+      jf=ilim*jlim
+      jpds=-1
+      jgds=-1
+      jpds(5)=33
+      jpds(6)=105
+      jpds(7)=10
+      call getgb(30,31,jf,j,jpds,jgds,kf,k,kpds,kgds,mask,grid,iret)
+      print*,'kpds(14)=',kpds(14)
+      if(iret.ne.0) then
+        print*,'iret=',iret
+        print*,'kpds=',kpds
+        print*,'kgds=',kgds
+        stop
+      endif
+
+      do i=1,kf
+       if(mask(i)) then
+        imask(i)=1
+       else
+        imask(i)=0
+       endif
+c     print*,'i,mask(i),imask(i)=',i,mask(i),imask(i)
+      if(imask(i).eq.0.and.grid(i).gt.200) print*,'grid(i),mask(i)=',
+     *   grid(i),mask(i)
+      enddo
+
+      call putgb(32,kf,kpds,kgds,mask,imask,iret)
+c     print*,'putgb iret=',iret
+
+      stop
+      end

@@ -22,11 +22,11 @@ then
    err_exit
 fi
 
-wgrib=${wgrib:-/nwprod/util/exec/wgrib}
-copygb=${copygb:-/nwprod/util/exec/copygb}
-wgrib2=${wgrib2:-/nwprod/util/exec/wgrib2}
-cnvgrib=${cnvgrib:-/nwprod/util/exec/cnvgrib}
-copygb2=${copygb2:-/nwprod/util/exec/copygb2}
+wgrib=${wgrib:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/wgrib}
+copygb=${copygb:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/copygb}
+wgrib2=${wgrib2:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/wgrib2}
+cnvgrib=${cnvgrib:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/cnvgrib}
+copygb2=${copygb2:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/copygb2}
 ##wgrib=/nco/sib/wx11bv/wgrib/wgrib
 ##copygb=/nco/sib/wx11bv/copygb/copygb
 
@@ -73,9 +73,9 @@ while [ $fhr -le $frange ]
 do
   if [ $model = ndas ]
   then
-    adate=`/nwprod/util/exec/ndate +$ifhr $vdate`
+    adate=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate +$ifhr $vdate`
   else
-    adate=`/nwprod/util/exec/ndate -$fhr $vdate`
+    adate=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate -$fhr $vdate`
   fi
   aday=`echo $adate |cut -c1-8`
   acyc=`echo $adate |cut -c9-10`
@@ -106,8 +106,12 @@ do
       fwis) cp ${DIRIN}.${aday}/${runnam}.t${acyc}z.${filnam1}${fhr}${tmkk} GRD${fhr}
       ;;
       nam) cp ${DIRIN}.${aday}/${runnam}.t${acyc}z.${filnam1}${fhr}${tmkk} GRD${fhr}
+           pwd
+           ls -l $DATA/${vcyc}
            ;;
       conusnest)cp ${DIRIN}.${aday}/${runnam}.t${acyc}z.conusnest.${filnam1}${fhr}${tmkk} GRD${fhr}
+           ;;
+      fv3nest) cp ${DIRIN}.${aday}/${acyc}/${runnam}.t${acyc}z.${filnam1}.f${fhr}.grib2 GRD${fhr}
            ;;
       aknest)cp ${DIRIN}.${aday}/${runnam}.t${acyc}z.alaskanest.${filnam1}${fhr}${tmkk} GRD${fhr}
            ;;
@@ -324,6 +328,7 @@ do
          aqm) cp $DIRIN.${aday}/${runnam}.t${acyc}z.${filnam1}.f${fhr}.148.grib2 GRD${fhr}
            ;;
         *)    if [ -e ${DIRIN}.${aday}/${runnam}.t${acyc}z.${filnam1}${fhr}${tmkk} ]
+               echo "here"
                then 
                cp ${DIRIN}.${aday}/${runnam}.t${acyc}z.${filnam1}${fhr}${tmkk} GRD${fhr}
               fi
@@ -345,8 +350,8 @@ do
      fi
      if [ $GRIB = "grib2" ]
      then
-      $utilexec/grb2index GRD${fhr} GRD${fhr}i
-      $utilexec/copygb2 -g"$cgrid" GRD${fhr} GRD${fhr}i AWIP3D${fhr}.tm00
+      /gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/grb2index GRD${fhr} GRD${fhr}i
+      /gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/copygb2 -g"$cgrid" GRD${fhr} GRD${fhr}i AWIP3D${fhr}.tm00
 #      $utilexec/copygb2 -g"$cgrid" -x GRD${fhr} AWIP3D${fhr}.tm00
      fi
     else
@@ -360,11 +365,11 @@ do
     then
      if [ $GRIB = "grib2" ]
      then
-      $utilexec/grb2index AWIP3D${fhr}.tm00 AWIP3D${fhr}i.tm00
+      /gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/grb2index AWIP3D${fhr}.tm00 AWIP3D${fhr}i.tm00
      fi
      if [ $GRIB = "grib1" ]
      then
-      $utilexec/grbindex AWIP3D${fhr}.tm00 AWIP3D${fhr}i.tm00
+      /gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/grbindex AWIP3D${fhr}.tm00 AWIP3D${fhr}i.tm00
      fi
     fi
 
@@ -376,7 +381,7 @@ do
      if [ -e anl.grd -a $itr -eq 1 ]
      then
       cp anl.grd ANL.tm00
-      $utilexec/grb2index ANL.tm00 ANLi.tm00
+      /gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/grb2index ANL.tm00 ANLi.tm00
 
      fi
 
@@ -411,7 +416,7 @@ do
     $EXECverf_gridtobs/verf_gridtobs_writemask < firewx >>writemask${fhr}.out
     export err=$?; err_chk
 
-    $utilexec/grbindex maskout.grb maskouti.grb
+    /gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/grbindex maskout.grb maskouti.grb
     cp maskout.grb firemask${ifire}.grb
     cp maskouti.grb firemask${ifire}i.grb
 

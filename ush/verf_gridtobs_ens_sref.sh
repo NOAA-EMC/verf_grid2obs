@@ -100,7 +100,7 @@ do
                if [ $NUMFIL -eq 30 ] 
                then
                  first_mem_ctl=$MEM
-               else
+
                  ENS_MEM_CTL="$ENS_MEM_CTL $MEM"
                fi
                echo $mem $MEM
@@ -370,19 +370,20 @@ done
 mv poe_ens cmdfile
 chmod +x cmdfile
 
-export MP_CMDFILE=cmdfile
-export MP_EUIDEVICE=sn_all
-export MP_EUILIB=us
-export MP_PGMMODEL=mpmd
-export MP_TASK_AFFINITY=cpu
-export MP_LABELIO=YES
-export MP_INFOLEVEL=3
-export MP_PULSE=0
+#export MP_CMDFILE=cmdfile
+#export MP_EUIDEVICE=sn_all
+#export MP_EUILIB=us
+#export MP_PGMMODEL=mpmd
+#export MP_TASK_AFFINITY=cpu
+#export MP_LABELIO=YES
+#export MP_INFOLEVEL=3
+#export MP_PULSE=0
 
 #cp /u/Farid.Parpia/trip/testmalloc .
 #mpirun.lsf /usr/bin/time -f "max RSS (times 4): %M KB" ./testmalloc 1024
 
-mpirun.lsf
+#mpirun.lsf
+mpirun cfp cmdfile
 
 
 export err=$?; err_chk

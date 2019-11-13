@@ -1,0 +1,67 @@
+#!/bin/bash -x
+######################################################################
+#                                                                    #
+#     Makeit script for build of all directories.                    #
+#                                                                    #
+######################################################################
+
+export JHOME=`pwd`
+
+set +x
+
+##############################
+#    Load the modules        #
+##############################
+module purge
+module use /gpfs/dell1/nco/ops/nwprod/modulefiles
+module load EnvVars/1.0.2
+module load ips/18.0.1.163 
+module load impi/18.0.1
+module load w3nco/2.0.6 
+module load bacio/2.0.2
+module load w3emc/2.3.0
+module load bufr/11.2.0
+module load zlib/1.2.11
+module load libpng/1.2.59
+module load jasper/1.900.29
+module load g2/3.1.0
+module list
+
+##############################
+#    Converson table         #
+##############################
+#-----just for reference 
+#$(G2_LIB4)        -lg2_4 
+#$(W3NCO_LIB4)     -lw3nco_4
+#$(W3EMC_LIB4)     -lw3emc_4
+#$(BUFR_LIBs)      -lbufr_s_64
+#$(BACIO_LIB4)     -lbacio_4
+#$(JASPER_LIB)     -ljasper
+#$(PNG_LIB)        -lpng
+#$(Z_LIB)          -lz
+
+##############################
+#    Build the sources       #
+##############################
+#-----loop over *.fd directories - as of know they are:
+#verf_gridtobs_avegrib_pm.fd #verf_gridtobs_editbufr_pmave.fd #verf_gridtobs_gridtobs_ens.fd #verf_gridtobs_gridtobs_pm.fd #verf_gridtobs_prepfits.fd
+#verf_gridtobs_editbufr.fd #verf_gridtobs_editbufr_pm.fd #verf_gridtobs_gridtobs.fd #verf_gridtobs_maxgrib_ozone.fd  #verf_gridtobs_prepfits_ozone.fd
+#verf_gridtobs_editbufr_ozone.fd #verf_gridtobs_editbufr_pmmax.fd #verf_gridtobs_gridtobs_fwis.fd #verf_gridtobs_maxgrib_pm.fd #verf_gridtobs_prepfits_pm.fd
+#verf_gridtobs_editbufr_ozonemax.fd #verf_gridtobs_gridtobs_aod.fd #verf_gridtobs_gridtobs_ozone.fd #verf_gridtobs_prepfits_aod.fd #verf_gridtobs_writemask.fd
+
+for dir in $( ls -d *.fd ); do
+
+echo "                                                          "
+echo "                                                          "
+echo "=========================================================="
+echo "========compiling $dir=========="
+echo "=========================================================="
+
+cd $JHOME/$dir
+
+make -f makefile clean
+make -f makefile
+
+done
+
+exit

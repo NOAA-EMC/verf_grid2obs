@@ -1,0 +1,17 @@
+
+
+Perry,
+
+I have changed your directories to use just the modules they need. To compile code just type makeit in this directory. 
+
+It will clean up and build the source for all the directories in *.fd.
+
+You only generally require 4 user modules above and beyond the system related modules. However sometimes a couple more are needed.
+
+I have also put together a file called "modules" that loads all the ones you gave me in your email. I suspect you do not need most of them in your work.
+
+NOTE: you should use the same module list in the run script that you are using in the compile script. However add one other "module load lsf/10.1"
+
+Good luck,
+
+Jim 

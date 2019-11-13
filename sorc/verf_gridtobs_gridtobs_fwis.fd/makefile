@@ -1,7 +1,7 @@
 SHELL=          /bin/sh
-LIBS =       -L/nwprod/lib -lg2_4 -ljasper -lw3nco_4 -lw3emc_4 -lbufr_4_64 -lbacio_4 -lpng -lz
+LIBS =        $(G2_LIB4) $(JASPER_LIB) $(W3NCO_LIB4) $(W3EMC_LIB4) $(BUFR_LIB4) $(BACIO_LIB4) $(PNG_LIB) $(Z_LIB)
 FC=             ifort
-INC =        /nwprod/lib/incmod/g2_4
+INC =        $(G2_INC4)
 FFLAGS =     -i4 -g -traceback -I$(INC)
 LDFLAGS =    -shared-intel
 SRCS=       gtgdef.f igotdata.f inarea.f inlayer.f isitob.f readcntl.f \

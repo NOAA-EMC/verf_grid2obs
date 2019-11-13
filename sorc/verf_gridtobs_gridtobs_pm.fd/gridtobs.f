@@ -88,8 +88,8 @@ c==   REAL*8  FOT(NUMTHR,IHR),HOT(NUMTHR,IHR),OOT(NUMTHR,IHR)
      +          hg(mxfcst,mxvrbl,maxlvl,mxarea,maxobs,numthr),
      +          og(mxfcst,mxvrbl,maxlvl,mxarea,maxobs,numthr),
      +          tg(mxfcst,mxvrbl,maxlvl,mxarea,maxobs)
-c     DATA THRESH /50., 65., 85., 105., 125., 150./
-      data thresh /5., 10., 12., 15., 20., 25., 35./
+c      DATA THRESH /50., 65., 85., 105., 125., 150./
+       data thresh /5., 10., 12., 15., 20., 25., 35./
 C--
       call datelen(10)
    10 CONTINUE

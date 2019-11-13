@@ -3,7 +3,7 @@ OBJS	= gtgdef.o igotdata.o inarea.o inlayer.o isitob.o raddate.o readcntl.o \
 	stlstr.o stnumb.o stread.o strmbl.o strxbl.o ufbin3.o w3fb06.o w3fb11.o \
 	w3fi63.o w3fi71.o gridtobs.o
 
-LIBS	= -L/nwprod/lib -lw3nco_4 -lw3emc_4 -lbufr_4_64
+LIBS	=  $(W3NCO_LIB4) $(W3EMC_LIB4) $(BUFR_LIB4)
 FC	= ifort
 FFLAGS	= -heap-arrays
 CMD	= verf_gridtobs_gridtobs_ozone

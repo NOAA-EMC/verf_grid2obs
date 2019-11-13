@@ -1,0 +1,21 @@
+SHELL=          /bin/sh
+LIBS=           -L/nwprod/lib -lw3nco_4 -lw3emc_4 -lbufr_4_64 -lbacio_4
+FC=             ifort
+FFLAGS=         -g -pg -O -xHost -i4
+LDFLAGS=       
+SRCS=       getnumber.f gtgdef.f igotdata.f inarea.f inlayer.f isitob.f readcntl.f \
+            setarea.f setfcst.f setlevel.f setmodel.f setobtyp.f stclst.f stldsp.f \
+            stlstr.f stnumb.f stread.f strmbl.f strxbl.f \
+            w3fb06.f w3fb11.f w3fb71.f gridtobs_opt_2.f
+OBJS=       getnumber.o gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o \
+            setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o \
+            stlstr.o stnumb.o stread.o strmbl.o strxbl.o \
+            w3fb06.o w3fb11.o w3fb71.o gridtobs_opt_2.o
+CMD=        verf_gridtobs_gridtobs_ens
+
+all:	$(CMD)
+
+$(CMD):	$(OBJS)
+	$(FC) $(FFLAGS)$(LDFLAGS) -o $(@) $(OBJS) $(LIBS)
+clean:
+	-rm -rf *.o *.lst

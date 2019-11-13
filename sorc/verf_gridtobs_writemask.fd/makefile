@@ -1,7 +1,7 @@
 SHELL=          /bin/sh
-LIBS =       -L/nwprod/lib -lg2_4 -ljasper -lw3nco_4 -lw3emc_4 -lbufr_s_64 -lbacio_4 -lpng -lz
+LIBS =        $(G2_LIB4) $(JASPER_LIB) $(W3NCO_LIB4) $(W3EMC_LIB4) $(BUFR_LIBs) $(BACIO_LIB4) $(PNG_LIB) $(Z_LIB)
 FC=             ifort
-INC =        /nwprod/lib/incmod/g2_4
+INC =        $(G2_INC4)
 FFLAGS =     -i4 -I$(INC)
 LDFLAGS=       
 SRCS=       writemask.f

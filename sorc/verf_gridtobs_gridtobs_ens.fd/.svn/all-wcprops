@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd
+END
+stlstr.f
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/stlstr.f
+END
+readcntl.f
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/readcntl.f
+END
+igotdata.f
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/igotdata.f
+END
+inarea.f
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/inarea.f
+END
+gtgdef.f
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/gtgdef.f
+END
+inlayer.f
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/inlayer.f
+END
+strmbl.f
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/strmbl.f
+END
+w3fb11.f
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/w3fb11.f
+END
+w3fb06.f
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/w3fb06.f
+END
+stnumb.f
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/stnumb.f
+END
+setobtyp.f
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/setobtyp.f
+END
+stldsp.f
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/stldsp.f
+END
+w3fb71.f
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/w3fb71.f
+END
+setfcst.f
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/setfcst.f
+END
+stclst.f
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/stclst.f
+END
+setmodel.f
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/setmodel.f
+END
+gridtobs.f
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/gridtobs.f
+END
+strxbl.f
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/strxbl.f
+END
+stread.f
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/stread.f
+END
+setlevel.f
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/setlevel.f
+END
+parm.inc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/parm.inc
+END
+setarea.f
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/setarea.f
+END
+getnumber.f
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/getnumber.f
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/makefile
+END
+isitob.f
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/projects/!svn/ver/18568/verif/grid2obs/branches/EXP-verif_Zeus/sorc/verf_gridtobs_gridtobs_ens.fd/isitob.f
+END

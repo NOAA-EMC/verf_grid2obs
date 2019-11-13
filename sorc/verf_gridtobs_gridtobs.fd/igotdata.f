@@ -434,8 +434,9 @@ c           print*,'qms(5,nlv)=',qms(5,nlv)
 c           print*,'obs(5,nlv,nprp)=',obs(5,nlv,nprp)
 c           print*,'obs(5,nlv,nfcs)=',obs(5,nlv,nfcs)
 c       endif
-        IF ((iqmod(iob).eq.1.and.qms(5,nlv).lt.3.).or.(iqmod(iob).eq.2
-     +              .and.qms(5,nlv).ge.3.)) THEN
+c       IF ((iqmod(iob).eq.1.and.qms(5,nlv).lt.3.).or.(iqmod(iob).eq.2
+c    +              .and.qms(5,nlv).ge.3.)) THEN
+        if (qms(5,nlv).lt.3.) then
           IF (obs(5,nlv,nprp).lt.bmiss.and.obs(5,nlv,nfcs).lt.bmiss) 
      +                THEN
 	    prs = obs(3,nlv,nprp)

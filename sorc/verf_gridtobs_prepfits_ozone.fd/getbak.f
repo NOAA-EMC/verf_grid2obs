@@ -509,6 +509,7 @@ c==    endif
         jj = jj1
         DO kk = 1, itot
           oz8s(ii,jj) = gfld%fld(kk)
+c         print*,'ii,jj,oz8s=',ii,jj,oz8s(ii,jj)
           IF (gfld%ibmap.eq.255.or.gfld%bmap(kk)) THEN
             mskoz8(ii,jj) = 1
           END IF
