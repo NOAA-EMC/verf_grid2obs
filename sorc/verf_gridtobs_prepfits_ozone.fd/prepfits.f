@@ -542,5 +542,5 @@ C     ------------------
    20 CONTINUE
       STOP
    30 CALL errmsg("PREPFITS - BAD OR MISSING/INCOMPLETE AIRNOW DATA")
-      CALL ERREXIT(1)
+      CALL ERREXIT(0)
       END
