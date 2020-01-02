@@ -35,11 +35,11 @@ priconest|mesopr|nam|PRICONEST|PRICONEST|00|60|06|hiresf| | |.tm00.grib2|NO| |19
 ndas|meso|ndas|NDAS|NDAS|00|03|03|awip3d| | |.grib2|NO| |212|grib2|
 #
 ### RAP ###
-rapak|rapak|rap|RAP|RAP|00|51|01|awp242| | |.grib2|NO| |242|grib2|
-rap13|rap|rap|RAP|RAP|00|51|01|awp130pgrb| | |.grib2|NO| |130|grib2|
+rapak|rapak|rap|RAP|RAP|00|39|01|awp242| | |.grib2|NO| |242|grib2|
+rap13|rap|rap|RAP|RAP|00|39|01|awp130pgrb| | |.grib2|NO| |130|grib2|
 #
 ##### HRRR ####
-hrrr|hrrr|hrrr|HRRR|HRRR|00|48|01|wrfprsf| | |.grib2|NO| |255|grib2|
+hrrr|hrrr|hrrr|HRRR|HRRR|00|36|01|wrfprsf| | |.grib2|NO| |255|grib2|
 ### NARRE ##
 narre|rap|narre|NARRE|NARRE|01|12|01|mean.grd130| | |.grib2|NO| |130|grib2|
 ### RTMA ###
