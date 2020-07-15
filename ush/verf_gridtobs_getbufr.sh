@@ -7,17 +7,17 @@ echo $DATE > datem00
 
 CYC=00
 
-DATEM01=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate +1 $DATE`
+DATEM01=`$NDATE +1 $DATE`
 echo $DATEM01 > datem01
-DATEM02=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate +2 $DATE`
+DATEM02=`$NDATE +2 $DATE`
 echo $DATEM02 > datem02
-DATEM03=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate +3 $DATE`
+DATEM03=`$NDATE +3 $DATE`
 echo $DATEM03 > datem03
-DATEM04=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate +4 $DATE`
+DATEM04=`$NDATE +4 $DATE`
 echo $DATEM04 > datem04
-DATEM05=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate +5 $DATE`
+DATEM05=`$NDATE +5 $DATE`
 echo $DATEM05 > datem05
-DATEM06=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate +6 $DATE`
+DATEM06=`$NDATE +6 $DATE`
 echo $DATEM06 > datem06
 
 PDY00=`cut -c 1-8 datem00`
@@ -35,7 +35,7 @@ HH05=`cut -c 9-10 datem05`
 PDY06=`cut -c 1-8 datem06`
 HH06=`cut -c 9-10 datem06`
 
-DATE3=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate -3 $DATE`
+DATE3=`$NDATE -3 $DATE`
 echo $DATE3 > date3
 PDY3=`cut -c 1-8 date3`
 HH3=`cut -c 9-10 date3`
@@ -96,24 +96,20 @@ then
 elif [ $bufrnet = "aqm" ]
 then
   vday=`echo $DATE |cut -c1-8`
-  vdaym1=`sh /gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.3/ush/finddate.sh $vday d-1`
-  vdayp1=`sh /gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.3/ush/finddate.sh $vday d+1`
+  vdaym1=`sh finddate.sh $vday d-1`
+  vdayp1=`sh finddate.sh $vday d+1`
 
   case $domain in
     ozone) filnam=aqm.t12z.prepbufr.tm00
-           COMBUFR=/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com/hourly/prod
            COMBUFR_IN1=$COMBUFR/hourly.$vdaym1
            COMBUFR_IN2=$COMBUFR/hourly.$vday;;
     ozone1) filnam=aqm.t12z.prepbufr.tm00
-           COMBUFR=/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com/hourly/prod
            COMBUFR_IN1=$COMBUFR/hourly.$vdaym1
            COMBUFR_IN2=$COMBUFR/hourly.$vday;;
     pm)    filnam=aqm.t12z.anowpm.pb.tm024
-           COMBUFR=/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com/hourly/prod
            COMBUFR_IN1=$COMBUFR/hourly.$vday
            COMBUFR_IN2=$COMBUFR/hourly.$vdayp1;;
     pm1)    filnam=aqm.t12z.anowpm.pb.tm024
-           COMBUFR=/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com/hourly/prod
            COMBUFR_IN1=$COMBUFR/hourly.$vday
            COMBUFR_IN2=$COMBUFR/hourly.$vdayp1;;
   esac
@@ -221,7 +217,8 @@ cyc=$HH00                                   # center hour of dump (eg, '12' for 
 CYMD=${vday}$cyc
 window_radius=1.5                            # 3 hour window == 1.5 hour radius
 rc_dump=0
-sh /gpfs/dell1/nco/ops/nwprod/obsproc_dump.v5.0.0/ush/dumpjb $CYMD $window_radius aodmod
+# sh /gpfs/dell1/nco/ops/nwprod/obsproc_dump.v5.0.0/ush/dumpjb $CYMD $window_radius aodmod
+$USHobsproc_dump/dumpjb $CYMD $window_radius aodmod
 rc_dump=$?
 if [ $rc_dump -eq 0 ] ; then
   mv ../aodmod.ibm verf.t${cyc}z.aodmod.tm00.bufr_d

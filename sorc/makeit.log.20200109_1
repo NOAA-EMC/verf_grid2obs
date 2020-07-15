@@ -1,0 +1,449 @@
++ [[ hB != hxB ]]
++ XTRACE_STATE=-x
++ [[ hxB != hxB ]]
++ VERBOSE_STATE=+v
++ set +xv
++ unset XTRACE_STATE VERBOSE_STATE
+++ pwd
++ export JHOME=/gpfs/dell1/nco/ops/nwpara/verf_gridtobs.v4.4.15/sorc
++ JHOME=/gpfs/dell1/nco/ops/nwpara/verf_gridtobs.v4.4.15/sorc
++ set +x
+
+Currently Loaded Modules:
+  1) EnvVars/1.0.2    3) impi/18.0.1   5) bacio/2.0.2   7) bufr/11.2.0   9) libpng/1.2.59    11) g2/3.1.0
+  2) ips/18.0.1.163   4) w3nco/2.0.6   6) w3emc/2.3.0   8) zlib/1.2.11  10) jasper/1.900.29
+
+ 
+
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_avegrib_pm.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_avegrib_pm
+ifort -heap-arrays  -c -o getbak.o getbak.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o prepfits.o prepfits.f
+ifort -heap-arrays -o verf_gridtobs_avegrib_pm getbak.o raddate.o prepfits.o  /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_s_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_editbufr.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -heap-arrays -O0   -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -O0   -c -o raddate.o raddate.f
+ifort -heap-arrays -O0   -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -O0   -c -o editbufr.o editbufr.f
+ifort -heap-arrays -O0   -o ../../exec/verf_gridtobs_editbufr gtgdef.o  raddate.o  w3fi71.o  editbufr.o /gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/libg2_v3.1.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_s_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_editbufr_ozone.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_editbufr_ozone
+ifort -heap-arrays   -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays   -c -o raddate.o raddate.f
+ifort -heap-arrays   -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays   -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays   -c -o editbufr.o editbufr.f
+ifort -heap-arrays  -o verf_gridtobs_editbufr_ozone gtgdef.o raddate.o w3fi63.o w3fi71.o editbufr.o /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a 
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_editbufr_ozonemax.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_editbufr_ozonemax
+ifort -heap-arrays  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays  -c -o ireadpb.o ireadpb.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays  -c -o editbufr.o editbufr.f
+ifort -heap-arrays -o verf_gridtobs_editbufr_ozonemax gtgdef.o ireadpb.o raddate.o w3fi63.o w3fi71.o editbufr.o /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_editbufr_pmave.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_editbufr_pmave
+ifort -heap-arrays -g -traceback  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -g -traceback  -c -o ireadpb.o ireadpb.f
+ifort -heap-arrays -g -traceback  -c -o raddate.o raddate.f
+ifort -heap-arrays -g -traceback  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays -g -traceback  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -g -traceback  -c -o editbufr.o editbufr.f
+ifort -heap-arrays -g -traceback -o verf_gridtobs_editbufr_pmave gtgdef.o ireadpb.o raddate.o w3fi63.o w3fi71.o editbufr.o /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_editbufr_pm.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_editbufr_pm
+ifort -heap-arrays  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays  -c -o editbufr.o editbufr.f
+ifort -heap-arrays -o verf_gridtobs_editbufr_pm gtgdef.o raddate.o w3fi63.o w3fi71.o editbufr.o /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a 
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_editbufr_pmmax.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_editbufr_pmmax
+ifort -heap-arrays -g -traceback  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -g -traceback  -c -o ireadpb.o ireadpb.f
+ifort -heap-arrays -g -traceback  -c -o raddate.o raddate.f
+ifort -heap-arrays -g -traceback  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays -g -traceback  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -g -traceback  -c -o editbufr.o editbufr.f
+ifort -heap-arrays -g -traceback -o verf_gridtobs_editbufr_pmmax gtgdef.o ireadpb.o raddate.o w3fi63.o w3fi71.o editbufr.o /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_gridtobs_aod.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -heap-arrays -i4   -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -i4   -c -o igotdata.o igotdata.f
+ifort -heap-arrays -i4   -c -o inarea.o inarea.f
+ifort -heap-arrays -i4   -c -o inlayer.o inlayer.f
+ifort -heap-arrays -i4   -c -o isitob.o isitob.f
+ifort -heap-arrays -i4   -c -o readcntl.o readcntl.f
+ifort -heap-arrays -i4   -c -o setarea.o setarea.f
+ifort -heap-arrays -i4   -c -o setfcst.o setfcst.f
+ifort -heap-arrays -i4   -c -o setlevel.o setlevel.f
+ifort -heap-arrays -i4   -c -o setmodel.o setmodel.f
+ifort -heap-arrays -i4   -c -o setobtyp.o setobtyp.f
+ifort -heap-arrays -i4   -c -o stclst.o stclst.f
+ifort -heap-arrays -i4   -c -o stldsp.o stldsp.f
+ifort -heap-arrays -i4   -c -o stlstr.o stlstr.f
+ifort -heap-arrays -i4   -c -o stnumb.o stnumb.f
+ifort -heap-arrays -i4   -c -o stread.o stread.f
+ifort -heap-arrays -i4   -c -o streadfho.o streadfho.f
+ifort -heap-arrays -i4   -c -o streal.o streal.f
+ifort -heap-arrays -i4   -c -o strmbl.o strmbl.f
+ifort -heap-arrays -i4   -c -o strxbl.o strxbl.f
+ifort -heap-arrays -i4   -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -i4   -c -o gridtobs.o gridtobs.f
+ifort -heap-arrays -i4  -g  -o verf_gridtobs_gridtobs_aod gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o streadfho.o streal.o strmbl.o strxbl.o w3fi71.o gridtobs.o /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_gridtobs_ens.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -g -pg -O -xHost -i4  -c -o getnumber.o getnumber.f
+ifort -g -pg -O -xHost -i4  -c -o gtgdef.o gtgdef.f
+ifort -g -pg -O -xHost -i4  -c -o igotdata.o igotdata.f
+ifort -g -pg -O -xHost -i4  -c -o inarea.o inarea.f
+ifort -g -pg -O -xHost -i4  -c -o inlayer.o inlayer.f
+ifort -g -pg -O -xHost -i4  -c -o isitob.o isitob.f
+ifort -g -pg -O -xHost -i4  -c -o readcntl.o readcntl.f
+ifort -g -pg -O -xHost -i4  -c -o setarea.o setarea.f
+ifort -g -pg -O -xHost -i4  -c -o setfcst.o setfcst.f
+ifort -g -pg -O -xHost -i4  -c -o setlevel.o setlevel.f
+ifort -g -pg -O -xHost -i4  -c -o setmodel.o setmodel.f
+ifort -g -pg -O -xHost -i4  -c -o setobtyp.o setobtyp.f
+ifort -g -pg -O -xHost -i4  -c -o stclst.o stclst.f
+ifort -g -pg -O -xHost -i4  -c -o stldsp.o stldsp.f
+ifort -g -pg -O -xHost -i4  -c -o stlstr.o stlstr.f
+ifort -g -pg -O -xHost -i4  -c -o stnumb.o stnumb.f
+ifort -g -pg -O -xHost -i4  -c -o stread.o stread.f
+ifort -g -pg -O -xHost -i4  -c -o strmbl.o strmbl.f
+ifort -g -pg -O -xHost -i4  -c -o strxbl.o strxbl.f
+ifort -g -pg -O -xHost -i4  -c -o w3fb06.o w3fb06.f
+ifort -g -pg -O -xHost -i4  -c -o w3fb11.o w3fb11.f
+ifort -g -pg -O -xHost -i4  -c -o w3fb71.o w3fb71.f
+ifort -g -pg -O -xHost -i4  -c -o gridtobs.o gridtobs.f
+ifort -g -pg -O -xHost -i4 -o verf_gridtobs_gridtobs_ens getnumber.o gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o strmbl.o strxbl.o w3fb06.o w3fb11.o w3fb71.o gridtobs.o /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_gridtobs.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -heap-arrays -i4   -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -i4   -c -o igotdata.o igotdata.f
+ifort -heap-arrays -i4   -c -o inarea.o inarea.f
+ifort -heap-arrays -i4   -c -o inlayer.o inlayer.f
+ifort -heap-arrays -i4   -c -o isitob.o isitob.f
+ifort -heap-arrays -i4   -c -o readcntl.o readcntl.f
+ifort -heap-arrays -i4   -c -o setarea.o setarea.f
+ifort -heap-arrays -i4   -c -o setfcst.o setfcst.f
+ifort -heap-arrays -i4   -c -o setlevel.o setlevel.f
+ifort -heap-arrays -i4   -c -o setmodel.o setmodel.f
+ifort -heap-arrays -i4   -c -o setobtyp.o setobtyp.f
+ifort -heap-arrays -i4   -c -o stclst.o stclst.f
+ifort -heap-arrays -i4   -c -o stldsp.o stldsp.f
+ifort -heap-arrays -i4   -c -o stlstr.o stlstr.f
+ifort -heap-arrays -i4   -c -o stnumb.o stnumb.f
+ifort -heap-arrays -i4   -c -o stread.o stread.f
+ifort -heap-arrays -i4   -c -o streadfho.o streadfho.f
+ifort -heap-arrays -i4   -c -o streal.o streal.f
+ifort -heap-arrays -i4   -c -o strmbl.o strmbl.f
+ifort -heap-arrays -i4   -c -o strxbl.o strxbl.f
+ifort -heap-arrays -i4   -c -o w3fa09a.o w3fa09a.f
+ifort -heap-arrays -i4   -c -o gridtobs.o gridtobs.f
+ifort -heap-arrays -i4  -g  -o ../../exec/verf_gridtobs_gridtobs gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o streadfho.o streal.o strmbl.o strxbl.o w3fa09a.o gridtobs.o /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_gridtobs_fwis.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o gtgdef.o gtgdef.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o igotdata.o igotdata.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o inarea.o inarea.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o inlayer.o inlayer.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o isitob.o isitob.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o readcntl.o readcntl.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o setarea.o setarea.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o setfcst.o setfcst.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o setlevel.o setlevel.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o setmodel.o setmodel.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o setobtyp.o setobtyp.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o stclst.o stclst.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o stldsp.o stldsp.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o stlstr.o stlstr.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o stnumb.o stnumb.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o stread.o stread.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o streadfho.o streadfho.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o streal.o streal.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o strmbl.o strmbl.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o strxbl.o strxbl.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o maskdef.o maskdef.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o gridtobs.o gridtobs.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4-shared-intel -g  -o verf_gridtobs_gridtobs_fwis gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o streadfho.o streal.o strmbl.o strxbl.o maskdef.o gridtobs.o /gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/libg2_v3.1.0_4.a /usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/lib/libjasper.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a /usrx/local/prod/packages/gnu/4.8.5/libpng/1.2.59/lib/libpng.a /usrx/local/prod/packages/ips/18.0.1/zlib/1.2.11/lib/libz.a
+/usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/lib/libjasper.a(jas_stream.o): In function `jas_stream_tmpfile':
+/usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/src/jasper-1.900.29/src/libjasper/base/jas_stream.c:520: warning: the use of `tmpnam' is dangerous, better use `mkstemp'
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_gridtobs_ozone.fd==========
+==========================================================
+rm *.o
+ifort -heap-arrays  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays  -c -o igotdata.o igotdata.f
+ifort -heap-arrays  -c -o inarea.o inarea.f
+ifort -heap-arrays  -c -o inlayer.o inlayer.f
+ifort -heap-arrays  -c -o isitob.o isitob.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o readcntl.o readcntl.f
+ifort -heap-arrays  -c -o setarea.o setarea.f
+ifort -heap-arrays  -c -o setfcst.o setfcst.f
+ifort -heap-arrays  -c -o setlevel.o setlevel.f
+ifort -heap-arrays  -c -o setmodel.o setmodel.f
+ifort -heap-arrays  -c -o setobtyp.o setobtyp.f
+ifort -heap-arrays  -c -o stclst.o stclst.f
+ifort -heap-arrays  -c -o stldsp.o stldsp.f
+ifort -heap-arrays  -c -o stlstr.o stlstr.f
+ifort -heap-arrays  -c -o stnumb.o stnumb.f
+ifort -heap-arrays  -c -o stread.o stread.f
+ifort -heap-arrays  -c -o strmbl.o strmbl.f
+ifort -heap-arrays  -c -o strxbl.o strxbl.f
+ifort -heap-arrays  -c -o ufbin3.o ufbin3.f
+ifort -heap-arrays  -c -o w3fb06.o w3fb06.f
+ifort -heap-arrays  -c -o w3fb11.o w3fb11.f
+ifort -heap-arrays  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays  -c -o gridtobs.o gridtobs.f
+ifort -heap-arrays -o verf_gridtobs_gridtobs_ozone gtgdef.o igotdata.o inarea.o inlayer.o isitob.o raddate.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o strmbl.o strxbl.o ufbin3.o w3fb06.o w3fb11.o w3fi63.o w3fi71.o gridtobs.o /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_gridtobs_pm.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_gridtobs_pm
+ifort -heap-arrays -i4  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -i4  -c -o igotdata.o igotdata.f
+ifort -heap-arrays -i4  -c -o inarea.o inarea.f
+ifort -heap-arrays -i4  -c -o inlayer.o inlayer.f
+ifort -heap-arrays -i4  -c -o isitob.o isitob.f
+ifort -heap-arrays -i4  -c -o raddate.o raddate.f
+ifort -heap-arrays -i4  -c -o readcntl.o readcntl.f
+ifort -heap-arrays -i4  -c -o setarea.o setarea.f
+ifort -heap-arrays -i4  -c -o setfcst.o setfcst.f
+ifort -heap-arrays -i4  -c -o setlevel.o setlevel.f
+ifort -heap-arrays -i4  -c -o setmodel.o setmodel.f
+ifort -heap-arrays -i4  -c -o setobtyp.o setobtyp.f
+ifort -heap-arrays -i4  -c -o stclst.o stclst.f
+ifort -heap-arrays -i4  -c -o stldsp.o stldsp.f
+ifort -heap-arrays -i4  -c -o stlstr.o stlstr.f
+ifort -heap-arrays -i4  -c -o stnumb.o stnumb.f
+ifort -heap-arrays -i4  -c -o stread.o stread.f
+ifort -heap-arrays -i4  -c -o strmbl.o strmbl.f
+ifort -heap-arrays -i4  -c -o strxbl.o strxbl.f
+ifort -heap-arrays -i4  -c -o ufbin3.o ufbin3.f
+ifort -heap-arrays -i4  -c -o w3fb06.o w3fb06.f
+ifort -heap-arrays -i4  -c -o w3fb11.o w3fb11.f
+ifort -heap-arrays -i4  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays -i4  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -i4  -c -o gets1loc.o gets1loc.f
+ifort -heap-arrays -i4  -c -o gridtobs.o gridtobs.f
+ifort -heap-arrays -i4 -o verf_gridtobs_gridtobs_pm gtgdef.o igotdata.o inarea.o inlayer.o isitob.o raddate.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o strmbl.o strxbl.o ufbin3.o w3fb06.o w3fb11.o w3fi63.o w3fi71.o gets1loc.o gridtobs.o /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_maxgrib_ozone.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_maxgrib_ozone
+ifort -heap-arrays  -c -o getbak.o getbak.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o prepfits.o prepfits.f
+ifort -heap-arrays -o verf_gridtobs_maxgrib_ozone getbak.o raddate.o prepfits.o  /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_maxgrib_pm.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_maxgrib_pm
+ifort -heap-arrays -i4  -c -o getbak.o getbak.f
+ifort -heap-arrays -i4  -c -o raddate.o raddate.f
+ifort -heap-arrays -i4  -c -o prepfits.o prepfits.f
+ifort -heap-arrays -i4 -o verf_gridtobs_maxgrib_pm getbak.o raddate.o prepfits.o  /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_prepfits_aod.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o grid3d.o grid3d.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o surfce.o surfce.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o gridef.o gridef.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o observ.o observ.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o backgv.o backgv.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o guesfc.o guesfc.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o guess.o guess.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o itotal.o itotal.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o obstrs.o obstrs.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o weights.o weights.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o debug.o debug.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o counts.o counts.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o vdates.o vdates.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o vrtfac.o vrtfac.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o guser.o guser.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o satimg.o satimg.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o adddate.o adddate.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o calcape.o calcape.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o calpbl.o calpbl.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o calpw.o calpw.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o getbak.o getbak.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o getfct.o getfct.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o getprof_upr.o getprof_upr.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o htindex.o htindex.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o ireadpb.o ireadpb.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o obscape.o obscape.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o obspbl.o obspbl.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o raddate.o raddate.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o setterp.o setterp.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o ufbxy3.o ufbxy3.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o ufbxy3_goes.o ufbxy3_goes.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o w3fa09a.o w3fa09a.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o w3fb11a.o w3fb11a.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o w3fb14.o w3fb14.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o windchill.o windchill.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o prepfits.o prepfits.f
+ifort -heap-arrays -i4 -O0 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4 -g  -o verf_gridtobs_prepfits_aod grid3d.o surfce.o gridef.o observ.o backgv.o guesfc.o guess.o itotal.o obstrs.o  weights.o debug.o counts.o vdates.o vrtfac.o guser.o satimg.o adddate.o calcape.o calpbl.o calpw.o  getbak.o getfct.o getprof_upr.o htindex.o ireadpb.o obscape.o obspbl.o  raddate.o setterp.o ufbxy3.o ufbxy3_goes.o w3fa09a.o w3fb11a.o w3fb14.o w3fi71.o windchill.o prepfits.o /gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/libg2_v3.1.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_4_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a -L/usrx/local/64bit.cirrus/lib /usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/lib/libjasper.a /usrx/local/prod/packages/gnu/4.8.5/libpng/1.2.59/lib/libpng.a /usrx/local/prod/packages/ips/18.0.1/zlib/1.2.11/lib/libz.a
+/usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/lib/libjasper.a(jas_stream.o): In function `jas_stream_tmpfile':
+/usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/src/jasper-1.900.29/src/libjasper/base/jas_stream.c:520: warning: the use of `tmpnam' is dangerous, better use `mkstemp'
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_prepfits.fd==========
+==========================================================
+rm -rf *.o *.mod *.lst
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o anl.o anl.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o grid3d.o grid3d.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o surfce.o surfce.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o gridef.o gridef.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o observ.o observ.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o backgv.o backgv.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o guesfc.o guesfc.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o guess.o guess.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o itotal.o itotal.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o obstrs.o obstrs.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o weights.o weights.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o debug.o debug.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o counts.o counts.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o vdates.o vdates.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o vrtfac.o vrtfac.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o guser.o guser.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o adddate.o adddate.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o calcape.o calcape.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o calpbl.o calpbl.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o calpw.o calpw.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o getanl.o getanl.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o getbak.o getbak.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o getfct.o getfct.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o getprof_upr.o getprof_upr.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o htindex.o htindex.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o ireadpb.o ireadpb.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o obscape.o obscape.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o obspbl.o obspbl.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o calshear.o calshear.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o raddate.o raddate.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o setterp.o setterp.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o ufbxy3.o ufbxy3.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o windchill.o windchill.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o haines.o haines.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4   -c -o prepfits.o prepfits.f
+ifort -O2 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -g  -o ../../exec/verf_gridtobs_prepfits anl.o grid3d.o surfce.o gridef.o observ.o backgv.o guesfc.o guess.o itotal.o obstrs.o  weights.o debug.o counts.o vdates.o vrtfac.o guser.o adddate.o calcape.o calpbl.o calpw.o  getanl.o getbak.o getfct.o getprof_upr.o htindex.o ireadpb.o obscape.o obspbl.o  calshear.o raddate.o setterp.o ufbxy3.o windchill.o haines.o prepfits.o /gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/libg2_v3.1.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_s_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a /usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/lib/libjasper.a /usrx/local/prod/packages/gnu/4.8.5/libpng/1.2.59/lib/libpng.a /usrx/local/prod/packages/ips/18.0.1/zlib/1.2.11/lib/libz.a
+/usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/lib/libjasper.a(jas_stream.o): In function `jas_stream_tmpfile':
+/usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/src/jasper-1.900.29/src/libjasper/base/jas_stream.c:520: warning: the use of `tmpnam' is dangerous, better use `mkstemp'
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_prepfits_ozone.fd==========
+==========================================================
+rm *.o
+rm: cannot remove '*.o': No such file or directory
+make: *** [clean] Error 1
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o calcape.o calcape.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o adddate.o adddate.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o getbak.o getbak.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o getfct.o getfct.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o getprof.o getprof.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o ireadpb.o ireadpb.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o raddate.o raddate.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o setterp.o setterp.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o ufbxy3.o ufbxy3.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o w3fb13.o w3fb13.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o prepfits.o prepfits.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4 -shared-intel -o verf_gridtobs_prepfits_ozone calcape.o adddate.o getbak.o getfct.o getprof.o ireadpb.o raddate.o setterp.o ufbxy3.o w3fb13.o prepfits.o /gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/libg2_v3.1.0_4.a /usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/lib/libjasper.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_s_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a /usrx/local/prod/packages/gnu/4.8.5/libpng/1.2.59/lib/libpng.a /usrx/local/prod/packages/ips/18.0.1/zlib/1.2.11/lib/libz.a
+/usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/lib/libjasper.a(jas_stream.o): In function `jas_stream_tmpfile':
+/usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/src/jasper-1.900.29/src/libjasper/base/jas_stream.c:520: warning: the use of `tmpnam' is dangerous, better use `mkstemp'
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_prepfits_pm.fd==========
+==========================================================
+rm *.o
+rm: cannot remove '*.o': No such file or directory
+make: *** [clean] Error 1
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o calcape.o calcape.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o adddate.o adddate.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o getbak.o getbak.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o getfct.o getfct.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o getprof.o getprof.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o ireadpb.o ireadpb.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o raddate.o raddate.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o setterp.o setterp.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o ufbxy3.o ufbxy3.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o w3fb13.o w3fb13.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o prepfits.o prepfits.f
+ifort -i4 -g -traceback -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4 -shared-intel -o verf_gridtobs_prepfits_pm calcape.o adddate.o getbak.o getfct.o getprof.o ireadpb.o raddate.o setterp.o ufbxy3.o w3fb13.o prepfits.o /gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/libg2_v3.1.0_4.a /usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/lib/libjasper.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_s_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a /usrx/local/prod/packages/gnu/4.8.5/libpng/1.2.59/lib/libpng.a /usrx/local/prod/packages/ips/18.0.1/zlib/1.2.11/lib/libz.a
+/usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/lib/libjasper.a(jas_stream.o): In function `jas_stream_tmpfile':
+/usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/src/jasper-1.900.29/src/libjasper/base/jas_stream.c:520: warning: the use of `tmpnam' is dangerous, better use `mkstemp'
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_writemask.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -i4 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4  -c -o writemask.o writemask.f
+ifort -i4 -I/gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/include/g2_v3.1.0_4 -g  -o verf_gridtobs_writemask writemask.o  /gpfs/dell1/nco/ops/nwprod/lib/g2/v3.1.0/ips/18.0.1/libg2_v3.1.0_4.a /usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/lib/libjasper.a /gpfs/dell1/nco/ops/nwprod/lib/w3nco/v2.0.6/ips/18.0.1/libw3nco_v2.0.6_4.a /gpfs/dell1/nco/ops/nwprod/lib/w3emc/v2.3.0/ips/18.0.1/impi/18.0.1/libw3emc_v2.3.0_4.a /gpfs/dell1/nco/ops/nwprod/lib/bufr/v11.2.0/ips/18.0.1/libbufr_v11.2.0_s_64.a /gpfs/dell1/nco/ops/nwprod/lib/bacio/v2.0.2/ips/18.0.1/libbacio_v2.0.2_4.a /usrx/local/prod/packages/gnu/4.8.5/libpng/1.2.59/lib/libpng.a /usrx/local/prod/packages/ips/18.0.1/zlib/1.2.11/lib/libz.a
+/usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/lib/libjasper.a(jas_stream.o): In function `jas_stream_tmpfile':
+/usrx/local/prod/packages/gnu/4.8.5/jasper/1.900.29/src/jasper-1.900.29/src/libjasper/base/jas_stream.c:520: warning: the use of `tmpnam' is dangerous, better use `mkstemp'

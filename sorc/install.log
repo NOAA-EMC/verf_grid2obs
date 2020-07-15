@@ -1,0 +1,60 @@
+Install verf_gridtobs_avegrib_pm.fd/
+
+
+Install verf_gridtobs_editbufr.fd/
+
+
+Install verf_gridtobs_editbufr_ozone.fd/
+
+
+Install verf_gridtobs_editbufr_ozonemax.fd/
+
+
+Install verf_gridtobs_editbufr_pmave.fd/
+
+
+Install verf_gridtobs_editbufr_pm.fd/
+
+
+Install verf_gridtobs_editbufr_pmmax.fd/
+
+
+Install verf_gridtobs_gridtobs_aod.fd/
+
+
+Install verf_gridtobs_gridtobs_ens.fd/
+
+
+Install verf_gridtobs_gridtobs.fd/
+
+
+Install verf_gridtobs_gridtobs_fwis.fd/
+
+
+Install verf_gridtobs_gridtobs_ozone.fd/
+
+
+Install verf_gridtobs_gridtobs_pm.fd/
+
+
+Install verf_gridtobs_maxgrib_ozone.fd/
+
+
+Install verf_gridtobs_maxgrib_pm.fd/
+
+
+Install verf_gridtobs_prepfits_aod.fd/
+
+
+Install verf_gridtobs_prepfits.fd/
+
+
+Install verf_gridtobs_prepfits_ozone.fd/
+
+
+Install verf_gridtobs_prepfits_pm.fd/
+
+
+Install verf_gridtobs_writemask.fd/
+
+

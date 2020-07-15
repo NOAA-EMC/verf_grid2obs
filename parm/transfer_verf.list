@@ -1,0 +1,275 @@
+# This file specifies the directories to be transfered and, optionally, the files within
+# those directories to include or exclude.  If one directory is specified per line, it
+# will be used as both the source and destination.  If two directories are specified per
+# line, separated by one or more spaces, the first will be used as the source and the
+# second the destination.  Directories that begin with "com/" will be resolved using
+# the compath.py utility.  Rules may be placed below each directory or directory pair
+# and must begin with one of the following characters:
+#  -  exclude, specifies an exclude pattern
+#  +  include, specifies an include pattern
+#  .  merge, specifies a merge-file to read for more rules
+#  :  dir-merge, specifies a per-directory merge-file
+#  H  hide, specifies a pattern for hiding files from the transfer
+#  S  show, files that match the pattern are not hidden
+#  P  protect, specifies a pattern for protecting files from deletion
+#  R  risk, files that match the pattern are not protected
+#  !  clear, clears the current include/exclude list (takes no arg)
+#  B  bytes, relative size of the path in relation to the other paths in the list
+#  D  delete, delete extraneous files from destination directories (takes no arg)
+#  E  encrypt, enables data encryption [two cores should be allocated] (takes no arg)
+#  T  two-way syncronization will update both sides with latest changes (takes no arg)
+#  Z  compress data as it is sent, accepts optional compression level argument (1-9)
+# Rules higher in the list take precedence over lower ones.  By default, all files in a
+# directory are included, so if no exclude patterns match that file, it will be
+# transferred.
+
+com/verf/_ENVIR_/precip._PDYm2_/
+B 2900
+Z
+com/verf/_ENVIR_/precip._PDYm1_/
+B 2900
+Z
+
+com/verf/_ENVIR_/gridtobs._PDYm2_/
+E
+B 107000
+Z
+com/verf/_ENVIR_/gridtobs._PDYm1_/
+E
+B 107000
+Z
+
+com/verf/_ENVIR_/cloud._PDYm2_/
+B 44
+Z
+
+com/verf/_ENVIR_/dust._PDYm2_/
+B 16
+
+com/verf/_ENVIR_/etop._PDYm2_/
+B 52
+Z
+com/verf/_ENVIR_/etop._PDYm1_/
+B 52
+Z
+
+com/verf/_ENVIR_/reflt._PDYm2_/
+B 200
+Z
+com/verf/_ENVIR_/reflt._PDYm1_/
+B 200
+Z
+
+com/verf/_ENVIR_/smoke._PDYm2_/
+B 90
+Z
+com/verf/_ENVIR_/smoke._PDYm1_/
+B 90
+Z
+
+com/verf/_ENVIR_/urma._PDYm2_/
+B 1950
+com/verf/_ENVIR_/urma._PDYm1_/
+B 1950
+
+com/verf/_ENVIR_/firewx._PDYm2_/
+B 250
+Z
+com/verf/_ENVIR_/firewx._PDYm1_/
+B 250
+Z
+
+com/verf/_ENVIR_/ens._PDYm2_/
+B 780
+
+com/verf/_ENVIR_/href._PDYm2_/
+B 780
+
+com/verf/_ENVIR_/href_apcp._PDYm2_/
+B 780
+
+com/verf/_ENVIR_/vsdb/
++ /grid2grid/
++ /grid2grid/cloud/
++ /grid2grid/cloud/*__PDYm2_.vsdb
++ /grid2grid/dust/
++ /grid2grid/dust/hysplit__PDYm2_.vsdb
++ /grid2grid/ens/
++ /grid2grid/ens/*__PDYm2_.vsdb
++ /grid2grid/etop/
++ /grid2grid/etop/*__PDYm1_.vsdb
++ /grid2grid/firewx/
++ /grid2grid/firewx/*__PDYm2_.vsdb
++ /grid2grid/reflt/
++ /grid2grid/reflt/*__PDYm1_.vsdb
++ /grid2grid/smoke/
++ /grid2grid/smoke/hysplit__PDYm2_.vsdb
++ /grid2grid/urma/
++ /grid2grid/urma/*__PDYm1_.vsdb
++ /grid2grid/href/
++ /grid2grid/href/*__PDYm1_.vsdb
++ /precip/
++ /precip/gec00/
++ /precip/gec00/gec00__PDYm1_.vsdb
++ /precip/ndas/
++ /precip/ndas/ndas__PDYm1_.vsdb
++ /precip/ndassoil/
++ /precip/ndassoil/ndassoil__PDYm1_.vsdb
++ /precip/cmc/
++ /precip/cmc/cmc__PDYm1_.vsdb
++ /precip/cmcglb/
++ /precip/cmcglb/cmcglb__PDYm1_.vsdb
++ /precip/dwd/
++ /precip/dwd/dwd__PDYm1_.vsdb
++ /precip/ecmwf/
++ /precip/ecmwf/ecmwf__PDYm1_.vsdb
++ /precip/href/
++ /precip/href/href__PDYm2_.vsdb
++ /precip/jma/
++ /precip/jma/jma__PDYm9_.vsdb
++ /precip/jma/jma__PDYm1_.vsdb
++ /precip/metfr/
++ /precip/metfr/metfr__PDYm1_.vsdb
++ /precip/ukmo/
++ /precip/ukmo/ukmo__PDYm1_.vsdb
++ /precip/srarwctl/
++ /precip/srarwctl/srarwctl__PDYm1_.vsdb
++ /precip/srarwn?/
++ /precip/srarwn?/srarwn?__PDYm1_.vsdb
++ /precip/srarwp?/
++ /precip/srarwp?/srarwp?__PDYm1_.vsdb
++ /precip/srnmbctl/
++ /precip/srnmbctl/srnmbctl__PDYm1_.vsdb
++ /precip/srnmbn?/
++ /precip/srnmbn?/srnmbn?__PDYm1_.vsdb
++ /precip/srnmbp?/
++ /precip/srnmbp?/srnmbp?__PDYm1_.vsdb
++ /precip/srmean/
++ /precip/srmean/srmean__PDYm1_.vsdb
++ /precip/srfreqm/
++ /precip/srfreqm/srfreqm__PDYm1_.vsdb
++ /precip/firewxcs/
++ /precip/firewxcs/firewxcs__PDYm1_.vsdb
++ /precip/medley/
++ /precip/medley/medley__PDYm1_.vsdb
++ /precip/nam/
++ /precip/nam/nam__PDYm9_.vsdb
++ /precip/nam/nam__PDYm2_.vsdb
++ /precip/nam/nam__PDYm1_.vsdb
++ /precip/gfs/
++ /precip/gfs/gfs__PDYm9_.vsdb
++ /precip/gfs/gfs__PDYm2_.vsdb
++ /precip/gfs/gfs__PDYm1_.vsdb
++ /precip/rap/
++ /precip/rap/rap__PDYm9_.vsdb
++ /precip/rap/rap__PDYm2_.vsdb
++ /precip/hrrr/
++ /precip/hrrr/hrrr__PDYm9_.vsdb
++ /precip/hrrr/hrrr__PDYm2_.vsdb
++ /precip/conusnest/
++ /precip/conusnest/conusnest__PDYm9_.vsdb
++ /precip/conusnest/conusnest__PDYm2_.vsdb
++ /precip/conusnest/conusnest__PDYm1_.vsdb
++ /precip/conusarw/
++ /precip/conusarw/conusarw__PDYm9_.vsdb
++ /precip/conusarw/conusarw__PDYm2_.vsdb
++ /precip/conusarw/conusarw__PDYm1_.vsdb
++ /precip/conusarw2/
++ /precip/conusarw2/conusarw2__PDYm9_.vsdb
++ /precip/conusarw2/conusarw2__PDYm2_.vsdb
++ /precip/conusarw2/conusarw2__PDYm1_.vsdb
++ /precip/conusnmmb/
++ /precip/conusnmmb/conusnmmb__PDYm9_.vsdb
++ /precip/conusnmmb/conusnmmb__PDYm2_.vsdb
++ /precip/conusnmmb/conusnmmb__PDYm1_.vsdb
++ /precip/nssl4arw/
++ /precip/nssl4arw/nssl4arw__PDYm9_.vsdb
++ /precip/nssl4arw/nssl4arw__PDYm1_.vsdb
++ /gridtobs/
++ /gridtobs/aknest/
++ /gridtobs/aknest/aknest__PDYm1_.vsdb
++ /gridtobs/akrtma/
++ /gridtobs/akrtma/akrtma__PDYm2_.vsdb
++ /gridtobs/akrtma/akrtma__PDYm1_.vsdb
++ /gridtobs/aqm/
++ /gridtobs/aqm/cmaq5x__PDYm2_.vsdb
++ /gridtobs/aqm1/
++ /gridtobs/aqm1/cmaq5xbc__PDYm2_.vsdb
++ /gridtobs/cmaq5x/
++ /gridtobs/cmaq5x/cmaq5xmax__PDYm3_.vsdb
++ /gridtobs/cmaq5x/cmaq5xmax__PDYm2_.vsdb
++ /gridtobs/cmaq5xbc/
++ /gridtobs/cmaq5xbc/cmaq5xbcmax__PDYm3_.vsdb
++ /gridtobs/cmaq5xbc/cmaq5xbcmax__PDYm2_.vsdb
++ /gridtobs/conusnest/
++ /gridtobs/conusnest/conusnest__PDYm2_.vsdb
++ /gridtobs/conusnest/conusnest__PDYm1_.vsdb
++ /gridtobs/fwis/
++ /gridtobs/fwis/fwis__PDYm2_.vsdb
++ /gridtobs/fwis/fwis__PDYm1_.vsdb
++ /gridtobs/gdas/
++ /gridtobs/gdas/gdas__PDYm1_.vsdb
++ /gridtobs/gfs/
++ /gridtobs/gfs/gfs__PDYm1_.vsdb
++ /gridtobs/gfse/
++ /gridtobs/gfse/gfse__PDYm1_.vsdb
++ /gridtobs/hawaiinest/
++ /gridtobs/hawaiinest/hawaiinest__PDYm1_.vsdb
++ /gridtobs/hiresw/
++ /gridtobs/hiresw/*__PDYm1_.vsdb
++ /gridtobs/hirtma/
++ /gridtobs/hirtma/hirtma__PDYm2_.vsdb
++ /gridtobs/hirtma/hirtma__PDYm1_.vsdb
++ /gridtobs/hrrr/
++ /gridtobs/hrrr/hrrr__PDYm2_.vsdb
++ /gridtobs/hrrr/hrrr__PDYm1_.vsdb
++ /gridtobs/nam/
++ /gridtobs/nam/nam__PDYm2_.vsdb
++ /gridtobs/nam/nam__PDYm1_.vsdb
++ /gridtobs/narre/
++ /gridtobs/narre/narre__PDYm2_.vsdb
++ /gridtobs/narre/narre__PDYm1_.vsdb
++ /gridtobs/ndas/
++ /gridtobs/ndas/ndas__PDYm1_.vsdb
++ /gridtobs/ngac/
++ /gridtobs/ngac/ngac__PDYm1_.vsdb
++ /gridtobs/nssl4arw/
++ /gridtobs/nssl4arw/nssl4arw__PDYm1_.vsdb
++ /gridtobs/pm/
++ /gridtobs/pm/cmaq5x__PDYm2_.vsdb
++ /gridtobs/pm1/
++ /gridtobs/pm1/cmaq5xbc__PDYm2_.vsdb
++ /gridtobs/priconest/
++ /gridtobs/priconest/priconest__PDYm1_.vsdb
++ /gridtobs/prrtma/
++ /gridtobs/prrtma/prrtma__PDYm2_.vsdb
++ /gridtobs/prrtma/prrtma__PDYm1_.vsdb
++ /gridtobs/rap/
++ /gridtobs/rap/rap__PDYm2_.vsdb
++ /gridtobs/rap/rap__PDYm1_.vsdb
++ /gridtobs/rtma2p5/
++ /gridtobs/rtma2p5/rtma2p5__PDYm2_.vsdb
++ /gridtobs/rtma2p5/rtma2p5__PDYm1_.vsdb
++ /gridtobs/smartinit/
++ /gridtobs/smartinit/smart*__PDYm1_.vsdb
++ /gridtobs/smartinit2p5/
++ /gridtobs/smartinit2p5/smart*__PDYm1_.vsdb
++ /gridtobs/sref/
++ /gridtobs/sref/sr*__PDYm1_.vsdb
++ /gridtobs/srefak/
++ /gridtobs/srefak/sr*__PDYm1_.vsdb
++ /gridtobs/srefens/
++ /gridtobs/srefens/srefens__PDYm2_.vsdb
++ /gridtobs/srefens/srefens__PDYm1_.vsdb
++ /gridtobs/srefensx/
++ /gridtobs/srefensx/srefensx__PDYm2_.vsdb
++ /gridtobs/srefensx/srefensx__PDYm1_.vsdb
++ /gridtobs/srefx/
++ /gridtobs/srefx/sr*__PDYm1_.vsdb
++ /gridtobs/urma2p5/
++ /gridtobs/urma2p5/urma2p5__PDYm2_.vsdb
++ /gridtobs/urma2p5/urma2p5__PDYm1_.vsdb
+- *
+B 2000
+Z
+

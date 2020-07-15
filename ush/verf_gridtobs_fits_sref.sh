@@ -31,8 +31,8 @@ export mod=$4
 ##export network ="GRDNAM MODNAM" 
 export vdate=${vday}${vcyc}
 
-export wgrib=${wgrib:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.1/exec/wgrib}
-export copygb=${copygb:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.1/exec/copygb}
+export wgrib=${wgrib:-$WGRIB}
+export copygb=${copygb:-$COPYGB}
 
 mkdir -p $DATA/$vcyc
 cd $DATA/$vcyc
@@ -41,7 +41,6 @@ cd $DATA/$vcyc/$mod
 
 echo $SHELL
 ###typeset -L8 pll3
-$utilscript/setup.sh
                                                                                          
 echo $regions
 for domain in $regions
@@ -210,7 +209,7 @@ then
     ## Special treatment for the AQM model:
     if [ $model = "aqm" -o $model = "aqmak" -o $model = "pm" -o $model = "aqmpara1" -o $model = "pmak" -o $model = "pm1" -o $model = "aqmhi" -o $model = "pmhi" -o $model = "aqmpara" ]
     then
-       vdatep1=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate +24 $vdate`
+       vdatep1=`$NDATE +24 $vdate`
        if [ $vcyc = 24 ]
        then 
           TIME_WIN=${vdatep1}
@@ -239,7 +238,7 @@ then
   fi
 
   export pgm=verf_gridtobs_editbufr${XCE}
-  . $utilscript/prep_step
+  . prep_step
 
    pwd
    echo $DATA
@@ -250,9 +249,9 @@ then
    ln -sf $DATA/$vcyc/$mod/prepda.${vdate} fort.20
    ln -sf $DATA/$vcyc/$mod/bufrout_${domain} fort.50
 
-  $utilscript/startmsg.sh
+  startmsg
   $EXECverf_gridtobs/verf_gridtobs_editbufr${XCE} < gridtobs.keeplist.${network} >>$pgmout
-  export err=$?; $utilscript/err_chk.sh
+  export err=$?; err_chk
 
   rm fort.*
 
@@ -287,7 +286,7 @@ EOF_LEVCAT
        echo "Warning: Input file is empty, no verification for model $domain"
     else
        export pgm=verf_gridtobs_prepfits
-       . $utilscript/prep_step
+       . prep_step
 
 #       export XLFUNIT_11=gridtobs.levcat.${domain}
 #       export XLFUNIT_20=bufrout_${domain}
@@ -299,13 +298,13 @@ EOF_LEVCAT
        ln -sf $PARMverf_gridtobs/verf_gridtobs.prepfits.tab${XCT} fort.22
        ln -sf $DATA/$vcyc/$mod/prepfits.${domain}.${vdate} fort.50
 
-       $utilscript/startmsg.sh
+       startmsg
        echo "datacard"
        echo $datacard
        $EXECverf_gridtobs/verf_gridtobs_prepfits${XC} < $datacard >>prepfit.out.${domain}
        export err=$?
        cat prepfit.out.${domain} >>$pgmout
-       $utilscript/err_chk.sh
+       err_chk
 
        ## Save the "prepfits" files 
        chmod 640 prepfits.${domain}.${vdate}
@@ -390,10 +389,10 @@ EOF_LEVCAT
        mv gridtobs_${domain}.new gridtobs_${domain}
 
 #       cat firemask00.grb firemask12.grb firemask24.grb firemask36.grb > firemask.grb
-#       $utilexec/grbindex firemask.grb firemaski.grb       
+#       ${GRBINDEX} firemask.grb firemaski.grb       
  
        pgm=verf_gridtobs_gridtobs
-       . $utilscript/prep_step
+       . prep_step
 
 #       export XLFUNIT_10=prepfits.${domain}.${vdate}
 #       export XLFUNIT_20=$PARMverf_gridtobs/verf_gridtobs.grid104
@@ -407,9 +406,9 @@ EOF_LEVCAT
        ln -sf $PARMverf_gridtobs/verf_gridtobs.regions fort.21
        ln -sf $DATA/$vcyc/$mod/${domain}_${vdate}.vdb fort.50
 
-       $utilscript/startmsg.sh
+       startmsg
        $EXECverf_gridtobs/verf_gridtobs_gridtobs${XC} <gridtobs_${domain} >gto.${domain}${vcyc}.out
-       export err=$?; $utilscript/err_chk.sh
+       export err=$?; err_chk
 
        cat gto.${domain}${vcyc}.out >>$pgmout
 
@@ -475,7 +474,7 @@ EOF_LEVCAT
        mv gridtobs_${domain}_fwis.new gridtobs_${domain}_fwis
 
        pgm=verf_gridtobs_gridtobs_fwis
-       . $utilscript/prep_step
+       . prep_step
 
 #       export XLFUNIT_10=prepfits.${domain}.${vdate}
 #       export XLFUNIT_20=$PARMverf_gridtobs/verf_gridtobs.grid104
@@ -515,9 +514,9 @@ EOF_LEVCAT
         ln -sf firemask7.grb fort.43
         ln -sf firemask7i.grb fort.44
         ln -sf ${domain}_${vdate}_fwis.vdb fort.50
-       $utilscript/startmsg.sh
+       startmsg
        $EXECverf_gridtobs/verf_gridtobs_gridtobs_fwis <gridtobs_${domain}_fwis >gto.${domain}${vcyc}_fwis.out
-       export err=$?; $utilscript/err_chk.sh
+       export err=$?; err_chk
 
        cat gto.${domain}${vcyc}_fwis.out >>$pgmout
 
@@ -541,12 +540,15 @@ EOF_LEVCAT
 fi
 done
 
-## DBN alert the vsdb record files to TOC:
-if [ $SENDDBN = YES ]
-then
-   cd $COMVSDB/$model
-   for vsdbfile in `ls $model/*_${vday}.vsdb`
-   do 
-     $DBNROOT/bin/dbn_alert MODEL VERIF_GRID2OBS $job $COMVSDB/${model}/$vsdbfile
-   done
-fi
+## JY -01/14/2020. Broken here with two $model in the path (smilar in production in phase1). 
+## According to developer, this block is not needed. So comment out.
+
+### DBN alert the vsdb record files to TOC:
+#if [ $SENDDBN = YES ]
+#then
+#   cd $COMVSDB/$model
+#   for vsdbfile in `ls $model/*_${vday}.vsdb`
+#   do 
+#     $DBNROOT/bin/dbn_alert MODEL VERIF_GRID2OBS $job $COMVSDB/${model}/$vsdbfile
+#   done
+#fi

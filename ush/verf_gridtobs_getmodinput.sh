@@ -22,11 +22,11 @@ then
    err_exit
 fi
 
-wgrib=${wgrib:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/wgrib}
-copygb=${copygb:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/copygb}
-wgrib2=${wgrib2:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/wgrib2}
-cnvgrib=${cnvgrib:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/cnvgrib}
-copygb2=${copygb2:-/gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/copygb2}
+wgrib=${wgrib:-$WGRIB}
+copygb=${copygb:-$COPYGB}
+wgrib2=${wgrib2:-$WGRIB2}
+cnvgrib=${cnvgrib:-$CNVGRIB}
+copygb2=${copygb2:-$COPYGB2}
 ##wgrib=/nco/sib/wx11bv/wgrib/wgrib
 ##copygb=/nco/sib/wx11bv/copygb/copygb
 
@@ -73,9 +73,9 @@ while [ $fhr -le $frange ]
 do
   if [ $model = ndas ]
   then
-    adate=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate +$ifhr $vdate`
+    adate=`$NDATE +$ifhr $vdate`
   else
-    adate=`/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec/ips/ndate -$fhr $vdate`
+    adate=`$NDATE -$fhr $vdate`
   fi
   aday=`echo $adate |cut -c1-8`
   acyc=`echo $adate |cut -c9-10`
@@ -96,7 +96,7 @@ do
        if [ -e firewx${fhr}.grb ]
        then
          let "ifire=ifire+1"
-###         $utilexec/grbindex firewx${fhr}.grb firewx${fhr}i.grb
+###         ${GRBINDEX} firewx${fhr}.grb firewx${fhr}i.grb
          cp ${COMN}/nam.${aday}/nam.t${acyc}z.firewxnest.hiresf${fhr}.tm00.grib2.idx firewx${fhr}i.grb
       fi
       fi
@@ -117,20 +117,20 @@ do
            ;;
       hawaiinest)cp ${DIRIN}.${aday}/${runnam}.t${acyc}z.hawaiinest.${filnam1}${fhr}${tmkk} GRD${fhr}
                    gr="0 6 0 0 0 0 0 0 322 202 0 0 18000000 198000000 48 23025000 206025000 25000 25000 64"
-                   $copygb2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
+                   $COPYGB2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
                    cp GRD${fhr}.1 GRD${fhr}
            ;;
       priconest)cp ${DIRIN}.${aday}/${runnam}.t${acyc}z.priconest.${filnam1}${fhr}${tmkk} GRD${fhr}
                    gr="0 6 0 0 0 0 0 0 171 121 0 0 16750000 291750000 48 19750000 296000000 25000 25000 64"
-                   $copygb2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
+                   $COPYGB2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
                    cp GRD${fhr}.1 GRD${fhr}
            ;;
       ndas)fhour=`expr 12 - $ifhr`
            if [ $fhour -lt 10 ]; then fhour=0$fhour; fi
-           aday=`/nwprod/util/exec/ndate +$ifhr $vdate |cut -c1-8`
-           acyc=`/nwprod/util/exec/ndate +$ifhr $vdate |cut -c9-10`
-           aday_p=`/nwprod/util/exec/ndate +$fhour $vdate |cut -c1-8`
-           acyc_p=`/nwprod/util/exec/ndate +$fhour $vdate |cut -c9-10`
+           aday=`$NDATE +$ifhr $vdate |cut -c1-8`
+           acyc=`$NDATE +$ifhr $vdate |cut -c9-10`
+           aday_p=`$NDATE +$fhour $vdate |cut -c1-8`
+           acyc_p=`$NDATE +$fhour $vdate |cut -c9-10`
 
            if [ $itr -eq 1 ]
            then
@@ -160,24 +160,24 @@ do
            ;;
       hirtma)cp ${DIRIN}.${aday}/${runnam}.t${acyc}z.${filnam1} GRD${fhr}
              gr="0 6 0 0 0 0 0 0 322 202 0 0 18000000 198000000 48 23025000 206025000 25000 25000 64"
-             $copygb2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
+             $COPYGB2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
              cp GRD${fhr}.1 GRD${fhr}
            ;;
       prrtma)cp ${DIRIN}.${aday}/${runnam}.t${acyc}z.${filnam1} GRD${fhr}
               gr="0 6 0 0 0 0 0 0 171 121 0 0 16750000 291750000 48 19750000 296000000 25000 25000 64"
-              $copygb2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
+              $COPYGB2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
              cp GRD${fhr}.1 GRD${fhr}
            ;;
       smartinit) cp ${DIRIN}.${aday}/${runnam}.t${acyc}z.${filnam1}${fhr}${tmkk} GRD${fhr} 
                    if [ $domain = "smarthi" ]
                    then
                      gr="0 6 0 0 0 0 0 0 322 202 0 0 18000000 198000000 48 23025000 206025000 25000 25000 64"
-                     $copygb2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
+                     $COPYGB2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
                      cp GRD${fhr}.1 GRD${fhr}
                  elif [ $domain = "smartpr" ]
                  then
                    gr="0 6 0 0 0 0 0 0 171 121 0 0 16750000 291750000 48 19750000 296000000 25000 25000 64"
-                   $copygb2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
+                   $COPYGB2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
                    cp GRD${fhr}.1 GRD${fhr}
                  fi 
             ;;       
@@ -186,11 +186,11 @@ do
                if [ $fhr -eq 00 ]
                then
                  gribfile=${DIRIN}.${aday}/${acyc}/ensprod/${runnam}.t${acyc}z.${filnam1}.grib2
-                 $wgrib2 $gribfile | grep "anl" | $wgrib2 -i $gribfile -grib GRD${fhr}.1
+                 $WGRIB2 $gribfile | grep "anl" | $WGRIB2 -i $gribfile -grib GRD${fhr}.1
                  cp GRD${fhr}.1 GRD${fhr}
                else
                  gribfile=${DIRIN}.${aday}/${acyc}/ensprod/${runnam}.t${acyc}z.${filnam1}.grib2
-                 $wgrib2 $gribfile | grep "${fhra} hour fcst" | $wgrib2 -i $gribfile -grib GRD${fhr}.1
+                 $WGRIB2 $gribfile | grep "${fhra} hour fcst" | $WGRIB2 -i $gribfile -grib GRD${fhr}.1
                  cp GRD${fhr}.1 GRD${fhr}
                fi
              else
@@ -207,11 +207,11 @@ do
                if [ $fhr -eq 00 ]
                then
                  gribfile=${DIRIN}.${aday}/${acyc}/ensprod/${runnam}.t${acyc}z.${filnam1}.grib2
-                 $wgrib2 $gribfile | grep "anl" | $wgrib2 -i $gribfile -grib GRD${fhr}.1
+                 $WGRIB2 $gribfile | grep "anl" | $WGRIB2 -i $gribfile -grib GRD${fhr}.1
                  cp GRD${fhr}.1 GRD${fhr}
                else
                  gribfile=${DIRIN}.${aday}/${acyc}/ensprod/${runnam}.t${acyc}z.${filnam1}.grib2
-                 $wgrib2 $gribfile | grep "${fhra} hour fcst" | $wgrib2 -i $gribfile -grib GRD${fhr}.1
+                 $WGRIB2 $gribfile | grep "${fhra} hour fcst" | $WGRIB2 -i $gribfile -grib GRD${fhr}.1
                  cp GRD${fhr}.1 GRD${fhr}
                fi
              else
@@ -228,19 +228,19 @@ do
                if [ $fhr -eq 00 ]
                then
                 gribfile=${DIRIN}.${aday}/${acyc}/ensprod/${runnam}.t${acyc}z.${filnam1}.grib2
-                $wgrib2 $gribfile | grep "anl" | $wgrib2 -i $gribfile -grib GRD${fhr}
+                $WGRIB2 $gribfile | grep "anl" | $WGRIB2 -i $gribfile -grib GRD${fhr}
                else
                 gribfile=${DIRIN}.${aday}/${acyc}/ensprod_biasc/${runnam}.t${acyc}z.${filnam1}.grib2
-                $wgrib2 $gribfile | grep "${fhra} hour fcst" | $wgrib2 -i $gribfile -grib GRD${fhr}
+                $WGRIB2 $gribfile | grep "${fhra} hour fcst" | $WGRIB2 -i $gribfile -grib GRD${fhr}
                fi
              else
                 if [ $fhr -eq 00 ]
                 then
                  gribfile=${DIRIN}.${aday}/${acyc}/pgrb/${runnam}.t${acyc}z.${filnam1}.f00.grib2
-                 $wgrib2 $gribfile | grep "anl" | $wgrib2 -i $gribfile -grib GRD${fhr}
+                 $WGRIB2 $gribfile | grep "anl" | $WGRIB2 -i $gribfile -grib GRD${fhr}
                 else
                  gribfile=${DIRIN}.${aday}/${acyc}/pgrb_biasc/${runnam}.t${acyc}z.${filnam1}.grib2
-                 $wgrib2 $gribfile | grep "${fhra} hour fcst" | $wgrib2 -i $gribfile -grib GRD${fhr}
+                 $WGRIB2 $gribfile | grep "${fhra} hour fcst" | $WGRIB2 -i $gribfile -grib GRD${fhr}
                 fi
             fi
            ;;
@@ -256,11 +256,11 @@ do
            if [ -e ${DIRIN}.${aday}/${acyc}/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} ]
            then
              cp ${DIRIN}.${aday}/${acyc}/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} TMP${fhr}
-             $wgrib2 TMP${fhr} | grep  -F -f gfs_parmlist | $wgrib2 -i -grib  GRD${fhr} TMP${fhr}
+             $WGRIB2 TMP${fhr} | grep  -F -f gfs_parmlist | $WGRIB2 -i -grib  GRD${fhr} TMP${fhr}
              rm -f -r TMP${fhr}
              if [ $domain = "gfs12" -o $domain = "gfs12ak" ]
              then
-             $wgrib2 GRD${fhr} -set_grib_type same -new_grid_winds earth -new_grid ${cgrid} GRD${fhr}.1
+             $WGRIB2 GRD${fhr} -set_grib_type same -new_grid_winds earth -new_grid ${cgrid} GRD${fhr}.1
              mv GRD${fhr}.1 GRD${fhr}
              fi
            fi
@@ -271,9 +271,9 @@ do
            then
              # cp ${DIRIN}.${aday}/${acyc}/${runnam}.t${acyc}z.${filnam1}${fhr}${tmkk} TMP${fhr}
              cp ${DIRIN}.${aday}/${acyc}/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} TMP${fhr}
-             $wgrib2 TMP${fhr} | grep  -F -f gfs_parmlist | $wgrib2 -i -grib  GRD${fhr} TMP${fhr}
+             $WGRIB2 TMP${fhr} | grep  -F -f gfs_parmlist | $WGRIB2 -i -grib  GRD${fhr} TMP${fhr}
              rm -f -r TMP${fhr}
-             $wgrib2 GRD${fhr} -set_grib_type same -new_grid_winds earth -new_grid ${cgrid} GRD${fhr}.1
+             $WGRIB2 GRD${fhr} -set_grib_type same -new_grid_winds earth -new_grid ${cgrid} GRD${fhr}.1
              mv GRD${fhr}.1 GRD${fhr}
             fi
              ;;
@@ -288,17 +288,17 @@ do
              cp ${DIRIN}.${aday}/${acyc}/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} GRD${fhr}
            fi
            ;;
-      nssl4arw) if [ -e cp /dcom/us007003/${aday}/wgrbbul/nssl_wrf/${filnam1}_${aday}${acyc}.f${fhr} ]
+      nssl4arw) if [ -e cp $DCOMROOT/prod/${aday}/wgrbbul/nssl_wrf/${filnam1}_${aday}${acyc}.f${fhr} ]
                 then
-                 cp /dcom/us007003/${aday}/wgrbbul/nssl_wrf/${filnam1}_${aday}${acyc}.f${fhr} GRD${fhr}
+                 cp $DCOMROOT/prod/${aday}/wgrbbul/nssl_wrf/${filnam1}_${aday}${acyc}.f${fhr} GRD${fhr}
                  if [ -e anl.grd ]
                  then
                   rm anl.grd
                  else
-                  cp /dcom/us007003/${aday}/wgrbbul/nssl_wrf/${filnam1}_${aday}${acyc}.f${fhr} anl.grd
+                  cp $DCOMROOT/prod/${aday}/wgrbbul/nssl_wrf/${filnam1}_${aday}${acyc}.f${fhr} anl.grd
                   if [ -e anl.grd ]
                   then
-                   $cnvgrib -g12 anl.grd anl.grd_grib2
+                   $CNVGRIB -g12 anl.grd anl.grd_grib2
                    mv anl.grd_grib2 anl.grd
                   fi
                  fi
@@ -308,7 +308,7 @@ do
              if [ $domain = "hinmmb" -o $domain = "hiarw" ]
                then
                 gr="0 6 0 0 0 0 0 0 322 202 0 0 18000000 198000000 48 23025000 206025000 25000 25000 64"
-                $copygb2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
+                $COPYGB2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
                 mv GRD${fhr}.1 GRD${fhr}
              fi
             ;;
@@ -337,7 +337,7 @@ do
 
     if [ $domain = "nssl4arw" ]
     then
-     $cnvgrib -g12 GRD${fhr} GRD${fhr}_grib2
+     $CNVGRIB -g12 GRD${fhr} GRD${fhr}_grib2
      mv GRD${fhr}_grib2 GRD${fhr}
     fi
 
@@ -345,14 +345,14 @@ do
     then
      if [ $GRIB = "grib1" ]
      then
-      $utilexec/grbindex GRD${fhr} GRD${fhr}i
+      ${GRBINDEX} GRD${fhr} GRD${fhr}i
       $utilexec/copygb -g$cgrid GRD${fhr} GRD${fhr}i AWIP3D${fhr}.tm00
      fi
      if [ $GRIB = "grib2" ]
      then
-      /gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/grb2index GRD${fhr} GRD${fhr}i
-      /gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/copygb2 -g"$cgrid" GRD${fhr} GRD${fhr}i AWIP3D${fhr}.tm00
-#      $utilexec/copygb2 -g"$cgrid" -x GRD${fhr} AWIP3D${fhr}.tm00
+      $GRB2INDEX GRD${fhr} GRD${fhr}i
+      $COPYGB2 -g"$cgrid" GRD${fhr} GRD${fhr}i AWIP3D${fhr}.tm00
+#      ${COPYGB2} -g"$cgrid" -x GRD${fhr} AWIP3D${fhr}.tm00
      fi
     else
       if [ -e GRD${fhr} ]
@@ -365,11 +365,11 @@ do
     then
      if [ $GRIB = "grib2" ]
      then
-      /gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/grb2index AWIP3D${fhr}.tm00 AWIP3D${fhr}i.tm00
+      $GRB2INDEX AWIP3D${fhr}.tm00 AWIP3D${fhr}i.tm00
      fi
      if [ $GRIB = "grib1" ]
      then
-      /gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/grbindex AWIP3D${fhr}.tm00 AWIP3D${fhr}i.tm00
+      $GRBINDEX AWIP3D${fhr}.tm00 AWIP3D${fhr}i.tm00
      fi
     fi
 
@@ -381,7 +381,7 @@ do
      if [ -e anl.grd -a $itr -eq 1 ]
      then
       cp anl.grd ANL.tm00
-      /gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/grb2index ANL.tm00 ANLi.tm00
+      $GRB2INDEX ANL.tm00 ANLi.tm00
 
      fi
 
@@ -416,7 +416,7 @@ do
     $EXECverf_gridtobs/verf_gridtobs_writemask < firewx >>writemask${fhr}.out
     export err=$?; err_chk
 
-    /gpfs/dell1/nco/ops/nwprod/grib_util.v1.1.0/exec/grbindex maskout.grb maskouti.grb
+    $GRBINDEX maskout.grb maskouti.grb
     cp maskout.grb firemask${ifire}.grb
     cp maskouti.grb firemask${ifire}i.grb
 

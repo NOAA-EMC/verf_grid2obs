@@ -29,9 +29,9 @@ seg=`echo $input_parm |awk -F"_" '{print $5}'`
 
 # Execute the program:
 export pgm=verf_gridtobs_gridtobs_ens
-. $utilscript/prep_step
+. prep_step
 
-$utilscript/startmsg.sh
+startmsg
 
 mkdir -p $DATA/${domain}_${group}_${list}_${seg}
 cp -d fort* $DATA/${domain}_${group}_${list}_${seg}

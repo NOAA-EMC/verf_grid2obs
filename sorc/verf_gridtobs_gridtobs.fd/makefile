@@ -12,7 +12,7 @@ OBJS=       gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o \
             setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o \
             stlstr.o stnumb.o stread.o streadfho.o streal.o strmbl.o strxbl.o \
             w3fa09a.o gridtobs.o
-CMD=        ../../exec/verf_gridtobs_gridtobs
+CMD=        verf_gridtobs_gridtobs
 
 all:	$(CMD)
 

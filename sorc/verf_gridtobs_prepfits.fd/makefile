@@ -15,7 +15,7 @@ SRCS=        anl.f grid3d.f surfce.f gridef.f observ.f backgv.f guesfc.f guess.f
              obscape.f obspbl.f  calshear.f raddate.f setterp.f ufbxy3.f  windchill.f  haines.f   prepfits.f
 OBJS=        anl.o grid3d.o surfce.o gridef.o observ.o backgv.o guesfc.o guess.o itotal.o obstrs.o  weights.o debug.o counts.o vdates.o vrtfac.o guser.o adddate.o calcape.o calpbl.o calpw.o  getanl.o getbak.o getfct.o getprof_upr.o htindex.o ireadpb.o \
              obscape.o obspbl.o  calshear.o raddate.o setterp.o ufbxy3.o windchill.o haines.o prepfits.o
-CMD=            ../../exec/verf_gridtobs_prepfits
+CMD=            verf_gridtobs_prepfits
 
 all:	$(CMD)
 

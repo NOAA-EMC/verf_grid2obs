@@ -1,0 +1,82 @@
+Install verf_gridtobs_avegrib_pm.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 1190248 Jan  9 19:02 verf_gridtobs_avegrib_pm
+
+
+Install verf_gridtobs_editbufr.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 1392880 Jan  2 16:58 verf_gridtobs_editbufr
+
+
+Install verf_gridtobs_editbufr_ozone.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 1397664 Jan  9 19:02 verf_gridtobs_editbufr_ozone
+
+
+Install verf_gridtobs_editbufr_ozonemax.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 1430936 Jan  9 19:02 verf_gridtobs_editbufr_ozonemax
+
+
+Install verf_gridtobs_editbufr_pmave.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 1500704 Jan  9 19:02 verf_gridtobs_editbufr_pmave
+
+
+Install verf_gridtobs_editbufr_pm.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 1397208 Jan  9 19:02 verf_gridtobs_editbufr_pm
+
+
+Install verf_gridtobs_editbufr_pmmax.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 1500624 Jan  9 19:02 verf_gridtobs_editbufr_pmmax
+
+
+Install verf_gridtobs_gridtobs_aod.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 1403976 Jan  9 19:02 verf_gridtobs_gridtobs_aod
+
+
+Install verf_gridtobs_gridtobs_ens.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 1465288 Jan  9 19:02 verf_gridtobs_gridtobs_ens
+
+
+Install verf_gridtobs_gridtobs.fd/
+ls: cannot access verf_gridtobs_gridtobs: No such file or directory
+cp: cannot stat 'verf_gridtobs_gridtobs': No such file or directory
+Failed in verf_gridtobs_gridtobs.fd/
+
+
+Install verf_gridtobs_gridtobs_fwis.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 3148656 Jan  9 19:02 verf_gridtobs_gridtobs_fwis
+
+
+Install verf_gridtobs_gridtobs_ozone.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 1427552 Jan  9 19:02 verf_gridtobs_gridtobs_ozone
+
+
+Install verf_gridtobs_gridtobs_pm.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 1429464 Jan  9 19:02 verf_gridtobs_gridtobs_pm
+
+
+Install verf_gridtobs_maxgrib_ozone.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 1191936 Jan  9 19:02 verf_gridtobs_maxgrib_ozone
+
+
+Install verf_gridtobs_maxgrib_pm.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 1190248 Jan  9 19:02 verf_gridtobs_maxgrib_pm
+
+
+Install verf_gridtobs_prepfits_aod.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 3645784 Jan  9 19:02 verf_gridtobs_prepfits_aod
+
+
+Install verf_gridtobs_prepfits.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 3455304 Jan  2 16:58 verf_gridtobs_prepfits
+
+
+Install verf_gridtobs_prepfits_ozone.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 2026016 Jan  9 19:03 verf_gridtobs_prepfits_ozone
+
+
+Install verf_gridtobs_prepfits_pm.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 2023008 Jan  9 19:03 verf_gridtobs_prepfits_pm
+
+
+Install verf_gridtobs_writemask.fd/
+-rwxrwxr-x 1 Jianbin.Yang prod 3073672 Jan  9 19:03 verf_gridtobs_writemask
+
+
