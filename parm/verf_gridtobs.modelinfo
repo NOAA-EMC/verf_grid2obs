@@ -1,28 +1,20 @@
 MODEL|REGIONS|VERIFICATION LENGTH|FORECAST RANGE|
-aqm|ozone|72|72|
-#aqm|aqm|48|48|
-aqm1|ozone1|72|72|
-pm|pm|72|72|
-pm1|pm1|72|72|
+aqm|ozone|48|48|
+aqm1|ozone1|48|48|
+pm|pm|48|48|
+pm1|pm1|48|48|
 ngac|ngac|120|120|
 gfs|gfs gfs12 gfs12ak|84|84|
 gdas|gdas|09|09|
-#nam|nam nam40 namak nam40ak namhi|84|84|
-nam|nam|84|84|
-fv3nest|fv3nest|60|60|
-fv3reg|fv3reg|60|60|
-fv3sar|fv3sar|60|60|
-premaq|premaq|48|48|
+nam|nam namak namhi|84|84|
 conusnest|conusnest|60|60|
 aknest|aknest|60|60|
 hawaiinest|hawaiinest|60|60|
 priconest|priconest|60|60|
 fwis|fwis|36|36|
 ndas|ndas|03|03|
-rap|rap13 rapak|51|51|
-hrrr|hrrr hrrrak|48|48|
-rapx|rapx rapxak|51|51|
-hrrrx|hrrrx hrrrxak|48|48|
+rap|rap13 rapak|39|39|
+hrrr|hrrr|36|36|
 rtma|rtma|00|00|
 rtma2p5|rtma2p5|00|00|
 urma2p5|urma2p5|00|00|
@@ -33,7 +25,7 @@ prrtma|prrtma|00|00|
 dgex|dgexco dgexak|192|192|
 gfse|gfseco gfseak|192|192|
 hiresw|conusfv3 conusarw conusarw2 eastconusfv3 eastconusarw westconusfv3 westconusarw akfv3 akarw hifv3 hiarw prfv3 prarw|48|48|
-smartinit|smartconus smartak smarthi smartpr|84|84|
+smartinit|smarthi smartpr|84|84|
 smartinit2p5|smartconus2p5 smartak3|60|60|
 nssl4arw|nssl4arw|36|36|
 sref|srarwc srarwp1 srarwn1 srarwp2 srarwn2 srarwp3 srarwn3 srarwp4 srarwn4 srarwp5 srarwn5 srarwp6 srarwn6 srnmbc srnmbn1 srnmbn2 srnmbn3 srnmbn4 srnmbn5 srnmbn6 srnmbp1 srnmbp2 srnmbp3 srnmbp4 srnmbp5 srnmbp6 srmean|87|87|
