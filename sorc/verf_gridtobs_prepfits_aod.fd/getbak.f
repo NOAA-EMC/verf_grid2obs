@@ -372,9 +372,11 @@ C     KGDS(1) = 3 ----> POLAR STEREOGRAPHIC
 C     KGDS(1) = 5 ----> LAMBERT CONFORMAL
 C     
 c     IF (kgds(1).eq.0) THEN
+      print*,'itmpl=',itmpl
       if(itmpl.eq.0) then
         imax = gfld%igdtmpl(8)
         jmax = gfld%igdtmpl(9)
+        print*,'imax,jmax=',imax,jmax
         latlong = .true.
         lambert = .false.
         polarstereo = .false.
@@ -412,6 +414,7 @@ c       elon1 = kgds(5) * D0001
 c       alatend = kgds(7) * D0001
         alatend = gfld%igdtmpl(15) * 0.001
         IF (elon1.lt.0.0) elon1 = elon1 + 360.
+        if (nint(elon1).eq.360) elon1 = 0.
         elonv = 0.0
         alatan1 = 0.0
         alatan2 = 0.0

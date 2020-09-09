@@ -211,7 +211,7 @@ if [ $err3 -ne 0 ] ; then
   fi
 fi
 
-if [ $NET = "ngac" ]
+if [ $model = "ngac" ]
 then
 cyc=$HH00                                   # center hour of dump (eg, '12' for 12z)
 CYMD=${vday}$cyc

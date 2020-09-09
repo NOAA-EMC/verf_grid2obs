@@ -180,8 +180,8 @@ C           Latitiude - Longitude grid  - even global NOW
             else
              xi = (xob-elon1) / dxx + 1.0
              yj = (yob-alat1) / dyy + 1.0
-             print*,'xob,yob,alat1,elon1,dxx,dyy=',
-     *        xob,yob,alat1,elon1,dxx,dyy
+c            print*,'xob,yob,alat1,elon1,dxx,dyy=',
+c    *        xob,yob,alat1,elon1,dxx,dyy,xi,yj
             endif
 	    rmx1 = 1.0
 	    rmx2 = 0.0
@@ -315,6 +315,7 @@ C         ----------------------------
 C     BI-LINEAR HORIZONTAL INTERPOLATION FROM GES TO ALL DATA POINTS
 C     --------------------------------------------------------------
       nwith = 0
+      print*,'nrep=',nrep
       DO n = 1, nrep
       if(sub(n)(:6).eq.'ADPUPA') then
          i = kxid (n,1)
@@ -334,6 +335,8 @@ c         nwith = nwith + 1
           j=kyj(n)
           j1=j+1
           endif  !  subset.eq.ADPUPA
+c       print*,'kxi,kyj,imax,jmax=',
+c    *    kxi(n),kyj(n),imax,jmax
         IF (kxi(n).gt.0.and.kyj(n).gt.0.and.
      *        kxi(n).lt.imax.and.kyj(n).lt.jmax) THEN
 	  IF ( chk ( mskps(i,j), mskps(i1,j), mskps(i,j1),
