@@ -3,17 +3,18 @@ C**********************************************************************
 C     rm1 = rotation matrix element 1,1
 C     rm2 = rotation matrix element 1,2
 C*
+      use grdefs
       INCLUDE 'parm.inc'
 
       CHARACTER*(*) sid
-      CHARACTER*3 regions(30)
-      COMMON /grdef/ mode(mxarea), imax(mxarea), imin(mxarea), 
-     +            jmax(mxarea), jmin(mxarea), alat1(mxarea), 
-     +            elon1(mxarea), dxx(mxarea), dyy(mxarea), 
-     +            elonv(mxarea), alatan(mxarea), latlong(mxarea), 
-     +            lambert(mxarea), polarstereo(mxarea), numreg(mxarea),
-     +            ig104(147,110), regions
-      LOGICAL latlong, lambert, polarstereo
+c     CHARACTER*3 regions(30)
+c     COMMON /grdef/ mode(mxarea), imax(mxarea), imin(mxarea), 
+c    +            jmax(mxarea), jmin(mxarea), alat1(mxarea), 
+c    +            elon1(mxarea), dxx(mxarea), dyy(mxarea), 
+c    +            elonv(mxarea), alatan(mxarea), latlong(mxarea), 
+c    +            lambert(mxarea), polarstereo(mxarea), numreg(mxarea),
+c    +            ig104(147,110), regions
+c     LOGICAL latlong, lambert, polarstereo
       CHARACTER*8 stnlist
       character*24 namarea
       real*8 xobi,yobi

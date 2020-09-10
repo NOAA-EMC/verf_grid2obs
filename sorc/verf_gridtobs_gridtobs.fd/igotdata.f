@@ -2,6 +2,7 @@
      *            nlv,imodel,ifh,
      +            ivr,ilv,iob,rm1,rm2,subset,stnid,iar)
 C
+      use nchrs
       INCLUDE 'parm.inc'
 C
       COMMON /obmrk/ iqmod(maxobs)
@@ -11,10 +12,10 @@ C
       COMMON /cnvrsns/ vtflg, nmbgrd (maxmod), concon (maxmod),
      +		       cenlon (maxmod)
 C
-      DIMENSION nchrmodel(maxmod), nchrfcst(mxfcst), nchrvfdate(mxdate),
-     +            nchrvfyobs(maxobs), nchrarea(mxarea), 
-     +            nchrstat(mxstat), nchrvarbl(mxvrbl), 
-     +            nchrlevel(maxlvl)
+c     DIMENSION nchrmodel(maxmod), nchrfcst(mxfcst), nchrvfdate(mxdate),
+c    +            nchrvfyobs(maxobs), nchrarea(mxarea), 
+c    +            nchrstat(mxstat), nchrvarbl(mxvrbl), 
+c    +            nchrlevel(maxlvl)
       CHARACTER*24 namodel(maxmod), namfcst(mxfcst), 
      +            namvfdate(mxdate), namvfyobs(maxobs), 
      +            namarea(mxarea), namstat(mxstat), 
@@ -49,8 +50,8 @@ C
 C
       COMMON /names/ namodel, namfcst, namvfdate, namvfyobs, namarea, 
      +            namstat, namvarbl, namlevel
-      COMMON /nchrs/ nchrmodel, nchrfcst, nchrvfdate, nchrvfyobs, 
-     +            nchrarea, nchrstat, nchrvarbl, nchrlevel
+c     COMMON /nchrs/ nchrmodel, nchrfcst, nchrvfdate, nchrvfyobs, 
+c    +            nchrarea, nchrstat, nchrvarbl, nchrlevel
 C
       real*8 obs(10,255,mxb), obs2(10,255,mxb), 
      *      qms(7,255),obs4(12,1,mxb),obs5(5,1,mxb)

@@ -1,4 +1,4 @@
-	PARAMETER (maxmod = 6,mxfcst = 25,mxdate = 16,maxobs = 10)
+	PARAMETER (maxmod = 6,mxfcst = 30,mxdate = 16,maxobs = 10)
 	PARAMETER (mxarea = 18,mxstat = 5,mxvrbl =24,maxlvl = 22)
         PARAMETER (mxthr = 20)
 	PARAMETER (mxb = 30)

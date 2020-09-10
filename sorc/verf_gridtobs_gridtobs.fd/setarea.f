@@ -1,17 +1,19 @@
       SUBROUTINE setarea(iar,namarea,nchr)
 C************************************************************************
+      use grdefs
       INCLUDE 'parm.inc'
       CHARACTER*24 namarea, nam24
       CHARACTER*1 nam1(24)
       EQUIVALENCE (nam24,nam1(1))
-      CHARACTER*3 regnam(mxarea), regions(30)
-      COMMON /grdef/ mode(mxarea), imax(mxarea), imin(mxarea), 
-     +            jmax(mxarea), jmin(mxarea), alat1(mxarea), 
-     +            elon1(mxarea), dxx(mxarea), dyy(mxarea), 
-     +            elonv(mxarea), alatan(mxarea), latlong(mxarea), 
-     +            lambert(mxarea), polarstereo(mxarea), numreg(mxarea),
-     +            ig104(147,110), regions
-      LOGICAL latlong, lambert, polarstereo
+c     CHARACTER*3 regnam(mxarea), regions(30)
+      CHARACTER*3 regnam(mxarea)
+c     COMMON /grdef/ mode(mxarea), imax(mxarea), imin(mxarea), 
+c    +            jmax(mxarea), jmin(mxarea), alat1(mxarea), 
+c    +            elon1(mxarea), dxx(mxarea), dyy(mxarea), 
+c    +            elonv(mxarea), alatan(mxarea), latlong(mxarea), 
+c    +            lambert(mxarea), polarstereo(mxarea), numreg(mxarea),
+c    +            ig104(147,110), regions
+c     LOGICAL latlong, lambert, polarstereo
       CHARACTER*8 dumstn
       CHARACTER*8 stnlist
       character*3 agrid
