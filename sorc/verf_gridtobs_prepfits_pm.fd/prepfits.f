@@ -87,6 +87,8 @@ c--   obstr='TPHRPM QCINPM COPOPM                      '
       IRET6=ISETPRM('MXMSGL', 2500000)
       IRET7=ISETPRM('MXRST', 500)
 
+      call openbf (1, 'FIRST', 1)
+
       numlev = 19
 C     categories to fit
 C     0 - surface
