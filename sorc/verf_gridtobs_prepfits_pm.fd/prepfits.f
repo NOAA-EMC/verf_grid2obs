@@ -79,6 +79,14 @@ c--   obstr='TPHRPM QCINPM COPOPM                      '
       obstr='TPHR QCIND COPOPM                         '
       qmstr='PQM QQM TQM ZQM WQM                       '
 
+      IRET1=ISETPRM('MXLCC', 12)
+      IRET2=ISETPRM('MAXMEM', 75000000)
+      IRET3=ISETPRM('MXCDV', 50000)
+      IRET4=ISETPRM('MAXJL', 128000)
+      IRET5=ISETPRM('MAXSS', 150000)
+      IRET6=ISETPRM('MXMSGL', 2500000)
+      IRET7=ISETPRM('MXRST', 500)
+
       numlev = 19
 C     categories to fit
 C     0 - surface

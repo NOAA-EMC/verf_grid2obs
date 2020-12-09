@@ -128,6 +128,18 @@ C     8 & 9 - reserved
       fit(8) = .false.
       fit(9) = .false.
 
+      IRET1=ISETPRM('MXLCC', 12)
+      IRET2=ISETPRM('MAXMEM', 75000000)
+      IRET3=ISETPRM('MXCDV', 50000)
+      IRET4=ISETPRM('MAXJL', 128000)
+      IRET5=ISETPRM('MAXSS', 150000)
+      IRET6=ISETPRM('MXMSGL', 2500000)
+      IRET7=ISETPRM('MXRST', 500)
+
+      call openbf(1,"FIRST", 2)
+
+      print*,"irets", iret1, iret2, iret3, iret4, iret5, iret6, iret7
+
       allocate(hdr(10))
       allocate(cat(255))
       allocate(qms(10,255))
@@ -670,7 +682,6 @@ c           PRINT *, 'NLEV=1,QMS: ', (qms(i,1),I=1,5)
 c         END IF
  
           nlev = mlev
-          print*,'are we here?'
 
 C         MAKE SURE THERE IS DATA TO WRITE OUT
           IF (nlev.gt.0) THEN
@@ -680,13 +691,11 @@ C           USING THE CURRENT SUBSET NAME (SSLAST) IN CASE IREADPB CHANGED IT
 C           ------------------------------------------------------------------
 
             call datelen(10)
-            print*,'openmb'
             CALL openmb(lubfo,sslast,idate)
 
 C           WRITE OUT THE REGISTRATION DATA FOR EACH REPORT
 C           -----------------------------------------------
  
-            print*,'ufbint'
             CALL ufbint(lubfo,hdr,10,1,iret,headr)
  
 C           WRITE OUT THE REGISTRATION DATA FOR EACH LEVEL
