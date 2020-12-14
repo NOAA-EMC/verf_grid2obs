@@ -99,16 +99,6 @@ cmmm  dimension thresh(numthr)
      +          tg(mxfcst,mxvrbl,maxlvl,mxarea,maxobs)
 cmmm  DATA THRESH /50., 65., 85., 105., 125., 150./
 
-      IRET1=ISETPRM('MXLCC', 12)
-      IRET2=ISETPRM('MAXMEM', 75000000)
-      IRET3=ISETPRM('MXCDV', 50000)
-      IRET4=ISETPRM('MAXJL', 128000)
-      IRET5=ISETPRM('MAXSS', 150000)
-      IRET6=ISETPRM('MXMSGL', 2500000)
-      IRET7=ISETPRM('MXRST', 500)
-
-      call openbf(1, "FIRST", 2)
-
       allocate(nchrmodel(maxmod))
       allocate(nchrfcst(mxfcst))
       allocate(nchrvfdate(mxdate))
