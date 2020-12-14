@@ -1,5 +1,5 @@
 SHELL=          /bin/sh
-LIBS=           $(G2_LIB4) $(W3NCO_LIB4) $(W3EMC_LIB4) $(BUFR_LIBs) $(BACIO_LIB4)
+LIBS=           $(G2_LIB4) $(W3NCO_LIB4) $(W3EMC_LIB4) $(BUFR_LIB4) $(BACIO_LIB4)
 FC=             ifort
 FFLAGS=         -heap-arrays -O0 
 LDFLAGS=        
