@@ -1,5 +1,5 @@
 SHELL=          /bin/sh
-LIBS=            $(W3EMC_LIB4) $(W3NCO_LIB4) $(BUFR_LIB4_DA) $(BACIO_LIB4) 
+LIBS=            $(W3EMC_LIB4) $(W3NCO_LIB4) $(BUFR_LIB4) $(BACIO_LIB4) 
 
 ###LIBS=           -L/u/Jack.Woollen/lib -lw3_4 -lbufr_sc $(BACIO_LIB4)
 FC=             ifort
