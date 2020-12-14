@@ -315,7 +315,7 @@ do
             ;;
       hrrr) if [ $domain = hrrrak ]
              then
-             cp ${DIRIN}.${aday}/alaska/${runnam}.t${acyc}z.${filnam1}${fhr}${tmkk} GRD${fhr}
+             cp ${DIRIN}.${aday}/alaska/${runnam}.t${acyc}z.${filnam1}${fhr}.ak${tmkk} GRD${fhr}
              else
              cp ${DIRIN}.${aday}/conus/${runnam}.t${acyc}z.${filnam1}${fhr}${tmkk} GRD${fhr}
              fi
