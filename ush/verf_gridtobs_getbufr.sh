@@ -218,7 +218,7 @@ CYMD=${vday}$cyc
 window_radius=1.5                            # 3 hour window == 1.5 hour radius
 rc_dump=0
 # sh /gpfs/dell1/nco/ops/nwprod/obsproc_dump.v5.0.0/ush/dumpjb $CYMD $window_radius aodmod
-/gpfs/dell1/nco/ops/nwprod/obsproc_dump.v5.1.0/ush/dumpjb $CYMD $window_radius aodmod
+$USHobsproc_dump/dumpjb $CYMD $window_radius aodmod
 rc_dump=$?
 if [ $rc_dump -eq 0 ] ; then
   mv ../aodmod.ibm verf.t${cyc}z.aodmod.tm00.bufr_d
