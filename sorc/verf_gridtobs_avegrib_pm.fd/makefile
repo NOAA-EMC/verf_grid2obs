@@ -1,5 +1,5 @@
 SHELL=          /bin/sh
-LIBS=            $(W3NCO_LIB4) $(W3EMC_LIB4) $(BUFR_LIBs) $(BACIO_LIB4)
+LIBS=            $(W3NCO_LIB4) $(W3EMC_LIB4) $(BUFR_LIB4) $(BACIO_LIB4)
 FC=             ifort
 FFLAGS=         -heap-arrays
 OBJS	= getbak.o raddate.o prepfits.o 
