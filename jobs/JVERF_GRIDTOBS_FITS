@@ -1,9 +1,28 @@
 #!/bin/ksh
 
+export RUN_ENVIR=dev
 ########################################
 # Preliminary data setup step
 ########################################
+##export SHELL=/bin/ksh
 set -xa
+
+if [ $RUN_ENVIR = dev ]
+then
+#  if [ $model = hrrr -o $model = conusnest -o $model = hrrrx ]
+#  then
+#  . /meso/save/Perry.Shafran/verif/nwprod/parm/verf_gridtobs_config_phase2
+#  else
+  . /gpfs/dell2/emc/verification/save/Perry.Shafran/verf_gridtobs_test/verf_grid2obs/parm/verf_gridtobs_config
+#  fi
+else
+  . /nw${envir}/parm/verf_gridtobs_config
+fi
+
+if [ $SENDSMS = "YES" ]
+then
+$SMSBIN/smsinit $LOADL_STEP_ID
+fi
 
 # ###################################
 # SET SHELL PROCESSING VARIABLES
@@ -12,12 +31,11 @@ export PS4='$SECONDS + '
 date
 
 ###########################################################
-# obtain unique LSF id (jobid) and make temp directories
+# obtain unique process id (pid) and make temp directories
 ###########################################################
 export pid=$$
-export jobid=${jobid:-${job}.$LSB_JOBID}
-export DATA_IN=${DATA_IN:-$DATAROOT}
-export DATA=$DATA_IN/${jobid}
+export DATA_IN=${DATA_IN:-/tmpnwprd}
+export DATA=$DATA_IN/verf_gridtobs_${model}_${cyc}
 
 rm -rf $DATA
 mkdir -p $DATA
@@ -25,11 +43,13 @@ cd $DATA
 ####################################
 # File To Log Msgs
 ####################################
-export jlogfile=${jlogfile:-${DATA}/jlogfile}
+export jlogfile=${jlogfile:-/com/logs/jlogfile}
 
 ####################################
 # Determine Job Output Name on System
 ####################################
+export outid="LL$job"
+export jobid="${outid}.o${pid}"
 export pgmout="OUTPUT.${pid}"
 
 export cycle=t${cyc}z 
@@ -42,7 +62,7 @@ export RUN=${RUN:-gridtobs}
 
 ##################################################
 # SAVEGES  - Copy Files From TMPDIR to $GESdir
-# SENDECF  - Flag Events on ecFLOW
+# SENDSMS  - Flag Events on SMS
 # SENDCOM  - Copy Files From TMPDIR to $COMOUT
 # SENDDBN  - Issue DBNet Client Calls
 ##################################################
@@ -50,60 +70,318 @@ export SENDCOM=${SENDCOM:-YES}
 export SENDDBN=${SENDDBN:-YES}
 export SENDECF=${SENDECF:-YES}
 
-export DCOMROOT=${DCOMROOT:-/gpfs/dell1/nco/ops/dcom}
-export HOMEverf_gridtobs=${HOMEverf_gridtobs:-${NWROOT}/verf_gridtobs.${model_ver}}
+export HOMEverf_gridtobs=${HOMEverf_gridtobs:-/nw${envir}}
 export EXECverf_gridtobs=${EXECverf_gridtobs:-$HOMEverf_gridtobs/exec}
 export FIXverf_gridtobs=${FIXverf_gridtobs:-$HOMEverf_gridtobs/fix}
 export PARMverf_gridtobs=${PARMverf_gridtobs:-$HOMEverf_gridtobs/parm}
 export USHverf_gridtobs=${USHverf_gridtobs:-$HOMEverf_gridtobs/ush}
 
-# JY - set the following for dumpjb call
-export HOMEobsproc_dump=${HOMEobsproc_dump:-$NWROOT/obsproc_dump.${obsproc_dump_ver}}
-export USHobsproc_dump=${USHobsproc_dump:-${HOMEobsproc_dump}/ush}
-export HOMEobsproc_shared_bufr_dumplist=${HOMEobsproc_shared_bufr_dumplist:-$NWROOT/obsproc_shared/bufr_dumplist.${obsproc_shared_bufr_dumplist_ver}}
+###################################
+# Set up the UTILITIES
+###################################
+export utilscript=/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/ush
+export utilexec=/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec
+export EXECutil=/gpfs/dell1/nco/ops/nwprod/prod_util.v1.1.2/exec
+
+# Run setup to initialize working directory and utility scripts
+sh $utilscript/setup.sh
 
 # Run setpdy and initialize PDY variables
-setpdy.sh
-. PDY
+sh $utilscript/setpdy.sh
+. $DATA/PDY
 
 export vday=$PDYm1
 
-if [ $model = "aqm" -o $model = "aqm1" -o $model = "aqmmax" -o $model = "pm" -o $model = "pmmax" -o $model = "pm1" -o $model = "pmmax1" -o $model = "aqmmax1" ]
+#  if [ $model = "fwis" ]
+#  if [ $model = "ngac" ]
+#  then
+#   export vday=20160217
+#    cp /meso/save/Perry.Shafran/verif/nwprod/sms/date4ngac .
+#    DATE=`cut -c 1-8 date4ngac`
+#    export vday=$DATE
+#  fi
+#  if [ $model = "hiresw" ]
+#  then
+#   export vday=20111022
+#    cp /meso/save/wx20ps/verif/nwprod/sms/date4ruc .
+#    DATE=`cut -c 1-8 date4ruc`
+#    export vday=$DATE
+#  fi
+
+#  if [ $model = "fv3nest" -o $model = "fv3sar" -o $model = "fv3reg" ]
+#  then
+#    export COMN=/meso/noscrub/Perry.Shafran/com/nam/prod
+#    cp /meso/save/Perry.Shafran/verif/nwprod/sms/date4fv3 .
+#    DATE=`cut -c 1-8 date4fv3`
+#    export vday=$DATE
+#  fi
+
+#    export vday=20120729
+##     export vday=20121022
+#    export vday=20121107
+if [ $model = "aqm1" -o $model = "aqmmax1" -o $model = "pm1" -o $model = "pmmax1" ]
 then
    vday=$PDYm2
+#    cp /gpfs/dell2/emc/verification/save/Perry.Shafran/verif/sms/date4 .
+#    DATE=`cut -c 1-8 date4`
+#    export vday=$DATE
+#   vday=20150706
 fi
+
+if [ $model = "aqm" -o $model = "aqmpara" -o $model = "aqmmax" -o $model = "aqm1c" -o $model = "aqmhi" -o $model = "aqmparamax" -o $model = "pm" -o $model = "pmmax" -o $model = "pmak" -o $model = "pmhi" ] 
+then
+      vday=$PDYm2
+#   cp /gpfs/dell2/emc/verification/save/Perry.Shafran/verif/sms/date4 .
+#    DATE=`cut -c 1-8 date4`
+#    export vday=$DATE
+#      export vday=20170715
+ fi
 
 # Define COMIN/COMOUT variables:
-export INDIR=${INDIR:-/com/${NET}/prod/${RUN}}
-
-if [ $model = srefens -o $model = srefensx ]; then
-  export COM_IN=$COMROOT/verf/${envir}
-else
-  export COM_IN=${COM_IN:-$COMROOT/verf/${envir}}
-fi
-
-export COM_OUT=${COM_OUT:-$COMROOT/verf/${envir}}
+export INDIR=${INDIR:-/com2/${NET}/prod/${RUN}}
+export COM_IN=${COM_IN:-/com/verf/${envir}}
+export COM_OUT=${COM_OUT:-/com/verf/${envir}}
 export COMIN=$COM_IN/gridtobs.$vday
 export COMOUT=$COM_OUT/gridtobs.$vday
-export COMVSDB=${COMVSDB:-$COMROOT/verf/${envir}/vsdb/gridtobs}
+export COMVSDB=${COMVSDB:-/com/verf/${envir}/vsdb/gridtobs}
 
-export COMG=${COMG:-$(compath.py gfs/prod)}
-export COMN=${COMN:-$(compath.py nam/prod)}
-export COMR=${COMR:-/gpfs/dell2/nco/ops/com/rtma/prod}
+export COMG=${COMG:-/gpfs/dell1/nco/ops/com/gfs/prod}
+export COMN=${COMN:-/gpfs/dell1/nco/ops/com/nam/prod}
+export COMR=${COMR:-/com2/rtma/prod}
 
 # Define the directory where the PREPBUFR file comes from:
-export COMBUFR=${COMBUFR:-$(compath.py hourly/prod)}
+export COMBUFR=${COMBUFR:-/gpfs/dell1/nco/ops/com/hourly/prod}
+#export COMBUFR=${COMBUFR:-/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com/hourly/prod}
 
 mkdir -p -m 775 $COMVSDB
 mkdir -p -m 750 $COMOUT
 chgrp rstprod $COMOUT
 
 
+
+############### For Testing of the parallel SREF ####################
+##if [ $model = "vsref" -o $model = "srefx" ]
+##then
+##  INDIR=/meso/noscrub/wx20ps/com/$NET/prod/${RUN}
+##    INDIR=/com/$NET/para/${RUN}
+##fi
+  if [ $model = "vsref" ]
+  then
+    INDIR=/ptmp/wx20bz/vsref
+  fi
+#   if [ $model = "nam" ]
+#  if [ $model = "nam" -o $model = "gfs" ]
+#  if [ $model = "gfs" ]
+#  then
+#   INDIR=/meso/noscrub/Perry.Shafran/com/$NET/para/${RUN}
+#    INDIR=/gpfs/dell3/ptmp/emc.glopara/ROTDIRS/prfv3rt3/gfs
+#    INDIR=/gpfs/dell1/nco/ops/com/gfs/prod/gfs
+#     INDIR=/gpfs/dell3/ptmp/emc.glopara/ROTDIRS/v16rt2c/gfs/para/gfs
+#    INDIR=/com2/$NET/para/${RUN}
+#    INDIR=/gpfs/hps/ptmp/emc.glopara/com2/gfs/para/${RUN}
+#     export vday=$PDYm2
+#    export vday=$PDY
+#  fi
+  if [ $model = "fv3nest" ]
+  then
+    INDIR=/gpfs/dell1/ptmp/emc.campara/com/fv3cam/para/fv3nest
+#    INDIR=/meso/noscrub/Perry.Shafran/com/fv3nest/para/fv3nest
+  fi
+  if [ $model = "fv3reg" ]
+  then
+    INDIR=/gpfs/dell1/ptmp/Benjamin.Blake/com/fv3cam/para/fv3sar
+#    INDIR=/meso/noscrub/Perry.Shafran/com/fv3sar/para/fv3sar
+  fi
+  if [ $model = "fv3sar" ]
+  then
+    INDIR=/gpfs/dell2/ptmp/Eric.Rogers/com/fv3sar/para/fv3sar
+#     INDIR=/meso/noscrub/Perry.Shafran/com/fv3sarda/para/fv3sar
+  fi
+  if [ $model = "premaq" ]
+  then
+    cp /meso/save/Perry.Shafran/verif/nwprod/sms/date4premaq .
+    DATE=`cut -c 1-8 date4premaq`
+    export vday=$DATE
+    export COMN=/meso/noscrub/Perry.Shafran/com/nam/prod
+    INDIR=/gpfs/hps3/ptmp/Jianping.Huang/com/aqm/para9/premaq
+  fi
+  if [ $model = sref ]
+  then
+#    INDIR=/meso/noscrub/Perry.Shafran/com/$NET/prod/${RUN}
+#     INDIR=/com2/$NET/prod/${RUN}
+     INDIR=/gpfs/dell2/nco/ops/com/sref/prod/sref
+  fi
+  if [ $model = ngac ]
+  then
+#    INDIR=/meso/noscrub/Perry.Shafran/com/ngac/para/aqm
+#     INDIR=/nems/noscrub/Jun.Wang/ngac/NGACv2_dev2_t5/ngac
+#     INDIR=/com2/ngac/para/ngac
+#      INDIR=/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com2/ngac/prod/ngac
+#       INDIR=/gpfs/hps/nco/ops/com/ngac/prod/ngac
+       INDIR=/gpfs/dell4/nco/ops/com/$NET/prod/$RUN
+  fi
+#  if [ $model = fwis ]
+#  then
+#    INDIR=/meso/noscrub/Perry.Shafran/com/$NET/prod/${RUN}
+#  fi
+   if [ $model = aqm -o $model = "aqmmax" ]
+   then
+#      INDIR=/com2/aqm/prod/${RUN}
+#     INDIR=/ptmp/Jianping.Huang/com/aqm/prod/aqm
+#      INDIR=/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com/aqm/prod/aqm
+#      INDIR=/gpfs/hps/nco/ops/com/aqm/prod/aqm
+       INDIR=/gpfs/hps3/emc/meso/noscrub/Ho-Chun.Huang/com/aqm/para6a/aqm
+#         INDIR=/gpfs/hps3/emc/naqfc/noscrub/Jianping.Huang/com/aqm/para13/aqm
+#        INDIR=/gpfs/hps3/ptmp/Ho-Chun.Huang/com/aqm/para5/aqm
+#        INDIR=gpfs/td2/emc/naqfc/noscrub/Jianping.Huang/bias/corrected_v8/aqm
+#       INDIR=/naqfc/noscrub/Jianping.Huang/com/aqm/para41/aqm
+   fi
+  if [ $model = aqmpara -o $model = "aqmparamax" -o $model = "pm" ]
+   then
+#       INDIR=/ptmpp1/Jeff.McQueen/com/aqm/para/aqm
+#        INDIR=/com2/aqm/prod/aqm
+#         INDIR=/gpfs/hps/nco/ops/com/aqm/prod/aqm
+#         INDIR=/gpfs/hps/ptmp/Jianping.Huang/com/aqm/para/aqm
+#      INDIR=/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com/aqm/prod/aqm
+#          INDIR=/naqfc/noscrub/Jianping.Huang/com/aqm/para41/aqm
+           INDIR=/gpfs/hps3/emc/meso/noscrub/Ho-Chun.Huang/com/aqm/para6a/aqm
+#            INDIR=/gpfs/hps3/emc/naqfc/noscrub/Jianping.Huang/com/aqm/para13/aqm
+#            INDIR=/gpfs/hps3/ptmp/Ho-Chun.Huang/com/aqm/para5/aqm
+#           INDIR=gpfs/td2/emc/naqfc/noscrub/Jianping.Huang/bias/corrected_v8/aqm
+#         INDIR=/naqfc/noscrub/Jianping.Huang/cmaq.v5.0.2/para1/aqm
+#        INDIR=/meso/noscrub/Perry.Shafran/com/aqm/para/aqm
+#        INDIR=/naqfc/noscrub/Jianping.Huang/com/aqm/para1/aqm
+#        INDIR=/meso/noscrub/Perry.Shafran/com2/aqm/para/aqm
+#         INDIR=/naqfc/noscrub/Jianping.Huang/com2/aqm/para/aqm
+  fi
+  if [ $model = aqmpara1 -o $model = "aqmmax1" -o $model = pm1 -o $model = "pmmax1" -o $model = "aqm1" ]
+   then
+#        export vday=20170715
+#       INDIR=/ptmpp2/Jianping.Huang/com2/aqm/para1/aqm
+#         INDIR=/com2/aqm/para/aqm
+#         INDIR=/gpfs/td2/emc/naqfc/noscrub/Jianping.Huang/bias/corrected_v8/aqm
+#           INDIR=/gpfs/hps3/ptmp/Jianping.Huang/com/aqm/para11/aqm
+#        INDIR=/gpfs/hps/nco/ops/com/aqm/para/aqm
+#         INDIR=/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com/aqm/prod/aqm
+#         INDIR=/gpfs/hps3/emc/naqfc/noscrub/Jianping.Huang/com/aqm/para13/aqm
+          INDIR=/gpfs/hps3/emc/meso/noscrub/Ho-Chun.Huang/com/aqm/para6a/aqm
+#          INDIR=/gpfs/hps/ptmp/Jianping.Huang/com/aqm/para/aqm
+#         INDIR=/naqfc/noscrub/Jianping.Huang/com2/aqm/para/aqm
+#        INDIR=/meso/noscrub/Jeff.McQueen/com/aqm/prod/aqm
+#          INDIR=/naqfc/noscrub/Jianping.Huang/bias/corrected
+#          INDIR=/meso/noscrub/Perry.Shafran/com/aqm/para/aqm
+#          INDIR=/naqfc/noscrub/Jianping.Huang/com/aqm/para1/aqm
+  fi
+  if [ $model = hrrr ]
+   then
+#    export COMN=/meso/noscrub/Perry.Shafran/com/nam/prod
+#    cp /meso/save/Perry.Shafran/verif/nwprod/sms/date4hrrr .
+#    DATE=`cut -c 1-8 date4hrrr`
+#    export vday=$DATE
+#       INDIR=/com2/hrrr/prod/hrrr
+    INDIR=/gpfs/hps/nco/ops/com/hrrr/prod/hrrr
+#     INDIR=/meso/noscrub/Perry.Shafran/com/hrrr/prod/hrrr
+  fi
+  if [ $model = nssl4arw ]
+  then
+    INDIR=/meso/noscrub/Perry.Shafran/com/nssl/prod/nssl
+     vday=20150524
+#    cp /meso/save/Perry.Shafran/verif/nwprod/sms/date4 .
+#    DATE=`cut -c 1-8 date4`
+#    export vday=$DATE 
+  fi
+  if [ $model = spcprod ]
+  then
+    INDIR=/meso/noscrub/Matthew.Pyle/com/hiresw/prod/spcprod
+  fi
+  if [ $model = urma2p5 -o $model = akrtma -o $model = hirtma -o $model = prrtma ] 
+  then
+##    INDIR=/ptmp/Manuel.Pondeca/com/$NET/prod/${RUN}
+#   INDIR=/com/$NET/para/${RUN}
+    vday=20000727
+    INDIR=/meso2/noscrub/Perry.Shafran/narr/narr.$vday
+  fi
+  if [ $model = smartinit2p5x ]
+  then
+    INDIR=/ptmpp1/Jeff.McQueen/${RUN}
+  fi
+  if [ $model = rap ]
+  then
+#    INDIR=/meso/noscrub/Perry.Shafran/com/$NET/prod/${RUN}
+     INDIR=/gpfs/hps/nco/ops/com/rap/para/rap
+#     INDIR=/gpfs/hps3/ptmp/Ming.Hu/com/rap/prod/rap
+  fi
+   if [ $model = rapx ]
+   then
+#     INDIR=/com2/rap/para/${RUN}
+#      INDIR=/ptmpd1/Corey.Guastini/com/rap/prod/rap
+#       INDIR=/ptmpd1/Geoffrey.Manikin/com/rap/prod/rap
+#      INDIR=/gpfs/hps3/ptmp/Benjamin.Blake/com/rap/prod/rap
+      INDIR=/gpfs/hps/nco/ops/com/rap/para/rap
+   fi
+   if [ $model = hrrrx ]
+   then
+#     INDIR=/ptmpd2/Geoffrey.Manikin/com2/hrrr/prod/hrrr
+#      INDIR=/com2/hrrr/para/hrrr
+#      INDIR=/gpfs/hps3/ptmp/Benjamin.Blake/com/hrrr/prod/hrrr
+      INDIR=/gpfs/hps/nco/ops/com/hrrr/para/hrrr
+   fi
+  if [ $model = hiresw ]
+  then
+##    INDIR=/meso/noscrub/Matthew.Pyle/com/hiresw/prod/hiresw
+#   INDIR=/gpfs/hps/nco/ops/com/hiresw/prod/hiresw
+    INDIR=/gpfs/hps2/ptmp/Matthew.Pyle/hiresw/com/hiresw/para/hiresw
+#    INDIR=/ptmpd3/Matthew.Pyle/com/hiresw/test/hiresw
+  fi
+#  if [ $model = srefx ]
+#  then
+#    INDIR=/com/sref/para/sref
+#  fi
+  if [ $model = nam -o $model = conusnest ]
+  then
+#    INDIR=/meso/noscrub/Eric.Rogers/com/nam/para/${RUN}
+#      export vday=20190716
+#    INDIR=/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com2/nam/prod/${RUN}
+     INDIR=/gpfs/dell1/nco/ops/com/nam/prod/nam
+  fi
+  if [ $model = namrr -o $model = conusnestrr ] 
+  then
+    INDIR=/meso2/noscrub/Jacob.Carley/com/namrr/rt/namrr
+  fi
+#  if [ $model = ruc ]
+#  then
+#    INDIR=/meso/noscrub/wx20ps/com/ruc/prod/${RUN}
+#  fi
+#  if [ $model = "rap" ]
+#  then
+#    INDIR=/ptmp/wx20mg/rap13
+#    INDIR=/com/rap/para/${RUN}
+#  fi
+#  if [ $model = fwis ]
+#  then
+#    INDIR=/com/nam/prod/${RUN}
+#  fi
+#  if [ $model = smartinit ]
+#  then
+#    INDIR=/com/nam/para/${RUN}
+#  fi
+#  if [ $model = href ]
+#  then
+#    INDIR=/com/$NET/para/${RUN}
+#  fi
+#  if [ $model = hiresw ]
+#  then
+#    INDIR=/com/$NET/para/${RUN}
+#  fi
+
+#######################################################################
+
 #######################################################################
 # Execute the script.
 if [ $model = srefens -o $model = srefensx ]
 then
   export vdate=${vday}${cyc}
+##  export vdate=2009052015
   export vcyc=$cyc
   export inc=06
   export frange=87
@@ -111,15 +389,26 @@ then
 elif [ $model = sref2ens ]
 then
   export vdate=${vday}${cyc}
+##  export vdate=2009052015
   export vcyc=$cyc
   export inc=06
   export frange=87
   sh $USHverf_gridtobs/verf_gridtobs_ens_sref.sh_test $model
-elif [ $model = "aqmmax" -o $model = "pmmax" -o $model = pmmax1 -o $model = "aqmmax1" ]
+elif [ $model = "aqmmax" -o $model = "pmmax" ]
 then
   export vcyc=$cyc
   export vdate=$vday$vcyc
   $USHverf_gridtobs/verf_gridtobs_aqmmax.sh $model $bc
+elif [ $model = "aqmmax" -o $model = "pmmax1" -o $model = "aqmmax1" ]
+then
+  export vcyc=$cyc
+  export vdate=$vday$vcyc
+  $USHverf_gridtobs/verf_gridtobs_aqmmax.sh $model $bc
+elif [ $model = "aqmparamaxnope" ]
+then
+  export vcyc=$cyc
+  export vdate=$vday$vcyc
+  $USHverf_gridtobs/verf_gridtobs_aqmparamax.sh
 else
    . $HOMEverf_gridtobs/scripts/exverf_gridtobs_fits.sh.ecf $vday $model 
 fi
@@ -130,8 +419,11 @@ msg="JOB $job HAS COMPLETED NORMALLY."
 postmsg "$jlogfile" "$msg"
 
 cd $DATA_IN
-if [ "$KEEPDATA" != "YES" ] ; then
-  rm -rf $DATA
-fi
+###rm -rf $DATA
 
 date
+
+if [ $SENDECF = YES ]
+then
+$SMSBIN/smscomplete
+fi

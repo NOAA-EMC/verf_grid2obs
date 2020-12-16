@@ -1,0 +1,24 @@
+#!/bin/ksh 
+#
+#BSUB -J jverf_gridtobs_ngac_12
+#BSUB -o /gpfs/dell2/ptmp/Perry.Shafran/output/verf_gridtobs_ngac_12.o%J
+#BSUB -e /gpfs/dell2/ptmp/Perry.Shafran/output/verf_gridtobs_ngac_12.o%J
+#BSUB -q "dev"
+#BSUB -P VERF-T2O
+#BSUB -n 1
+#BSUB -W 01:00
+
+export MP_SHARED_MEMORY=yes
+export MEMORY_AFFINITY=MCM
+
+set -x
+export envir=dev
+export cyc=12
+export cycles="12"
+export model=ngac
+export NET=gefs
+export RUN=gefs
+export job=verf_gridtobs_ngac_12
+
+. /gpfs/dell2/emc/verification/save/Perry.Shafran/verif_bufr11.3.1/jobs/JVERF_GRIDTOBS_FITS
+

@@ -1,0 +1,63 @@
+##################################################################
+# This parameter file set up the environment variables used in
+# the J-Job scripts to run the gridtobs verifications
+##################################################################
+if [ $RUN_ENVIR = dev ]
+then
+  export HOMEverf_gridtobs=/gpfs/dell1/nco/ops/nwprod/ 
+  export EXECverf_gridtobs=$HOMEverf_gridtobs/exec
+  export PARMverf_gridtobs=$HOMEverf_gridtobs/parm
+  export USHverf_gridtobs=$HOMEverf_gridtobs/ush
+  export FIXverf_gridtobs=$HOMEverf_gridtobs/fix
+
+  export INDIR=${INDIR:-/gpfs/dell1/nco/ops/com/${NET}/prod/${RUN}}
+  export COM_IN=${COM_IN:-/gpfs/dell1/nco/ops/com/verf/prod}
+  export COM_OUT=${COM_OUT:-/gpfs/dell1/nco/ops/com/verf/prod}
+  export COMVSDB=${COMVSDB:-/gpfs/dell1/nco/ops/com/verf/prod/vsdb/gridtobs}
+  export COMBUFR=${COMBUFR:-/com/hourly/prod}
+  export RECOVERY=${RECOVERY:-/com/verf/prod/recovery}
+
+  export DATA_IN=/tmpnwprd
+  export jlogfile=$DATA_IN/jlogfile
+
+elif [ $RUN_ENVIR = para -o $RUN_ENVIR = test ]
+then
+  export HOMEverf_gridtobs=/nw${envir}
+  export EXECverf_gridtobs=$HOMEverf_gridtobs/exec
+  export PARMverf_gridtobs=$HOMEverf_gridtobs/parm
+  export USHverf_gridtobs=$HOMEverf_gridtobs/ush
+  export FIXverf_gridtobs=$HOMEverf_gridtobs/fix
+
+  export INDIR=/com/${NET}/prod/${RUN}
+  export COM_IN=/com/verf/${envir}
+  export COM_OUT=/com/verf/${envir}
+  export COMVSDB=/com/verf/${envir}/vsdb/gridtobs
+  export COMBUFR=/com/hourly/prod
+
+  export DATA_IN=/tmpnwprd
+  export jlogfile=/com/logs/${envir}/jlogfile
+
+  export SENDCOM=YES
+  export SENDECF=YES
+  export SENDDBN=NO
+elif [ $RUN_ENVIR = prod ]
+then
+  export HOMEverf_gridtobs=/nwprod
+  export EXECverf_gridtobs=$HOMEverf_gridtobs/exec
+  export PARMverf_gridtobs=$HOMEverf_gridtobs/parm
+  export USHverf_gridtobs=$HOMEverf_gridtobs/ush
+  export FIXverf_gridtobs=$HOMEverf_gridtobs/fix
+
+  export INDIR=/com/${NET}/prod/${RUN}
+  export COM_IN=/com/verf/${envir}
+  export COM_OUT=/com/verf/${envir}
+  export COMVSDB=/com/verf/${envir}/vsdb/gridtobs
+  export COMBUFR=/com/hourly/prod
+
+  export DATA_IN=/tmpnwprd
+  export jlogfile=/com/logs/jlogfile
+
+  export SENDCOM=YES
+  export SENDECF=YES
+  export SENDDBN=YES
+fi

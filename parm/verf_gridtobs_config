@@ -4,20 +4,21 @@
 ##################################################################
 if [ $RUN_ENVIR = dev ]
 then
-  export HOMEverf_gridtobs=/gpfs/dell1/nco/ops/nwprod/ 
+  export HOMEverf_gridtobs=/gpfs/dell2/emc/verification/save/Perry.Shafran/verf_gridtobs_test/verf_grid2obs
   export EXECverf_gridtobs=$HOMEverf_gridtobs/exec
   export PARMverf_gridtobs=$HOMEverf_gridtobs/parm
   export USHverf_gridtobs=$HOMEverf_gridtobs/ush
   export FIXverf_gridtobs=$HOMEverf_gridtobs/fix
 
   export INDIR=${INDIR:-/gpfs/dell1/nco/ops/com/${NET}/prod/${RUN}}
-  export COM_IN=${COM_IN:-/gpfs/dell1/nco/ops/com/verf/prod}
-  export COM_OUT=${COM_OUT:-/gpfs/dell1/nco/ops/com/verf/prod}
-  export COMVSDB=${COMVSDB:-/gpfs/dell1/nco/ops/com/verf/prod/vsdb/gridtobs}
-  export COMBUFR=${COMBUFR:-/com/hourly/prod}
-  export RECOVERY=${RECOVERY:-/com/verf/prod/recovery}
+  export COM_IN=${COM_IN:-/gpfs/dell2/ptmp/Perry.Shafran/verf/prod}
+  export COM_OUT=${COM_OUT:-/gpfs/dell2/ptmp/Perry.Shafran/verf/prod}
+  export COMVSDB=${COMVSDB:-/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com/verf/prod/vsdb/gridtobs}
+  export COMBUFR=${COMBUFR:-/gpfs/dell1/nco/ops/com/hourly/prod}
+#  export COMBUFR=${COMBUFR:-/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/com/hourly/prod}
+#  export RECOVERY=${RECOVERY:-/com/verf/prod/recovery}
 
-  export DATA_IN=/tmpnwprd
+  export DATA_IN=/gpfs/dell2/ptmp/Perry.Shafran/tmpbufr11.3.1
   export jlogfile=$DATA_IN/jlogfile
 
 elif [ $RUN_ENVIR = para -o $RUN_ENVIR = test ]

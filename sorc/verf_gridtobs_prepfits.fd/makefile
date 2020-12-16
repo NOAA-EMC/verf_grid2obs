@@ -7,7 +7,7 @@ LIBS    = $(G2_LIB4) $(W3NCO_LIB4) $(W3EMC_LIB4) $(BUFR_LIB4_DA) $(BACIO_LIB4) $
 
 INC     = $(G2_INC4)
 
-FFLAGS =      -O2 -I$(INC) -mcmodel=medium -shared-intel
+FFLAGS =      -O2 -I$(INC) -mcmodel=medium -shared-intel -g -traceback -debug extended
 
 #LDFLAGS =    -shared-intel 
 

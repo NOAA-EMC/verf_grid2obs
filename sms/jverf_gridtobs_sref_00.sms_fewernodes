@@ -1,0 +1,24 @@
+#!/bin/ksh  
+#
+#BSUB -J jverf_gridtobs_sref_00
+#BSUB -o /gpfs/dell2/ptmp/Perry.Shafran/output/verf_gridtobs_sref_00.o%J
+#BSUB -e /gpfs/dell2/ptmp/Perry.Shafran/output/verf_gridtobs_sref_00.o%J
+#BSUB -q "dev"
+#BSUB -P VERF-T2O
+#BSUB -n 28
+#BSUB -x
+#BSUB -R "span[ptile=4]"
+#BSUB -R "affinity[core(7)]"
+#BSUB -W 02:00
+
+set -x
+export envir=dev
+export cyc=00
+export cycles="00"
+export model=sref
+export NET=sref
+export RUN=sref
+export job=verf_gridtobs_sref_00
+
+. /gpfs/dell2/emc/verification/save/Perry.Shafran/verif/jobs/JVERF_GRIDTOBS_FITS
+

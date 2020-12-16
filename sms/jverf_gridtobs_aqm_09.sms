@@ -1,0 +1,24 @@
+#!/bin/ksh
+#
+#BSUB -J jverf_gridtobs_aqm_09
+#BSUB -o /gpfs/dell2/ptmp/Perry.Shafran/output/verf_gridtobs_aqm_09.o%J
+#BSUB -e /gpfs/dell2/ptmp/Perry.Shafran/output/verf_gridtobs_aqm_09.o%J
+#BSUB -q "dev"
+#BSUB -P VERF-T2O
+#BSUB -R "rusage[mem=3000]"
+#BSUB -n 1
+#BSUB -W 01:00
+
+export MP_SHARED_MEMORY=yes
+export MEMORY_AFFINITY=MCM
+
+set -x
+export envir=dev
+export cyc=09
+export cycles="09 10 11"
+export model=aqm
+export NET=aqm
+export RUN=aqm
+export job=verf_gridtobs_aqm_09
+
+. /gpfs/dell2/emc/verification/save/Perry.Shafran/verif/jobs/JVERF_GRIDTOBS_FITS

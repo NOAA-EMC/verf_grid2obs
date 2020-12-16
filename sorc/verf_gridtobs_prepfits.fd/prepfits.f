@@ -138,7 +138,7 @@ C     8 & 9 - reserved
 
       call openbf(1,"FIRST", 2)
 
-      print*,"irets", iret1, iret2, iret3, iret4, iret5, iret6, iret7
+c     print*,"irets", iret1, iret2, iret3, iret4, iret5, iret6, iret7
 
       allocate(hdr(10))
       allocate(cat(255))
