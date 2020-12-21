@@ -5,7 +5,7 @@ ozone1|ozone|aqm|CMAQ5XBC|CMAQ5XBC|00|48|06|awpozcon_bc| | | |NO| |148|grib2|
 pm|pm|aqm|CMAQ5X|CMAQ5X|00|48|06|pm25| | | |NO| |148|grib2|
 pm1|pm|aqm|CMAQ5XBC|CMAQ5XBC|00|48|06|pm25_bc| | | |NO| |148|grib2|
 ### AOD ###
-ngac|ngac|ngac|NGAC|NGAC|00|120|06|a2d| | | |NO| |3|grib2|
+ngac|ngac|ngac|NGAC|NGAC|00|120|06|a2d_0p25| | | |NO| |3|grib2|
 ### GFS ###
 gfs|global|gfs|GFS|GFS|00|84|06|pgrb2.1p00.f| | | |NO| |3|grib2|
 gfs12|global12|gfs|GFS|GFS|00|84|06|master.grb2f| | | |NO|lambert:265.000:25.000:25.000:35.000 226.541:614:12190.58 12.190:428:12190.58|218|grib2|
