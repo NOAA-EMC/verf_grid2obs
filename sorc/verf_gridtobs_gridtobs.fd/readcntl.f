@@ -1,12 +1,13 @@
       SUBROUTINE readcntl(numodel,numfcst,numvfdate,numvfyobs,numarea,
      +            numstat,numvarbl,numlevel,numvector)
 C
+      use nchrs
       INCLUDE 'parm.inc'
 C
-      DIMENSION nchrmodel(maxmod), nchrfcst(mxfcst), nchrvfdate(mxdate),
-     +            nchrvfyobs(maxobs), nchrarea(mxarea), 
-     +            nchrstat(mxstat), nchrvarbl(mxvrbl), 
-     +            nchrlevel(maxlvl)
+c     DIMENSION nchrmodel(maxmod), nchrfcst(mxfcst), nchrvfdate(mxdate),
+c    +            nchrvfyobs(maxobs), nchrarea(mxarea), 
+c    +            nchrstat(mxstat), nchrvarbl(mxvrbl), 
+c    +            nchrlevel(maxlvl)
       CHARACTER*24 namodel(maxmod), namfcst(mxfcst), 
      +            namvfdate(mxdate), namvfyobs(maxobs), 
      +            namarea(mxarea), namstat(mxstat), 
@@ -23,8 +24,8 @@ C
 
       COMMON /names/ namodel, namfcst, namvfdate, namvfyobs, namarea, 
      +            namstat, namvarbl, namlevel
-      COMMON /nchrs/ nchrmodel, nchrfcst, nchrvfdate, nchrvfyobs, 
-     +            nchrarea, nchrstat, nchrvarbl, nchrlevel
+c     COMMON /nchrs/ nchrmodel, nchrfcst, nchrvfdate, nchrvfyobs, 
+c    +            nchrarea, nchrstat, nchrvarbl, nchrlevel
       LOGICAL	  vtflg
       COMMON /cnvrsns/ vtflg, nmbgrd (maxmod), concon (maxmod),
      +		       cenlon (maxmod)

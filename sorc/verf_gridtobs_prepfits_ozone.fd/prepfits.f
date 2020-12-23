@@ -77,6 +77,16 @@ c     obstr='POB QOB TOB ZOB UOB VOB PMO CAPE CINH LI  '
       obstr='TPHR QCIND COPO                           '
       qmstr='PQM QQM TQM ZQM WQM                       '
 
+      IRET1=ISETPRM('MXLCC', 12)
+      IRET2=ISETPRM('MAXMEM', 75000000)
+      IRET3=ISETPRM('MXCDV', 50000)
+      IRET4=ISETPRM('MAXJL', 128000)
+      IRET5=ISETPRM('MAXSS', 150000)
+      IRET6=ISETPRM('MXMSGL', 2500000)
+      IRET7=ISETPRM('MXRST', 500)
+
+      call openbf (1, "FIRST", 2)
+
       numlev = 19
 C     categories to fit
 C     0 - surface

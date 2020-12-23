@@ -244,7 +244,8 @@ do
                 fi
             fi
            ;;
-      ngac) cp ${DIRIN}.${aday}/${runnam}.t${acyc}z.${filnam1}f${fhr}.grib2 GRD${fhr}
+       ngac) fhrg=$(printf %03d ${fhr#0})
+             cp ${DIRIN}.${aday}/${acyc}/chem/pgrb2ap25/gefs.chem.t${acyc}z.${filnam1}.f${fhrg}.grib2 GRD${fhr}
            ;;
       gfs) if [ $domain = "gfs" -a $GRIB = "grib2" ]
            then

@@ -38,17 +38,24 @@ gfseco|00 06 12 18|
 gfseak|00 06 12 18|
 nssl4arw|00 12|
 conusnmmb|00 12|
+conusfv3|00 12|
 conusarw|00 12|
+conusarw2|00 12|
 eastconusnmmb|00 12|
 eastconusarw|00 12|
+eastconusfv3|00 12|
 westconusnmmb|00 12|
 westconusarw|00 12|
+westconusfv3|00 12|
 aknmmb|06 18|
 akarw|06 18|
+akfv3|06 18|
 prnmmb|06 18|
 prarw|06 18|
+prfv3|06 18|
 hinmmb|00 12|
 hiarw|00 12|
+hifv3|06 18|
 aknmm|18|
 akarw|18|
 prnmm|06 18|

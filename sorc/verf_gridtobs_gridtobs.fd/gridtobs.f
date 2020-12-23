@@ -5,43 +5,47 @@ C                FROM A PREPBTIM (GLOBAL) OR PREPFITS (MESO) BUFR FILE
 C
       PROGRAM gridtobs
 
+      use nchrs
+      use grdefs
+      use sums
+
       INCLUDE 'parm.inc'
 
-      real*8 sumdata(mxfcst,mxvrbl,maxlvl,mxarea,maxobs), 
-     +            sumgrid(mxfcst,mxvrbl,maxlvl,mxarea,maxobs), 
-     +            sumprod(mxfcst,mxvrbl,maxlvl,mxarea,maxobs), 
-     +            ssqdata(mxfcst,mxvrbl,maxlvl,mxarea,maxobs), 
-     +            ssqgrid(mxfcst,mxvrbl,maxlvl,mxarea,maxobs), 
-     +            count(mxfcst,mxvrbl,maxlvl,mxarea,maxobs,mxstat),
-     +            summae(mxfcst,mxvrbl,maxlvl,mxarea,maxobs)
+c     real*8 sumdata(mxfcst,mxvrbl,maxlvl,mxarea,maxobs), 
+c    +            sumgrid(mxfcst,mxvrbl,maxlvl,mxarea,maxobs), 
+c    +            sumprod(mxfcst,mxvrbl,maxlvl,mxarea,maxobs), 
+c    +            ssqdata(mxfcst,mxvrbl,maxlvl,mxarea,maxobs), 
+c    +            ssqgrid(mxfcst,mxvrbl,maxlvl,mxarea,maxobs), 
+c    +            count(mxfcst,mxvrbl,maxlvl,mxarea,maxobs,mxstat),
+c    +            summae(mxfcst,mxvrbl,maxlvl,mxarea,maxobs)
 
       real*8 summ,sumd,ssqd,sumg,ssqg,prod,sump
  
       real*8 mae
       real*8 obsval,forcst
 
-      DIMENSION nchrmodel(maxmod), nchrfcst(mxfcst), nchrvfdate(mxdate),
-     +            nchrvfyobs(maxobs), nchrarea(mxarea), 
-     +            nchrstat(mxstat), nchrvarbl(mxvrbl), 
-     +            nchrlevel(maxlvl)
+c     DIMENSION nchrmodel(maxmod), nchrfcst(mxfcst), nchrvfdate(mxdate),
+c    +            nchrvfyobs(maxobs), nchrarea(mxarea), 
+c    +            nchrstat(mxstat), nchrvarbl(mxvrbl), 
+c    +            nchrlevel(maxlvl)
       CHARACTER*24 namodel(maxmod), namfcst(mxfcst), namvfdate(mxdate),
      +            namvfyobs(maxobs), namarea(mxarea), namstat(mxstat), 
      +            namvarbl(mxvrbl), namlevel(maxlvl)
 
       COMMON /names/ namodel, namfcst, namvfdate, namvfyobs, namarea, 
      +            namstat, namvarbl, namlevel
-      COMMON /nchrs/ nchrmodel, nchrfcst, nchrvfdate, nchrvfyobs, 
-     +            nchrarea, nchrstat, nchrvarbl, nchrlevel
+c     COMMON /nchrs/ nchrmodel, nchrfcst, nchrvfdate, nchrvfyobs, 
+c    +            nchrarea, nchrstat, nchrvarbl, nchrlevel
       LOGICAL	  vtflg, nmbflg
       COMMON /cnvrsns/ vtflg, nmbflg (maxmod), concon (maxmod),
      +		       cenlon (maxmod)
-      CHARACTER*3 regions (30)
-      COMMON /grdef/ mode(mxarea), imax(mxarea), imin(mxarea), 
-     +            jmax(mxarea), jmin(mxarea), alat1(mxarea), 
-     +            elon1(mxarea), dxx(mxarea), dyy(mxarea), 
-     +            elonv(mxarea), alatan(mxarea), latlong(mxarea), 
-     +            lambert(mxarea), polarstereo(mxarea), numreg(mxarea),
-     +            ig104(147,110), regions
+c     CHARACTER*3 regions (30)
+c     COMMON /grdef/ mode(mxarea), imax(mxarea), imin(mxarea), 
+c    +            jmax(mxarea), jmin(mxarea), alat1(mxarea), 
+c    +            elon1(mxarea), dxx(mxarea), dyy(mxarea), 
+c    +            elonv(mxarea), alatan(mxarea), latlong(mxarea), 
+c    +            lambert(mxarea), polarstereo(mxarea), numreg(mxarea),
+c    +            ig104(147,110), regions
 
       COMMON /fho/ numthr(mxvrbl), thresh(mxvrbl,mxthr)
 
@@ -95,6 +99,41 @@ cmmm  dimension thresh(numthr)
      +          tg(mxfcst,mxvrbl,maxlvl,mxarea,maxobs)
 cmmm  DATA THRESH /50., 65., 85., 105., 125., 150./
 
+      allocate(nchrmodel(maxmod))
+      allocate(nchrfcst(mxfcst))
+      allocate(nchrvfdate(mxdate))
+      allocate(nchrvfyobs(maxobs))
+      allocate(nchrarea(mxarea))
+      allocate(nchrstat(mxstat))
+      allocate(nchrvarbl(mxvrbl))
+      allocate(nchrlevel(maxlvl))
+
+      allocate(mode(mxarea))
+      allocate(imax(mxarea))
+      allocate(jmax(mxarea))
+      allocate(imin(mxarea))
+      allocate(jmin(mxarea))
+      allocate(alat1(mxarea))
+      allocate(elon1(mxarea))
+      allocate(dxx(mxarea))
+      allocate(dyy(mxarea))
+      allocate(elonv(mxarea))
+      allocate(alatan(mxarea))
+      allocate(latlong(mxarea))
+      allocate(lambert(mxarea))
+      allocate(polarstereo(mxarea))
+      allocate(numreg(maxarea))
+      allocate(ig104(147,110))
+      allocate(regions(30))
+
+      allocate(sumdata(mxfcst,mxvrbl,maxlvl,mxarea,maxobs))
+      allocate(sumgrid(mxfcst,mxvrbl,maxlvl,mxarea,maxobs))
+      allocate(sumprod(mxfcst,mxvrbl,maxlvl,mxarea,maxobs))
+      allocate(ssqdata(mxfcst,mxvrbl,maxlvl,mxarea,maxobs))
+      allocate(ssqgrid(mxfcst,mxvrbl,maxlvl,mxarea,maxobs))
+      allocate(count(mxfcst,mxvrbl,maxlvl,mxarea,maxobs,mxstat))
+      allocate(summae(mxfcst,mxvrbl,maxlvl,mxarea,maxobs))
+
 c     call datelen(10)
 c     obstr='SRC FHR POB QOB TOB ZOB UOB VOB PMO PBL CAPE CINH LI'
       obstr='SRC FHR POB QOB TOB ZOB UOB VOB PMO'
@@ -102,6 +141,7 @@ c     obstr='SRC FHR POB QOB TOB ZOB UOB VOB PMO PBL CAPE CINH LI'
      * SCAPE2 BCSVR2'
       print*,'obstr=',obstr
    10 CONTINUE
+
       call datelen(10)
 C     
 C     READ VERIFICATION DATABASE VERSION AND INPUT UNIT NUMBER
@@ -624,5 +664,37 @@ C         GO BACK AND DO IT ALL AGAIN   WHOOPEE!
 C23456789012345678901234567890123456789012345678901234567890123456789012
   160     CONTINUE
           print*,'END OF GRIDTOBS'
+c     deallocate(nchrmodel)
+c     deallocate(nchrfcst)
+c     deallocate(nchrvfdate)
+c     deallocate(nchrvfyobs)
+c     deallocate(nchrarea)
+c     deallocate(nchrstat)
+c     deallocate(nchrvarbl)
+c     deallocate(nchrlevel)
+c     deallocate(mode)
+c     deallocate(imax)
+c     deallocate(jmax)
+c     deallocate(imin)
+c     deallocate(jmin)
+c     deallocate(alat1)
+c     deallocate(elon1)
+c     deallocate(dxx)
+c     deallocate(dyy)
+c     deallocate(elonv)
+c     deallocate(alatan)
+c     deallocate(latlong)
+c     deallocate(lambert)
+c     deallocate(polarstereo)
+c     deallocate(numreg)
+c     deallocate(ig104)
+c     deallocate(regions)
+c     deallocate(sumdata)
+c     deallocate(sumgrid)
+c     deallocate(sumprod)
+c     deallocate(ssqdata)
+c     deallocate(ssqgrid)
+c     deallocate(count)
+c     deallocate(summae)
           STOP
           END

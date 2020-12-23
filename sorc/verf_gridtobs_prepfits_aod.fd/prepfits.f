@@ -341,6 +341,7 @@ C       -------------------------------------------------
           CALL getbak(luges,lugbi,numlev,fhr(ibak),
      +                iearth,ismart,ipcp,iges(ibak),fhours(ibak))
 c         print*,'between getbak and getprof'
+c         print*,'iges(ibak)=',iges(ibak)
           IF (iges(ibak).eq.0) CALL getprofupr(iearth,sub,pob)
         PRINT*,'DONE WITH IBAK=',IBAK,FILE(IBAK),IGES(IBAK)
         call baclose(luges,ishl)

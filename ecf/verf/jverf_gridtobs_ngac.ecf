@@ -29,8 +29,8 @@ set -x
 export cyc=%CYC%
 export cycles="%CYCLES%"
 export model=ngac
-export NET=ngac
-export RUN=ngac
+export NET=gefs
+export RUN=gefs
 export INDIR=${INDIR:-$(compath.py ${NET}/prod/${RUN})}
 
 ${HOMEverf_gridtobs}/jobs/JVERF_GRIDTOBS_FITS

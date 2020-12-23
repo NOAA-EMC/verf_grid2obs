@@ -5,7 +5,7 @@ ozone1|ozone|aqm|CMAQ5XBC|CMAQ5XBC|00|48|06|awpozcon_bc| | | |NO| |148|grib2|
 pm|pm|aqm|CMAQ5X|CMAQ5X|00|48|06|pm25| | | |NO| |148|grib2|
 pm1|pm|aqm|CMAQ5XBC|CMAQ5XBC|00|48|06|pm25_bc| | | |NO| |148|grib2|
 ### AOD ###
-ngac|ngac|ngac|NGAC|NGAC|00|120|06|a2d| | | |NO| |3|grib2|
+ngac|ngac|ngac|NGAC|NGAC|00|120|06|a2d_0p25| | | |NO| |3|grib2|
 ### GFS ###
 gfs|global|gfs|GFS|GFS|00|84|06|pgrb2.1p00.f| | | |NO| |3|grib2|
 gfs12|global12|gfs|GFS|GFS|00|84|06|master.grb2f| | | |NO|lambert:265.000:25.000:25.000:35.000 226.541:614:12190.58 12.190:428:12190.58|218|grib2|
@@ -61,17 +61,24 @@ gfseak|dgexak|gfs|GFSE|GFSE|84|204|06|master.grb2f| | | |NO|nps:203:60 174.759:3
 #
 ### HIRESW ###
 conusarw|meso|conusarw|CONUSARW|CONUSARW|00|48|12|arw_5km.f| | |.conus.grib2|NO| |227|grib2|
+conusarw2|meso|conusarw2|CONUSARW2|CONUSARW2|00|48|12|arw_5km.f| | |.conusmem2.grib2|NO| |227|grib2|
 conusnmmb|meso|conusnmmb|CONUSNMMB|CONUSNMMB|00|48|12|nmmb_5km.f| | |.conus.grib2|NO| |227|grib2|
+conusfv3|meso|conusfv3|CONUSFV3|CONUSFV3|00|48|12|fv3_5km.f| | |.conus.grib2|NO| |227|grib2|
 eastconusarw|mesoeast|conusarw|EASTCONUSARW|EASTCONUSARW|00|48|12|arw_5km.f| | |.conuseast.grib2|NO| |255|grib2|
 eastconusnmmb|mesoeast|conusnmmb|EASTCONUSNMMB|EASTCONUSNMMB|00|48|12|nmmb_5km.f| | |.conuseast.grib2|NO| |255|grib2|
+eastconusfv3|mesoeast|conusfv3|EASTCONUSFV3|EASTCONUSFV3|00|48|12|fv3_5km.f| | |.conuseast.grib2|NO| |255|grib2|
 westconusarw|mesowest|conusarw|WESTCONUSARW|WESTCONUSARW|00|48|12|arw_5km.f| | |.conuswest.grib2|NO| |255|grib2|
 westconusnmmb|mesowest|conusnmmb|WESTCONUSNMMB|WESTCONUSNMMB|00|48|12|nmmb_5km.f| | |.conuswest.grib2|NO| |255|grib2|
+westconusfv3|mesowest|conusfv3|WESTCONUSFV3|WESTCONUSFV3|00|48|12|fv3_5km.f| | |.conuswest.grib2|NO| |255|grib2|
 akarw|mesoak|akarw|AKARW|AKARW|00|48|12|arw_3km.f| | |.ak.grib2|NO| |255|grib2|
 aknmmb|mesoak|aknmmb|AKNMMB|AKNMMB|00|48|12|nmmb_3km.f| | |.ak.grib2|NO| |255|grib2|
+akfv3|mesoak|akfv3|AKFV3|AKFV3|00|48|12|fv3_3km.f| | |.ak.grib2|NO| |255|grib2|
 prarw|mesopr|prarw|PRARW|PRARW|00|48|12|arw_5km.f| | |.pr.grib2|NO| |255|grib2|
 prnmmb|mesopr|prnmmb|PRNMMB|PRNMMB|00|48|12|nmmb_5km.f| | |.pr.grib2|NO| |255|grib2|
+prfv3|mesopr|prfv3|PRFV3|PRFV3|00|48|12|fv3_5km.f| | |.pr.grib2|NO| |255|grib2|
 hiarw|mesohi|hiarw|HIARW|HIARW|00|48|12|arw_2p5km.f| | |.hi.grib2|NO| |255|grib2|
 hinmmb|mesohi|hinmmb|HINMMB|HINMMB|00|48|12|nmmb_2p5km.f| | |.hi.grib2|NO| |255|grib2|
+hifv3|mesohi|hifv3|HIFV3|HIFV3|00|48|12|fv3_2p5km.f| | |.hi.grib2|NO| |255|grib2|
 nssl4arw|meso|nssl4arw|NSSL4ARW|NSSL4ARW|00|36|06|wrf4nssl| | |.tm00|NO| |255|grib2|
 #
 ### SMARTINIT ###

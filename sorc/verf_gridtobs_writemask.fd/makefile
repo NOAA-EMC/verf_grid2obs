@@ -1,5 +1,5 @@
 SHELL=          /bin/sh
-LIBS =        $(G2_LIB4) $(JASPER_LIB) $(W3NCO_LIB4) $(W3EMC_LIB4) $(BUFR_LIBs) $(BACIO_LIB4) $(PNG_LIB) $(Z_LIB)
+LIBS =        $(G2_LIB4) $(JASPER_LIB) $(W3NCO_LIB4) $(W3EMC_LIB4) $(BUFR_LIB4) $(BACIO_LIB4) $(PNG_LIB) $(Z_LIB)
 FC=             ifort
 INC =        $(G2_INC4)
 FFLAGS =     -i4 -I$(INC)
