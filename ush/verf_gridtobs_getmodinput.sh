@@ -254,9 +254,9 @@ do
             # fhrg=$fhr
             fhrg=$(printf %03d ${fhr#0})
            fi
-           if [ -e ${DIRIN}.${aday}/${acyc}/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} ]
+           if [ -e ${DIRIN}.${aday}/${acyc}/atmos/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} ]
            then
-             cp ${DIRIN}.${aday}/${acyc}/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} TMP${fhr}
+             cp ${DIRIN}.${aday}/${acyc}/atmos/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} TMP${fhr}
              $WGRIB2 TMP${fhr} | grep  -F -f gfs_parmlist | $WGRIB2 -i -grib  GRD${fhr} TMP${fhr}
              rm -f -r TMP${fhr}
              if [ $domain = "gfs12" -o $domain = "gfs12ak" ]
