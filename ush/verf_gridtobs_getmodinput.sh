@@ -284,9 +284,9 @@ do
            else
             fhrg=$fhr
            fi
-           if [ -e ${DIRIN}.${aday}/${acyc}/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} ]
+           if [ -e ${DIRIN}.${aday}/${acyc}/atmos/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} ]
            then
-             cp ${DIRIN}.${aday}/${acyc}/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} GRD${fhr}
+             cp ${DIRIN}.${aday}/${acyc}/atmos/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} GRD${fhr}
            fi
            ;;
       nssl4arw) if [ -e cp $DCOMROOT/prod/${aday}/wgrbbul/nssl_wrf/${filnam1}_${aday}${acyc}.f${fhr} ]
