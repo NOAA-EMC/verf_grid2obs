@@ -306,7 +306,7 @@ do
                 fi
            ;;
          hiresw) cp $DIRIN.${aday}/hiresw.t${acyc}z.${filnam1}${fhr}${tmkk} GRD${fhr}
-             if [ $domain = "hinmmb" -o $domain = "hiarw" ]
+             if [ $domain = "hiarw2" -o $domain = "hiarw" - $domain = "hifv3" ]
                then
                 gr="0 6 0 0 0 0 0 0 322 202 0 0 18000000 198000000 48 23025000 206025000 25000 25000 64"
                 $COPYGB2 -g"$gr" -x GRD${fhr} GRD${fhr}.1
