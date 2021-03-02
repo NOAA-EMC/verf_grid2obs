@@ -71,7 +71,7 @@ westconusarw|mesowest|conusarw|WESTCONUSARW|WESTCONUSARW|00|48|12|arw_5km.f| | |
 westconusnmmb|mesowest|conusnmmb|WESTCONUSNMMB|WESTCONUSNMMB|00|48|12|nmmb_5km.f| | |.conuswest.grib2|NO| |255|grib2|
 westconusfv3|mesowest|conusfv3|WESTCONUSFV3|WESTCONUSFV3|00|48|12|fv3_5km.f| | |.conuswest.grib2|NO| |255|grib2|
 akarw|mesoak|akarw|AKARW|AKARW|00|48|12|arw_3km.f| | |.ak.grib2|NO| |255|grib2|
-akarw2|mesoak|akarw2|AKARW2|AKARW2|00|12|arw_3km.f| | |.akmem2.grib2|NO| |255|grib2|
+akarw2|mesoak|akarw2|AKARW2|AKARW2|00|48|12|arw_3km.f| | |.akmem2.grib2|NO| |255|grib2|
 aknmmb|mesoak|aknmmb|AKNMMB|AKNMMB|00|48|12|nmmb_3km.f| | |.ak.grib2|NO| |255|grib2|
 akfv3|mesoak|akfv3|AKFV3|AKFV3|00|48|12|fv3_3km.f| | |.ak.grib2|NO| |255|grib2|
 prarw|mesopr|prarw|PRARW|PRARW|00|48|12|arw_5km.f| | |.pr.grib2|NO| |255|grib2|
