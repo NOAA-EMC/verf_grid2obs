@@ -1,8 +1,8 @@
 MODEL|REGIONS|VERIFICATION LENGTH|FORECAST RANGE|
-aqm|ozone|48|48|
-aqm1|ozone1|48|48|
-pm|pm|48|48|
-pm1|pm1|48|48|
+aqm|ozone|72|72|
+aqm1|ozone1|72|72|
+pm|pm|72|72|
+pm1|pm1|72|72|
 ngac|ngac|120|120|
 gfs|gfs gfs12 gfs12ak|84|84|
 gdas|gdas|09|09|
