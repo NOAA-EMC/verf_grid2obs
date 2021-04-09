@@ -352,7 +352,7 @@ cp input_hour_max input_hour
        cp gribtemp ${field}_${cmaqday}
       fi
 
-      cp AWIP3D${cyc}.tm00_${field}_${cmaqday} AWIP3D${cyc}.tm00
+      cp ${field}_${cmaqday} AWIP3D${cyc}.tm00
       ${GRB2INDEX} AWIP3D${cyc}.tm00 AWIP3D${cyc}i.tm00 
 
 cat<<eof>>input_hour
