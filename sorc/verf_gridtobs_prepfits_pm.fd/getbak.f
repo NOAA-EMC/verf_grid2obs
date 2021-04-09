@@ -244,16 +244,21 @@ c     jpdt(20)=fhour
         ifdate(5)=gfld%idsect(9)
         print*,'fhour=',fhour
         if(src(:5).eq.'pmave'.or.src(:5).eq.'pmmax') then
-         if(fhour.eq.24) then
+         if(fhour.eq.0) then
+          ricdat(2)=0
+         elseif(fhour.eq.24) then
           ricdat(2)=0
          elseif(fhour.eq.30) then
-          print*,'fhour is=',fhour
           ricdat(2)=6
          elseif(fhour.eq.54) then
           ricdat(2)=30
-         else
+         elseif(fhour.eq.48) then
           ricdat(2)=24
-         endif     
+         elseif(fhour.eq.72) then
+          ricdat(2)=48
+         elseif(fhour.eq.78) then
+          ricdat(2)=54
+         endif
         else
          ricdat(2)=gfld%ipdtmpl(9) +1 
         endif
