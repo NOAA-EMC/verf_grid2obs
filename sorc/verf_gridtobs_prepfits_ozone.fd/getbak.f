@@ -215,8 +215,10 @@ c     jpdt(20)=fhour
         if(src(:6).eq.'aqmmax') then
          if(fhour.eq.24) then
           ricdat(2)=0
-         else
+         elseif(fhour.eq.48) then
           ricdat(2)=24
+         else
+          ricdat(2)=48
          endif
         else
          ricdat(2)=gfld%ipdtmpl(9) +1
