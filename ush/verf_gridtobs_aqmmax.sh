@@ -274,7 +274,7 @@ EOF_LEVCAT
      if [ $cyc -eq 12 ]
      then
      $WGRIB2 AWIP3D12.tm00_1hr_${cmaqday} | grep "2147483641" | $WGRIB2 -i AWIP3D12.tm00_1hr_${cmaqday} -grib oz1hr_$cmaqday
-     $WGRIB2 AWIP3D12.tm00_8hr_${cmaqday} | grep "0-23 hour ave" | $WGRIB2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
+     $WGRIB2 AWIP3D12.tm00_8hr_${cmaqday} | grep "2147483647" | $WGRIB2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
      fi
      fi
 
@@ -284,7 +284,7 @@ EOF_LEVCAT
      if [ $cyc -eq 12 ]
      then
      $WGRIB2 AWIP3D12.tm00_1hr_${cmaqday} | grep "17-40 hour ave" | $WGRIB2 -i AWIP3D12.tm00_1hr_${cmaqday} -grib oz1hr_$cmaqday
-     $WGRIB2 AWIP3D12.tm00_8hr_${cmaqday} | grep "24-47 hour ave" | $WGRIB2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
+     $WGRIB2 AWIP3D12.tm00_8hr_${cmaqday} | grep "23-46 hour ave" | $WGRIB2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
      fi
      fi
 
@@ -294,7 +294,7 @@ EOF_LEVCAT
      if [ $cyc -eq 12 ]
      then
      $WGRIB2 AWIP3D12.tm00_1hr_${cmaqday} | grep "41-64 hour ave" | $WGRIB2 -i AWIP3D12.tm00_1hr_${cmaqday} -grib oz1hr_$cmaqday
-     $WGRIB2 AWIP3D12.tm00_8hr_${cmaqday} | grep "48-71 hour ave" | $WGRIB2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
+     $WGRIB2 AWIP3D12.tm00_8hr_${cmaqday} | grep "47-70 hour ave" | $WGRIB2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
      fi
      fi
 
