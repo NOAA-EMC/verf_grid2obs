@@ -62,8 +62,6 @@ then
 #  fi
 fi
 
-envir=prod
-
 echo $regions
 
 for field in $regions
@@ -160,7 +158,7 @@ EOF_LEVCAT
   # -------------------------------
   # Start the calculation from here
   # -------------------------------
-  for cmaqday in DAY1 DAY2
+  for cmaqday in DAY1 DAY2 DAY3
   do
     case $cmaqday in
       DAY1)if [ $field = "ozonemax" ]
@@ -229,6 +227,39 @@ EOF_LEVCAT
           fi
          fi
          ;;
+    DAY3)if [ $field = "ozonemax" ]
+         then
+          if [ $cyc -eq 12 ]
+          then
+           cp ${INDIR}.${vdaym2}/aqm.t12z.max_1hr_o3${bctag}.148.grib2 AWIP3D12.tm00_1hr_${cmaqday}
+           cp ${INDIR}.${vdaym2}/aqm.t12z.max_8hr_o3${bctag}.148.grib2 AWIP3D12.tm00_8hr_${cmaqday}
+           FHR=72
+          fi
+         elif [ $field = "pmave" -o $field = "pmmax" ]
+         then
+            if [ $cyc -eq 06 ]
+            then
+             FHR=78
+             if [ $field = "pmave" ]
+             then
+              cp ${INDIR}.${vdaym2}/aqm.t06z.ave_24hr_pm25${bctag}.148.grib2 AWIP3D06.tm00_${field}_${cmaqday}
+             elif [ $field = "pmmax" ]
+             then
+              cp ${INDIR}.${vdaym2}/aqm.t06z.max_1hr_pm25${bctag}.148.grib2 AWIP3D06.tm00_${field}_${cmaqday}
+             fi
+            elif [ $cyc -eq 12 ]
+            then
+             FHR=72
+             if [ $field = "pmave" ]
+             then
+              cp ${INDIR}.${vdaym2}/aqm.t12z.ave_24hr_pm25${bctag}.148.grib2 AWIP3D12.tm00_${field}_${cmaqday}
+             elif [ $field = "pmmax" ]
+             then
+              cp ${INDIR}.${vdaym2}/aqm.t12z.max_1hr_pm25${bctag}.148.grib2 AWIP3D12.tm00_${field}_${cmaqday}
+             fi
+          fi
+         fi
+         ;;
     esac
 
 ###    rm -rf AWIP* input_*
@@ -237,25 +268,34 @@ EOF_LEVCAT
    if [ $field = "ozonemax" ]
    then
 
-     if [ $cmaqday = "DAY1" ]
+    if [ $cmaqday = "DAY1" ]
      then
 
      if [ $cyc -eq 12 ]
      then
-#     $WGRIB2 AWIP3D12.tm00_1hr_${cmaqday} | grep "7-16 hour ave" | $WGRIB2 -i AWIP3D12.tm00_1hr_${cmaqday} -grib oz1hr_$cmaqday
-#     $WGRIB2 AWIP3D12.tm00_8hr_${cmaqday} | grep "1-22 hour ave" | $WGRIB2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
-      $WGRIB2 AWIP3D12.tm00_1hr_${cmaqday} | grep "2147483641" | $WGRIB2 -i AWIP3D12.tm00_1hr_${cmaqday} -grib oz1hr_$cmaqday
-      $WGRIB2 AWIP3D12.tm00_8hr_${cmaqday} | grep "2147483647" | $WGRIB2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
+     $WGRIB2 AWIP3D12.tm00_1hr_${cmaqday} | grep "2147483641" | $WGRIB2 -i AWIP3D12.tm00_1hr_${cmaqday} -grib oz1hr_$cmaqday
+     $WGRIB2 AWIP3D12.tm00_8hr_${cmaqday} | grep "0-23 hour ave" | $WGRIB2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
+     fi
      fi
 
-     else
+     if [ $cmaqday = "DAY2" ]
+     then
 
      if [ $cyc -eq 12 ]
      then
      $WGRIB2 AWIP3D12.tm00_1hr_${cmaqday} | grep "17-40 hour ave" | $WGRIB2 -i AWIP3D12.tm00_1hr_${cmaqday} -grib oz1hr_$cmaqday
-     $WGRIB2 AWIP3D12.tm00_8hr_${cmaqday} | grep "23-46 hour ave" | $WGRIB2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
+     $WGRIB2 AWIP3D12.tm00_8hr_${cmaqday} | grep "24-47 hour ave" | $WGRIB2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
+     fi
      fi
 
+     if [ $cmaqday = "DAY3" ]
+     then
+
+     if [ $cyc -eq 12 ]
+     then
+     $WGRIB2 AWIP3D12.tm00_1hr_${cmaqday} | grep "41-64 hour ave" | $WGRIB2 -i AWIP3D12.tm00_1hr_${cmaqday} -grib oz1hr_$cmaqday
+     $WGRIB2 AWIP3D12.tm00_8hr_${cmaqday} | grep "48-71 hour ave" | $WGRIB2 -i AWIP3D12.tm00_8hr_${cmaqday} -grib oz8hr_$cmaqday
+     fi
      fi
 
      cat oz1hr_$cmaqday oz8hr_$cmaqday > AWIP${avg_hr}.tm00
@@ -270,17 +310,46 @@ cp input_hour_max input_hour
 
    else
 
-      if [ $cmaqday = "DAY2" ] 
+      if [ $cmaqday = "DAY1" ]
       then
 
          if [ $cyc -eq 12 ]
          then
-           $WGRIB2 AWIP3D${cyc}.tm00_${field}_${cmaqday} | grep "17-4" | $WGRIB2 -i AWIP3D${cyc}.tm00_${field}_${cmaqday} -grib gribtemp
+           $WGRIB2 AWIP3D${cyc}.tm00_${field}_${cmaqday} | grep "2147483641" | $WGRIB2 -i AWIP3D${cyc}.tm00_${field}_${cmaqday} -grib gribtemp
          else
-           $WGRIB2 AWIP3D${cyc}.tm00_${field}_${cmaqday} | grep "23-4" | $WGRIB2 -i AWIP3D${cyc}.tm00_${field}_${cmaqday} -grib gribtemp
+           $WGRIB2 AWIP3D${cyc}.tm00_${field}_${cmaqday} | grep "2147483647" | $WGRIB2 -i AWIP3D${cyc}.tm00_${field}_${cmaqday}  -grib gribtemp
           fi
-      
-      cp gribtemp AWIP3D${cyc}.tm00_${field}_${cmaqday}
+
+#      cp gribtemp AWIP3D${cyc}.tm00_${field}_${cmaqday}
+       cp gribtemp ${field}_${cmaqday}
+      fi
+
+      if [ $cmaqday = "DAY2" ]
+      then
+
+         if [ $cyc -eq 12 ]
+         then
+           $WGRIB2 AWIP3D${cyc}.tm00_${field}_${cmaqday} | grep "17-40" | $WGRIB2 -i AWIP3D${cyc}.tm00_${field}_${cmaqday} -grib gribtemp
+         else
+           $WGRIB2 AWIP3D${cyc}.tm00_${field}_${cmaqday} | grep "23-46" | $WGRIB2 -i AWIP3D${cyc}.tm00_${field}_${cmaqday} -grib gribtemp
+          fi
+
+#      cp gribtemp AWIP3D${cyc}.tm00_${field}_${cmaqday}
+       cp gribtemp ${field}_${cmaqday}
+      fi
+
+      if [ $cmaqday = "DAY3" ]
+      then
+
+         if [ $cyc -eq 12 ]
+         then
+           $WGRIB2 AWIP3D${cyc}.tm00_${field}_${cmaqday} | grep "41-64" | $WGRIB2 -i AWIP3D${cyc}.tm00_${field}_${cmaqday}  -grib gribtemp
+         else
+           $WGRIB2 AWIP3D${cyc}.tm00_${field}_${cmaqday} | grep "47-70" | $WGRIB2 -i AWIP3D${cyc}.tm00_${field}_${cmaqday}  -grib gribtemp
+          fi
+
+#      cp gribtemp AWIP3D${cyc}.tm00_${field}_${cmaqday}
+       cp gribtemp ${field}_${cmaqday}
       fi
 
       cp AWIP3D${cyc}.tm00_${field}_${cmaqday} AWIP3D${cyc}.tm00
