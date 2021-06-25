@@ -62,10 +62,10 @@ esac
 if [ "$bufrnet" = "satimg" ]
 then
   case $HH00 in
-      00) ndas1=$COMG/gfs.${PDY00}/gfs.t${HH00}z.geoimr.tm00.bufr_d;;
-      06) ndas1=$COMG/gfs.${PDY00}/gfs.t${HH00}z.geoimr.tm00.bufr_d;;
-      12) ndas1=$COMG/gfs.${PDY00}/gfs.t${HH00}z.geoimr.tm00.bufr_d;;
-      18) ndas1=$COMG/gfs.${PDY00}/gfs.t${HH00}z.geoimr.tm00.bufr_d;;
+      00) ndas1=$COMG/gfs.${PDY00}/atmos/gfs.t${HH00}z.geoimr.tm00.bufr_d;;
+      06) ndas1=$COMG/gfs.${PDY00}/atmos/gfs.t${HH00}z.geoimr.tm00.bufr_d;;
+      12) ndas1=$COMG/gfs.${PDY00}/atmos/gfs.t${HH00}z.geoimr.tm00.bufr_d;;
+      18) ndas1=$COMG/gfs.${PDY00}/atmos/gfs.t${HH00}z.geoimr.tm00.bufr_d;;
   esac
 
 elif [ "$bufrnet" = "global" ]
