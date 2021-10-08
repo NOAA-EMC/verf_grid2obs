@@ -100,7 +100,7 @@ then
   cp $PARMverf_gridtobs/verf_gridtobs.cycles gridtobs.cycles
 
   set +x
-  cat gridtobs.cycles |while read line
+  while read line
   do
     region_name=`echo $line |awk -F"|" '{print $1}'`
 
@@ -114,17 +114,18 @@ then
       then
         export model_cycles=`echo $line |awk -F"|" '{print $2}'`
         echo $model_cycles >${domain}.cycles
+	echo "domain.cycles ${domain}.cycles"
         break
       fi
     fi
-  done
+  done < gridtobs.cycles
   set -x
 
   ## Obtain the list of model input files
   cp $PARMverf_gridtobs/verf_gridtobs.domains gridtobs.domains
 
 #  set +x
-  cat gridtobs.domains |while read line
+  while read line
   do
     region_name=`echo $line |awk -F"|" '{print $1}'`
 
@@ -155,7 +156,7 @@ then
         break
       fi
     fi
-  done
+  done < gridtobs.domains
 #  set -x
 
   $USHverf_gridtobs/verf_gridtobs_getmodinput.sh $domain
@@ -185,7 +186,7 @@ then
     cp $PARMverf_gridtobs/verf_gridtobs.keeplist gridtobs.keeplist
 
     set +x
-    cat gridtobs.keeplist |while read line
+    while read line
     do
       net_name=`echo $line |awk -F"|" '{print $1}'`
       if [ $net_name = $network ]
@@ -204,7 +205,7 @@ then
         break
       fi
 
-    done
+    done < gridtobs.keeplist
 
     ## Special treatment for the AQM model:
     if [ $model = "aqm" -o $model = "aqmak" -o $model = "pm" -o $model = "aqmpara1" -o $model = "pmak" -o $model = "pm1" -o $model = "aqmhi" -o $model = "pmhi" -o $model = "aqmpara" ]
@@ -238,7 +239,7 @@ then
   fi
 
   export pgm=verf_gridtobs_editbufr${XCE}
-  . prep_step
+#  . prep_step
 
    pwd
    echo $DATA
@@ -249,9 +250,9 @@ then
    ln -sf $DATA/$vcyc/$mod/prepda.${vdate} fort.20
    ln -sf $DATA/$vcyc/$mod/bufrout_${domain} fort.50
 
-  startmsg
+#  startmsg
   $EXECverf_gridtobs/verf_gridtobs_editbufr${XCE} < gridtobs.keeplist.${network} >>$pgmout
-  export err=$?; err_chk
+#  export err=$?; err_chk
 
   rm fort.*
 
@@ -259,7 +260,7 @@ then
   cp $PARMverf_gridtobs/verf_gridtobs.levcat gridtobs.levcat
 
   set +x
-  cat gridtobs.levcat |while read tmp
+  while read tmp
   do
     levcat_domain=`echo $tmp |awk -F"|" '{print $1}'`
     if [ $levcat_domain = $domain ]
@@ -268,7 +269,7 @@ then
        FIT=`echo $tmp |awk -F"|" '{print $3}'`
        break
     fi
-  done
+  done < gridtobs.levcat
 #  set -x
 
   cat <<EOF_LEVCAT >gridtobs.levcat.${domain}
@@ -286,7 +287,7 @@ EOF_LEVCAT
        echo "Warning: Input file is empty, no verification for model $domain"
     else
        export pgm=verf_gridtobs_prepfits
-       . prep_step
+#       . prep_step
 
 #       export XLFUNIT_11=gridtobs.levcat.${domain}
 #       export XLFUNIT_20=bufrout_${domain}
@@ -298,13 +299,13 @@ EOF_LEVCAT
        ln -sf $PARMverf_gridtobs/verf_gridtobs.prepfits.tab${XCT} fort.22
        ln -sf $DATA/$vcyc/$mod/prepfits.${domain}.${vdate} fort.50
 
-       startmsg
+#       startmsg
        echo "datacard"
        echo $datacard
        $EXECverf_gridtobs/verf_gridtobs_prepfits${XC} < $datacard >>prepfit.out.${domain}
        export err=$?
        cat prepfit.out.${domain} >>$pgmout
-       err_chk
+#       err_chk
 
        ## Save the "prepfits" files 
        chmod 640 prepfits.${domain}.${vdate}
@@ -392,7 +393,7 @@ EOF_LEVCAT
 #       ${GRBINDEX} firemask.grb firemaski.grb       
  
        pgm=verf_gridtobs_gridtobs
-       . prep_step
+#       . prep_step
 
 #       export XLFUNIT_10=prepfits.${domain}.${vdate}
 #       export XLFUNIT_20=$PARMverf_gridtobs/verf_gridtobs.grid104
@@ -406,9 +407,9 @@ EOF_LEVCAT
        ln -sf $PARMverf_gridtobs/verf_gridtobs.regions fort.21
        ln -sf $DATA/$vcyc/$mod/${domain}_${vdate}.vdb fort.50
 
-       startmsg
+#       startmsg
        $EXECverf_gridtobs/verf_gridtobs_gridtobs${XC} <gridtobs_${domain} >gto.${domain}${vcyc}.out
-       export err=$?; err_chk
+#       export err=$?; err_chk
 
        cat gto.${domain}${vcyc}.out >>$pgmout
 
@@ -474,7 +475,7 @@ EOF_LEVCAT
        mv gridtobs_${domain}_fwis.new gridtobs_${domain}_fwis
 
        pgm=verf_gridtobs_gridtobs_fwis
-       . prep_step
+#       . prep_step
 
 #       export XLFUNIT_10=prepfits.${domain}.${vdate}
 #       export XLFUNIT_20=$PARMverf_gridtobs/verf_gridtobs.grid104
@@ -514,9 +515,9 @@ EOF_LEVCAT
         ln -sf firemask7.grb fort.43
         ln -sf firemask7i.grb fort.44
         ln -sf ${domain}_${vdate}_fwis.vdb fort.50
-       startmsg
+#       startmsg
        $EXECverf_gridtobs/verf_gridtobs_gridtobs_fwis <gridtobs_${domain}_fwis >gto.${domain}${vcyc}_fwis.out
-       export err=$?; err_chk
+#       export err=$?; err_chk
 
        cat gto.${domain}${vcyc}_fwis.out >>$pgmout
 

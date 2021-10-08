@@ -25,7 +25,7 @@ cd $DATA
 ####################################
 # File To Log Msgs
 ####################################
-export jlogfile=${jlogfile:-${DATA}/jlogfile}
+##export jlogfile=${jlogfile:-${DATA}/jlogfile}
 
 ####################################
 # Determine Job Output Name on System
@@ -49,8 +49,8 @@ export RUN=${RUN:-gridtobs}
 export SENDCOM=${SENDCOM:-YES}
 export SENDDBN=${SENDDBN:-YES}
 export SENDECF=${SENDECF:-YES}
-
-export DCOMROOT=${DCOMROOT:-/gpfs/dell1/nco/ops/dcom}
+ 
+export DCOMROOT=${DCOMROOT:-/lfs/h1/ops/$envir/dcom}
 export HOMEverf_gridtobs=${HOMEverf_gridtobs:-${NWROOT}/verf_gridtobs.${model_ver}}
 export EXECverf_gridtobs=${EXECverf_gridtobs:-$HOMEverf_gridtobs/exec}
 export FIXverf_gridtobs=${FIXverf_gridtobs:-$HOMEverf_gridtobs/fix}
@@ -74,25 +74,25 @@ then
 fi
 
 # Define COMIN/COMOUT variables:
-export INDIR=${INDIR:-/com/${NET}/prod/${RUN}}
+export INDIR=${INDIR:-$(compath.py ${NET}/${VER}/${RUN}}
 
 if [ $model = srefens -o $model = srefensx ]; then
   export COM_IN=$COMROOT/verf/${envir}
 else
-  export COM_IN=${COM_IN:-$COMROOT/verf/${envir}}
+  export COM_IN=${COM_IN:-$(compath.py verf/${verf_ver})}
 fi
 
-export COM_OUT=${COM_OUT:-$COMROOT/verf/${envir}}
+export COM_OUT=${COM_OUT:-$(compath.py verf/${verf_ver})}
 export COMIN=$COM_IN/gridtobs.$vday
 export COMOUT=$COM_OUT/gridtobs.$vday
-export COMVSDB=${COMVSDB:-$COMROOT/verf/${envir}/vsdb/gridtobs}
+export COMVSDB=${COMVSDB:-$(compath.py verf/${verf_ver}/vsdb/gridtobs)}
 
-export COMG=${COMG:-$(compath.py gfs/prod)}
-export COMN=${COMN:-$(compath.py nam/prod)}
-export COMR=${COMR:-/gpfs/dell2/nco/ops/com/rtma/prod}
+export COMG=${COMG:-$(compath.py gfs/${gfs_ver}/gfs)}
+export COMN=${COMN:-$(compath.py nam/${nam_ver}/nam)}
+export COMR=${COMR:-$(compath.py rtma/${rtma_ver}/rtma)}
 
 # Define the directory where the PREPBUFR file comes from:
-export COMBUFR=${COMBUFR:-$(compath.py hourly/prod)}
+export COMBUFR=${COMBUFR:-$(compath.py hourly/${hourly_ver})}
 
 mkdir -p -m 775 $COMVSDB
 mkdir -p -m 750 $COMOUT
@@ -121,13 +121,13 @@ then
   export vdate=$vday$vcyc
   $USHverf_gridtobs/verf_gridtobs_aqmmax.sh $model $bc
 else
-   . $HOMEverf_gridtobs/scripts/exverf_gridtobs_fits.sh.ecf $vday $model 
+   . $HOMEverf_gridtobs/scripts/exverf_gridtobs_fits.sh $vday $model 
 fi
 
 cat $pgmout
 
 msg="JOB $job HAS COMPLETED NORMALLY."
-postmsg "$jlogfile" "$msg"
+postmsg "$msg"
 
 cd $DATA_IN
 if [ "$KEEPDATA" != "YES" ] ; then

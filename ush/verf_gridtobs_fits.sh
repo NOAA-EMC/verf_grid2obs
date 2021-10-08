@@ -78,7 +78,7 @@ do
   cp $PARMverf_gridtobs/verf_gridtobs.cycles gridtobs.cycles
 
   set +x
-  cat gridtobs.cycles |while read line
+  while read line
   do
     region_name=`echo $line |awk -F"|" '{print $1}'`
 
@@ -95,14 +95,15 @@ do
         break
       fi
     fi
-  done
+  done < gridtobs.cycles
   set -x
 
   ## Obtain the list of model input files
   cp $PARMverf_gridtobs/verf_gridtobs.domains gridtobs.domains
 
   set +x
-  cat gridtobs.domains |while read line
+#  cat gridtobs.domains |while read line
+  while read line
   do
     region_name=`echo $line |awk -F"|" '{print $1}'`
 
@@ -133,7 +134,7 @@ do
         break
       fi
     fi
-  done
+  done < gridtobs.domains
   set -x
 
   $USHverf_gridtobs/verf_gridtobs_getmodinput.sh $domain
@@ -162,7 +163,7 @@ do
     cp $PARMverf_gridtobs/verf_gridtobs.keeplist gridtobs.keeplist
 
     set +x
-    cat gridtobs.keeplist |while read line
+    while read line
     do
       net_name=`echo $line |awk -F"|" '{print $1}'`
       if [ $net_name = $network ]
@@ -181,7 +182,7 @@ do
         break
       fi
 
-    done
+    done <  gridtobs.keeplist
 
     ## Special treatment for the AQM model:
     if [ $model = "aqm" -o $model = "pm1" -o $model = "pm" -o $model = "aqm1" ]
@@ -215,7 +216,7 @@ do
   fi
 
   export pgm=verf_gridtobs_editbufr${XCE}
-  . prep_step
+#  . prep_step
 
    pwd
    echo $DATA
@@ -236,7 +237,7 @@ do
   cp $PARMverf_gridtobs/verf_gridtobs.levcat gridtobs.levcat
 
   set +x
-  cat gridtobs.levcat |while read tmp
+  while read tmp
   do
     levcat_domain=`echo $tmp |awk -F"|" '{print $1}'`
     if [ $levcat_domain = $domain ]
@@ -245,7 +246,7 @@ do
        FIT=`echo $tmp |awk -F"|" '{print $3}'`
        break
     fi
-  done
+  done < gridtobs.levcat
   set -x
 
   cat <<EOF_LEVCAT >gridtobs.levcat.${domain}
@@ -263,7 +264,7 @@ EOF_LEVCAT
        echo "Warning: Input file is empty, no verification for model $domain"
     else
        export pgm=verf_gridtobs_prepfits
-       . prep_step
+#       . prep_step
 
        ls -l $DATA/$vcyc
 
@@ -454,7 +455,7 @@ EOF_LEVCAT
        mv gridtobs_${domain}_fwis.new gridtobs_${domain}_fwis
 
        pgm=verf_gridtobs_gridtobs_fwis
-       . prep_step
+#       . prep_step
 
 #       export XLFUNIT_10=prepfits.${domain}.${vdate}
 #       export XLFUNIT_20=$PARMverf_gridtobs/verf_gridtobs.grid104

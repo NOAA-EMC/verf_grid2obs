@@ -5,9 +5,9 @@ OBJS	= gtgdef.o igotdata.o inarea.o inlayer.o isitob.o raddate.o readcntl.o \
 
 SHELL=          /bin/sh
 LIBS=            $(W3EMC_LIB4) $(W3NCO_LIB4) $(BUFR_LIB4) $(BACIO_LIB4)
-FC=             ifort
+FC=             ftn
 FFLAGS=         -heap-arrays -i4
-CMD	= verf_gridtobs_gridtobs_pm
+CMD	= ../../exec/verf_gridtobs_gridtobs_pm
 
 $(CMD):	$(OBJS)
 	$(FC) $(FFLAGS) -o $(@) $(OBJS) $(LIBS)

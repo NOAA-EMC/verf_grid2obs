@@ -1,8 +1,8 @@
 MODEL|REGIONS|VERIFICATION LENGTH|FORECAST RANGE|
-aqm|ozone|48|48|
-aqm1|ozone1|48|48|
-pm|pm|48|48|
-pm1|pm1|48|48|
+aqm|ozone|72|72|
+aqm1|ozone1|72|72|
+pm|pm|72|72|
+pm1|pm1|72|72|
 ngac|ngac|120|120|
 gfs|gfs gfs12 gfs12ak|84|84|
 gdas|gdas|09|09|
@@ -13,8 +13,8 @@ hawaiinest|hawaiinest|60|60|
 priconest|priconest|60|60|
 fwis|fwis|36|36|
 ndas|ndas|03|03|
-rap|rap13 rapak|51|51|
-hrrr|hrrr|48|48|
+rap|rap13 rapak|39|39|
+hrrr|hrrr|36|36|
 rtma|rtma|00|00|
 rtma2p5|rtma2p5|00|00|
 urma2p5|urma2p5|00|00|
@@ -24,7 +24,7 @@ hirtma|hirtma|00|00|
 prrtma|prrtma|00|00|
 dgex|dgexco dgexak|192|192|
 gfse|gfseco gfseak|192|192|
-hiresw|conusnmmb conusarw eastconusnmmb eastconusarw westconusnmmb westconusarw aknmmb akarw hinmmb hiarw prnmmb prarw|48|48|
+hiresw|conusfv3 conusarw conusarw2 akfv3 akarw akarw2 hifv3 hiarw hiarw2 prfv3 prarw prarw2|48|48|
 smartinit|smarthi smartpr|84|84|
 smartinit2p5|smartconus2p5 smartak3|60|60|
 nssl4arw|nssl4arw|36|36|

@@ -1,9 +1,9 @@
 #REGION||NET|RUN|MODEL|PLL3|SFHR|EFHR|INC|FILNAM1|FILNAM2|FILNAM3|TMKK|DOCYGB|CGRID|GRDNAM|GRIB|
 ### AQM ###
-ozone|ozone|aqm|CMAQ5X|CMAQ5X|00|48|06|awpozcon| | | |NO| |148|grib2|
-ozone1|ozone|aqm|CMAQ5XBC|CMAQ5XBC|00|48|06|awpozcon_bc| | | |NO| |148|grib2|
-pm|pm|aqm|CMAQ5X|CMAQ5X|00|48|06|pm25| | | |NO| |148|grib2|
-pm1|pm|aqm|CMAQ5XBC|CMAQ5XBC|00|48|06|pm25_bc| | | |NO| |148|grib2|
+ozone|ozone|aqm|CMAQ5X|CMAQ5X|00|72|06|awpozcon| | | |NO| |148|grib2|
+ozone1|ozone|aqm|CMAQ5XBC|CMAQ5XBC|00|72|06|awpozcon_bc| | | |NO| |148|grib2|
+pm|pm|aqm|CMAQ5X|CMAQ5X|00|72|06|pm25| | | |NO| |148|grib2|
+pm1|pm|aqm|CMAQ5XBC|CMAQ5XBC|00|72|06|pm25_bc| | | |NO| |148|grib2|
 ### AOD ###
 ngac|ngac|ngac|NGAC|NGAC|00|120|06|a2d_0p25| | | |NO| |3|grib2|
 ### GFS ###
@@ -71,12 +71,15 @@ westconusarw|mesowest|conusarw|WESTCONUSARW|WESTCONUSARW|00|48|12|arw_5km.f| | |
 westconusnmmb|mesowest|conusnmmb|WESTCONUSNMMB|WESTCONUSNMMB|00|48|12|nmmb_5km.f| | |.conuswest.grib2|NO| |255|grib2|
 westconusfv3|mesowest|conusfv3|WESTCONUSFV3|WESTCONUSFV3|00|48|12|fv3_5km.f| | |.conuswest.grib2|NO| |255|grib2|
 akarw|mesoak|akarw|AKARW|AKARW|00|48|12|arw_3km.f| | |.ak.grib2|NO| |255|grib2|
+akarw2|mesoak|akarw2|AKARW2|AKARW2|00|48|12|arw_3km.f| | |.akmem2.grib2|NO| |255|grib2|
 aknmmb|mesoak|aknmmb|AKNMMB|AKNMMB|00|48|12|nmmb_3km.f| | |.ak.grib2|NO| |255|grib2|
 akfv3|mesoak|akfv3|AKFV3|AKFV3|00|48|12|fv3_3km.f| | |.ak.grib2|NO| |255|grib2|
 prarw|mesopr|prarw|PRARW|PRARW|00|48|12|arw_5km.f| | |.pr.grib2|NO| |255|grib2|
+prarw2|mesopr|prarw2|PRARW2|PRARW2|00|48|12|arw_5km.f| | |.prmem2.grib2|NO| |255|grib2|
 prnmmb|mesopr|prnmmb|PRNMMB|PRNMMB|00|48|12|nmmb_5km.f| | |.pr.grib2|NO| |255|grib2|
 prfv3|mesopr|prfv3|PRFV3|PRFV3|00|48|12|fv3_5km.f| | |.pr.grib2|NO| |255|grib2|
 hiarw|mesohi|hiarw|HIARW|HIARW|00|48|12|arw_2p5km.f| | |.hi.grib2|NO| |255|grib2|
+hiarw2|mesohi|hiarw2|HIARW2|HIARW2|00|48|12|arw_2p5km.f| | |.himem2.grib2|NO| |255|grib2|
 hinmmb|mesohi|hinmmb|HINMMB|HINMMB|00|48|12|nmmb_2p5km.f| | |.hi.grib2|NO| |255|grib2|
 hifv3|mesohi|hifv3|HIFV3|HIFV3|00|48|12|fv3_2p5km.f| | |.hi.grib2|NO| |255|grib2|
 nssl4arw|meso|nssl4arw|NSSL4ARW|NSSL4ARW|00|36|06|wrf4nssl| | |.tm00|NO| |255|grib2|

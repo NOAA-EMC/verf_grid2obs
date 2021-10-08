@@ -7,8 +7,8 @@ LIBS =        $(G2_LIB4) $(JASPER_LIB) $(W3NCO_LIB4) $(W3EMC_LIB4) $(BUFR_LIB4_D
 INC =        $(G2_INC4)
 FFLAGS =     -i4 -g -traceback -I$(INC) -mcmodel=medium -shared-intel
 LDFLAGS =    -shared-intel
-FC=             ifort
-CMD	= verf_gridtobs_prepfits_ozone
+FC=             ftn
+CMD	= ../../exec/verf_gridtobs_prepfits_ozone
 
 $(CMD):	$(OBJS)
 	$(FC) $(FFLAGS) $(LDFLAGS) -o $(@) $(OBJS) $(LIBS)
