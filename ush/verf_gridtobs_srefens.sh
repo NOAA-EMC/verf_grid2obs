@@ -29,9 +29,9 @@ seg=`echo $input_parm |awk -F"_" '{print $5}'`
 
 # Execute the program:
 export pgm=verf_gridtobs_gridtobs_ens
-. prep_step
+#. prep_step
 
-startmsg
+#startmsg
 
 mkdir -p $DATA/${domain}_${group}_${list}_${seg}
 cp -d fort* $DATA/${domain}_${group}_${list}_${seg}
@@ -43,6 +43,7 @@ ln -sf $PARMverf_gridtobs/verf_gridtobs.regions fort.21
 ln -sf $DATA/${domain}_${group}_${list}_${seg}_${vdate}.vdb fort.50
 
 $EXECverf_gridtobs/verf_gridtobs_gridtobs_ens <$DATA/$input_parm >gto.${domain}${vcyc}_${group}_${list}_${seg}.out
-echo ${domain}_${group}_${list}_${seg}_${vdate};export err=$?; err_chk
+#echo ${domain}_${group}_${list}_${seg}_${vdate};export err=$?; err_chk
+echo ${domain}_${group}_${list}_${seg}_${vdate}
 grep "TOTAL" gto.${domain}${vcyc}_${group}_${list}_${seg}.out >>$COMOUT/srefens${XC}.t${vcyc}z.runlog
 

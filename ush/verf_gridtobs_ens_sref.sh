@@ -383,7 +383,8 @@ chmod +x cmdfile
 #mpirun.lsf /usr/bin/time -f "max RSS (times 4): %M KB" ./testmalloc 1024
 
 #mpirun.lsf
-mpirun cfp cmdfile
+#mpirun cfp cmdfile
+mpiexec -np $NUM_PROC --cpu-bind verbose,core cfp ./cmdfile
 
 
 export err=$?; err_chk

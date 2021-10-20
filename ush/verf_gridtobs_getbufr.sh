@@ -1,3 +1,5 @@
+#!/bin/ksh
+
 set -x
 
 DATE=$1
@@ -123,7 +125,7 @@ then
 
 else
   case $HH00 in
-    00) ndas1=$COMN/nam.$PDY06/nam.t${HH06}z.prepbufr.tm06
+    00) ndas1=$COMN/nam.$PDY06/nam.t${HH06}z.prepbufr.tm06.nr
         ndas2=$COMN/nam.$PDY00/nam.t${HH00}z.prepbufr.tm00
         acars1=$COMN/nam.$PDY06/nam.t${HH06}z.prepbufr.acft_profiles_sfc.tm06;;
     01) ndas1=$COMN/nam.$PDY05/nam.t${HH05}z.prepbufr.tm05
@@ -218,7 +220,8 @@ CYMD=${vday}$cyc
 window_radius=1.5                            # 3 hour window == 1.5 hour radius
 rc_dump=0
 # sh /gpfs/dell1/nco/ops/nwprod/obsproc_dump.v5.0.0/ush/dumpjb $CYMD $window_radius aodmod
-$USHobsproc_dump/dumpjb $CYMD $window_radius aodmod
+##$USHobsproc_dump/dumpjb $CYMD $window_radius aodmod
+dumpjb $CYMD $window_radius aodmod
 rc_dump=$?
 if [ $rc_dump -eq 0 ] ; then
   mv ../aodmod.ibm verf.t${cyc}z.aodmod.tm00.bufr_d

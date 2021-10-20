@@ -1,0 +1,911 @@
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_vx=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for this output (/usr/share/lmod/lmod/init/bash)
+Shell debugging restarted
++ unset __lmod_vx
+++ pwd
++ export JHOME=/lfs/h1/emc/vpppg/noscrub/Perry.Shafran/verf_grid2obs/sorc
++ JHOME=/lfs/h1/emc/vpppg/noscrub/Perry.Shafran/verf_grid2obs/sorc
++ set +x
+
+Currently Loaded Modules:
+  1) craype-x86-rome       (H)   5) hpc/1.2.0            9) hpc-intel/19.1.3.304  13) w3nco/2.4.1   17) bufr/11.5.0    21) g2/3.4.3
+  2) libfabric/1.11.0.4.75 (H)   6) PrgEnv-intel/8.1.0  10) cray-mpich/8.1.7      14) nemsio/2.5.2  18) zlib/1.2.11
+  3) craype-network-ofi    (H)   7) craype/2.7.8        11) hpc-cray-mpich/8.1.7  15) w3emc/2.9.0   19) libpng/1.6.37
+  4) envvar/1.0                  8) intel/19.1.3.304    12) sigio/2.3.2           16) bacio/2.4.1   20) jasper/2.0.25
+
+  Where:
+   H:  Hidden Module
+
+ 
+
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_avegrib_pm.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_avegrib_pm
+ifort -heap-arrays  -c -o getbak.o getbak.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o prepfits.o prepfits.f
+ifort -heap-arrays -o verf_gridtobs_avegrib_pm getbak.o raddate.o prepfits.o  /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_editbufr.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -heap-arrays -O0   -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -O0   -c -o raddate.o raddate.f
+ifort -heap-arrays -O0   -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -O0   -c -o editbufr.o editbufr.f
+ifort -heap-arrays -O0   -o verf_gridtobs_editbufr gtgdef.o  raddate.o  w3fi71.o  editbufr.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_editbufr_ozone.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_editbufr_ozone
+ifort -heap-arrays   -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays   -c -o raddate.o raddate.f
+ifort -heap-arrays   -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays   -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays   -c -o editbufr.o editbufr.f
+ifort -heap-arrays  -o verf_gridtobs_editbufr_ozone gtgdef.o raddate.o w3fi63.o w3fi71.o editbufr.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a 
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_editbufr_ozonemax.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_editbufr_ozonemax
+ifort -heap-arrays  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays  -c -o ireadpb.o ireadpb.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays  -c -o editbufr.o editbufr.f
+ifort -heap-arrays -o verf_gridtobs_editbufr_ozonemax gtgdef.o ireadpb.o raddate.o w3fi63.o w3fi71.o editbufr.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_editbufr_pmave.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_editbufr_pmave
+ifort -heap-arrays -g -traceback  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -g -traceback  -c -o ireadpb.o ireadpb.f
+ifort -heap-arrays -g -traceback  -c -o raddate.o raddate.f
+ifort -heap-arrays -g -traceback  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays -g -traceback  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -g -traceback  -c -o editbufr.o editbufr.f
+ifort -heap-arrays -g -traceback -o verf_gridtobs_editbufr_pmave gtgdef.o ireadpb.o raddate.o w3fi63.o w3fi71.o editbufr.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_editbufr_pm.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_editbufr_pm
+ifort -heap-arrays  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays  -c -o editbufr.o editbufr.f
+ifort -heap-arrays -o verf_gridtobs_editbufr_pm gtgdef.o raddate.o w3fi63.o w3fi71.o editbufr.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a 
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_editbufr_pmmax.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_editbufr_pmmax
+ifort -heap-arrays -g -traceback  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -g -traceback  -c -o ireadpb.o ireadpb.f
+ifort -heap-arrays -g -traceback  -c -o raddate.o raddate.f
+ifort -heap-arrays -g -traceback  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays -g -traceback  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -g -traceback  -c -o editbufr.o editbufr.f
+ifort -heap-arrays -g -traceback -o verf_gridtobs_editbufr_pmmax gtgdef.o ireadpb.o raddate.o w3fi63.o w3fi71.o editbufr.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_gridtobs_aod.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -heap-arrays -i4   -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -i4   -c -o igotdata.o igotdata.f
+ifort -heap-arrays -i4   -c -o inarea.o inarea.f
+ifort -heap-arrays -i4   -c -o inlayer.o inlayer.f
+ifort -heap-arrays -i4   -c -o isitob.o isitob.f
+ifort -heap-arrays -i4   -c -o readcntl.o readcntl.f
+ifort -heap-arrays -i4   -c -o setarea.o setarea.f
+ifort -heap-arrays -i4   -c -o setfcst.o setfcst.f
+ifort -heap-arrays -i4   -c -o setlevel.o setlevel.f
+ifort -heap-arrays -i4   -c -o setmodel.o setmodel.f
+ifort -heap-arrays -i4   -c -o setobtyp.o setobtyp.f
+ifort -heap-arrays -i4   -c -o stclst.o stclst.f
+ifort -heap-arrays -i4   -c -o stldsp.o stldsp.f
+ifort -heap-arrays -i4   -c -o stlstr.o stlstr.f
+ifort -heap-arrays -i4   -c -o stnumb.o stnumb.f
+ifort -heap-arrays -i4   -c -o stread.o stread.f
+ifort -heap-arrays -i4   -c -o streadfho.o streadfho.f
+ifort -heap-arrays -i4   -c -o streal.o streal.f
+ifort -heap-arrays -i4   -c -o strmbl.o strmbl.f
+ifort -heap-arrays -i4   -c -o strxbl.o strxbl.f
+ifort -heap-arrays -i4   -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -i4   -c -o gridtobs.o gridtobs.f
+ifort -heap-arrays -i4  -g  -o verf_gridtobs_gridtobs_aod gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o streadfho.o streal.o strmbl.o strxbl.o w3fi71.o gridtobs.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_gridtobs_ens.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -g -pg -O -xHost -i4  -c -o getnumber.o getnumber.f
+ifort -g -pg -O -xHost -i4  -c -o gtgdef.o gtgdef.f
+ifort -g -pg -O -xHost -i4  -c -o igotdata.o igotdata.f
+ifort -g -pg -O -xHost -i4  -c -o inarea.o inarea.f
+ifort -g -pg -O -xHost -i4  -c -o inlayer.o inlayer.f
+ifort -g -pg -O -xHost -i4  -c -o isitob.o isitob.f
+ifort -g -pg -O -xHost -i4  -c -o readcntl.o readcntl.f
+ifort -g -pg -O -xHost -i4  -c -o setarea.o setarea.f
+ifort -g -pg -O -xHost -i4  -c -o setfcst.o setfcst.f
+ifort -g -pg -O -xHost -i4  -c -o setlevel.o setlevel.f
+ifort -g -pg -O -xHost -i4  -c -o setmodel.o setmodel.f
+ifort -g -pg -O -xHost -i4  -c -o setobtyp.o setobtyp.f
+ifort -g -pg -O -xHost -i4  -c -o stclst.o stclst.f
+ifort -g -pg -O -xHost -i4  -c -o stldsp.o stldsp.f
+ifort -g -pg -O -xHost -i4  -c -o stlstr.o stlstr.f
+ifort -g -pg -O -xHost -i4  -c -o stnumb.o stnumb.f
+ifort -g -pg -O -xHost -i4  -c -o stread.o stread.f
+ifort -g -pg -O -xHost -i4  -c -o strmbl.o strmbl.f
+ifort -g -pg -O -xHost -i4  -c -o strxbl.o strxbl.f
+ifort -g -pg -O -xHost -i4  -c -o w3fb06.o w3fb06.f
+ifort -g -pg -O -xHost -i4  -c -o w3fb11.o w3fb11.f
+ifort -g -pg -O -xHost -i4  -c -o w3fb71.o w3fb71.f
+ifort -g -pg -O -xHost -i4  -c -o gridtobs.o gridtobs.f
+ifort -g -pg -O -xHost -i4 -o verf_gridtobs_gridtobs_ens getnumber.o gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o strmbl.o strxbl.o w3fb06.o w3fb11.o w3fb71.o gridtobs.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_gridtobs.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o nchrs.o nchrs.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o grdefs.o grdefs.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o sums.o sums.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o igotdata.o igotdata.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o inarea.o inarea.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o inlayer.o inlayer.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o isitob.o isitob.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o readcntl.o readcntl.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o setarea.o setarea.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o setfcst.o setfcst.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o setlevel.o setlevel.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o setmodel.o setmodel.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o setobtyp.o setobtyp.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o stclst.o stclst.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o stldsp.o stldsp.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o stlstr.o stlstr.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o stnumb.o stnumb.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o stread.o stread.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o streadfho.o streadfho.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o streal.o streal.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o strmbl.o strmbl.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o strxbl.o strxbl.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o w3fa09a.o w3fa09a.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel  -c -o gridtobs.o gridtobs.f
+ifort -heap-arrays -i4 -mcmodel=medium -shared-intel -g  -o verf_gridtobs_gridtobs gtgdef.o nchrs.o grdefs.o sums.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o streadfho.o streal.o strmbl.o strxbl.o w3fa09a.o gridtobs.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a 
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_gridtobs_fwis.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o gtgdef.o gtgdef.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o igotdata.o igotdata.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o inarea.o inarea.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o inlayer.o inlayer.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o isitob.o isitob.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o readcntl.o readcntl.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o setarea.o setarea.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o setfcst.o setfcst.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o setlevel.o setlevel.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o setmodel.o setmodel.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o setobtyp.o setobtyp.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o stclst.o stclst.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o stldsp.o stldsp.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o stlstr.o stlstr.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o stnumb.o stnumb.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o stread.o stread.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o streadfho.o streadfho.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o streal.o streal.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o strmbl.o strmbl.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o strxbl.o strxbl.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o maskdef.o maskdef.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o gridtobs.o gridtobs.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4-shared-intel -g  -o verf_gridtobs_gridtobs_fwis gtgdef.o igotdata.o inarea.o inlayer.o isitob.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o streadfho.o streal.o strmbl.o strxbl.o maskdef.o gridtobs.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a  /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a(dec_jpeg2000.c.o): in function `dec_jpeg2000_':
+/lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:82: undefined reference to `jas_stream_memopen'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:87: undefined reference to `jpc_decode'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:136: undefined reference to `jas_matrix_create'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:137: undefined reference to `jas_image_readcmpt'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:149: undefined reference to `jas_matrix_destroy'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:150: undefined reference to `jas_stream_close'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:151: undefined reference to `jas_image_destroy'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_reset_crc':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:130: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_calculate_crc':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:173: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_reset_zstream':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:980: undefined reference to `inflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_compare_ICC_profile_with_sRGB':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2362: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2363: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2375: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2376: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2362: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2363: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2375: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2376: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngread.o): in function `png_read_destroy':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_decompress_chunk':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:662: undefined reference to `inflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwrite.o): in function `png_write_destroy':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_deflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:395: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:413: undefined reference to `deflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:417: undefined reference to `deflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_text_compress':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_compress_IDAT':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:981: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_deflate_claim..0':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:395: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:413: undefined reference to `deflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:417: undefined reference to `deflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_compress_IDAT':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:981: undefined reference to `deflate'
+make: *** [makefile:20: verf_gridtobs_gridtobs_fwis] Error 1
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_gridtobs_ozone.fd==========
+==========================================================
+rm *.o
+ifort -heap-arrays  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays  -c -o igotdata.o igotdata.f
+ifort -heap-arrays  -c -o inarea.o inarea.f
+ifort -heap-arrays  -c -o inlayer.o inlayer.f
+ifort -heap-arrays  -c -o isitob.o isitob.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o readcntl.o readcntl.f
+ifort -heap-arrays  -c -o setarea.o setarea.f
+ifort -heap-arrays  -c -o setfcst.o setfcst.f
+ifort -heap-arrays  -c -o setlevel.o setlevel.f
+ifort -heap-arrays  -c -o setmodel.o setmodel.f
+ifort -heap-arrays  -c -o setobtyp.o setobtyp.f
+ifort -heap-arrays  -c -o stclst.o stclst.f
+ifort -heap-arrays  -c -o stldsp.o stldsp.f
+ifort -heap-arrays  -c -o stlstr.o stlstr.f
+ifort -heap-arrays  -c -o stnumb.o stnumb.f
+ifort -heap-arrays  -c -o stread.o stread.f
+ifort -heap-arrays  -c -o strmbl.o strmbl.f
+ifort -heap-arrays  -c -o strxbl.o strxbl.f
+ifort -heap-arrays  -c -o ufbin3.o ufbin3.f
+ifort -heap-arrays  -c -o w3fb06.o w3fb06.f
+ifort -heap-arrays  -c -o w3fb11.o w3fb11.f
+ifort -heap-arrays  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays  -c -o gridtobs.o gridtobs.f
+ifort -heap-arrays -o verf_gridtobs_gridtobs_ozone gtgdef.o igotdata.o inarea.o inlayer.o isitob.o raddate.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o strmbl.o strxbl.o ufbin3.o w3fb06.o w3fb11.o w3fi63.o w3fi71.o gridtobs.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_gridtobs_pm.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_gridtobs_pm
+ifort -heap-arrays -i4  -c -o gtgdef.o gtgdef.f
+ifort -heap-arrays -i4  -c -o igotdata.o igotdata.f
+ifort -heap-arrays -i4  -c -o inarea.o inarea.f
+ifort -heap-arrays -i4  -c -o inlayer.o inlayer.f
+ifort -heap-arrays -i4  -c -o isitob.o isitob.f
+ifort -heap-arrays -i4  -c -o raddate.o raddate.f
+ifort -heap-arrays -i4  -c -o readcntl.o readcntl.f
+ifort -heap-arrays -i4  -c -o setarea.o setarea.f
+ifort -heap-arrays -i4  -c -o setfcst.o setfcst.f
+ifort -heap-arrays -i4  -c -o setlevel.o setlevel.f
+ifort -heap-arrays -i4  -c -o setmodel.o setmodel.f
+ifort -heap-arrays -i4  -c -o setobtyp.o setobtyp.f
+ifort -heap-arrays -i4  -c -o stclst.o stclst.f
+ifort -heap-arrays -i4  -c -o stldsp.o stldsp.f
+ifort -heap-arrays -i4  -c -o stlstr.o stlstr.f
+ifort -heap-arrays -i4  -c -o stnumb.o stnumb.f
+ifort -heap-arrays -i4  -c -o stread.o stread.f
+ifort -heap-arrays -i4  -c -o strmbl.o strmbl.f
+ifort -heap-arrays -i4  -c -o strxbl.o strxbl.f
+ifort -heap-arrays -i4  -c -o ufbin3.o ufbin3.f
+ifort -heap-arrays -i4  -c -o w3fb06.o w3fb06.f
+ifort -heap-arrays -i4  -c -o w3fb11.o w3fb11.f
+ifort -heap-arrays -i4  -c -o w3fi63.o w3fi63.f
+ifort -heap-arrays -i4  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -i4  -c -o gets1loc.o gets1loc.f
+ifort -heap-arrays -i4  -c -o gridtobs.o gridtobs.f
+ifort -heap-arrays -i4 -o verf_gridtobs_gridtobs_pm gtgdef.o igotdata.o inarea.o inlayer.o isitob.o raddate.o readcntl.o setarea.o setfcst.o setlevel.o setmodel.o setobtyp.o stclst.o stldsp.o stlstr.o stnumb.o stread.o strmbl.o strxbl.o ufbin3.o w3fb06.o w3fb11.o w3fi63.o w3fi71.o gets1loc.o gridtobs.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_maxgrib_ozone.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_maxgrib_ozone
+ifort -heap-arrays  -c -o getbak.o getbak.f
+ifort -heap-arrays  -c -o raddate.o raddate.f
+ifort -heap-arrays  -c -o prepfits.o prepfits.f
+ifort -heap-arrays -o verf_gridtobs_maxgrib_ozone getbak.o raddate.o prepfits.o  /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_maxgrib_pm.fd==========
+==========================================================
+rm -f *.o verf_gridtobs_maxgrib_pm
+ifort -heap-arrays -i4  -c -o getbak.o getbak.f
+ifort -heap-arrays -i4  -c -o raddate.o raddate.f
+ifort -heap-arrays -i4  -c -o prepfits.o prepfits.f
+ifort -heap-arrays -i4 -o verf_gridtobs_maxgrib_pm getbak.o raddate.o prepfits.o  /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_prepfits_aod.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o grid3d.o grid3d.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o surfce.o surfce.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o gridef.o gridef.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o observ.o observ.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o backgv.o backgv.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o guesfc.o guesfc.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o guess.o guess.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o itotal.o itotal.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o obstrs.o obstrs.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o weights.o weights.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o debug.o debug.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o counts.o counts.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o vdates.o vdates.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o vrtfac.o vrtfac.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o guser.o guser.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o satimg.o satimg.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o adddate.o adddate.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o calcape.o calcape.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o calpbl.o calpbl.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o calpw.o calpw.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o getbak.o getbak.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o getfct.o getfct.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o getprof_upr.o getprof_upr.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o htindex.o htindex.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o ireadpb.o ireadpb.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o obscape.o obscape.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o obspbl.o obspbl.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o raddate.o raddate.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o setterp.o setterp.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o ufbxy3.o ufbxy3.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o ufbxy3_goes.o ufbxy3_goes.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o w3fa09a.o w3fa09a.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o w3fb11a.o w3fb11a.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o w3fb14.o w3fb14.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o w3fi71.o w3fi71.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o windchill.o windchill.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o prepfits.o prepfits.f
+ifort -heap-arrays -i4 -O0 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -g  -o verf_gridtobs_prepfits_aod grid3d.o surfce.o gridef.o observ.o backgv.o guesfc.o guess.o itotal.o obstrs.o  weights.o debug.o counts.o vdates.o vrtfac.o guser.o satimg.o adddate.o calcape.o calpbl.o calpw.o  getbak.o getfct.o getprof_upr.o htindex.o ireadpb.o obscape.o obspbl.o  raddate.o setterp.o ufbxy3.o ufbxy3_goes.o w3fa09a.o w3fb11a.o w3fb14.o w3fi71.o windchill.o prepfits.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a -L/usrx/local/64bit.cirrus/lib  /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a(dec_jpeg2000.c.o): in function `dec_jpeg2000_':
+/lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:82: undefined reference to `jas_stream_memopen'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:87: undefined reference to `jpc_decode'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:136: undefined reference to `jas_matrix_create'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:137: undefined reference to `jas_image_readcmpt'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:149: undefined reference to `jas_matrix_destroy'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:150: undefined reference to `jas_stream_close'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:151: undefined reference to `jas_image_destroy'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_reset_crc':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:130: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_calculate_crc':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:173: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_reset_zstream':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:980: undefined reference to `inflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_compare_ICC_profile_with_sRGB':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2362: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2363: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2375: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2376: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2362: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2363: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2375: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2376: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngread.o): in function `png_read_destroy':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_decompress_chunk':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:662: undefined reference to `inflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwrite.o): in function `png_write_destroy':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_deflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:395: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:413: undefined reference to `deflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:417: undefined reference to `deflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_text_compress':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_compress_IDAT':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:981: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_deflate_claim..0':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:395: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:413: undefined reference to `deflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:417: undefined reference to `deflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_compress_IDAT':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:981: undefined reference to `deflate'
+make: *** [makefile:17: verf_gridtobs_prepfits_aod] Error 1
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_prepfits.fd==========
+==========================================================
+rm -rf *.o *.mod *.lst
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o anl.o anl.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o grid3d.o grid3d.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o surfce.o surfce.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o gridef.o gridef.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o observ.o observ.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o backgv.o backgv.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o guesfc.o guesfc.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o guess.o guess.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o itotal.o itotal.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o obstrs.o obstrs.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o weights.o weights.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o debug.o debug.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o counts.o counts.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o vdates.o vdates.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o vrtfac.o vrtfac.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o guser.o guser.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o adddate.o adddate.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o calcape.o calcape.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o calpbl.o calpbl.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o calpw.o calpw.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o getanl.o getanl.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o getbak.o getbak.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o getfct.o getfct.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o getprof_upr.o getprof_upr.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o htindex.o htindex.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o ireadpb.o ireadpb.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o obscape.o obscape.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o obspbl.o obspbl.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o calshear.o calshear.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o raddate.o raddate.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o setterp.o setterp.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o ufbxy3.o ufbxy3.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o windchill.o windchill.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o haines.o haines.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended  -c -o prepfits.o prepfits.f
+ifort -O2 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -g -traceback -debug extended -g  -o verf_gridtobs_prepfits anl.o grid3d.o surfce.o gridef.o observ.o backgv.o guesfc.o guess.o itotal.o obstrs.o  weights.o debug.o counts.o vdates.o vrtfac.o guser.o adddate.o calcape.o calpbl.o calpw.o  getanl.o getbak.o getfct.o getprof_upr.o htindex.o ireadpb.o obscape.o obspbl.o  calshear.o raddate.o setterp.o ufbxy3.o windchill.o haines.o prepfits.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4_DA.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a  /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a(dec_jpeg2000.c.o): in function `dec_jpeg2000_':
+/lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:82: undefined reference to `jas_stream_memopen'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:87: undefined reference to `jpc_decode'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:136: undefined reference to `jas_matrix_create'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:137: undefined reference to `jas_image_readcmpt'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:149: undefined reference to `jas_matrix_destroy'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:150: undefined reference to `jas_stream_close'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:151: undefined reference to `jas_image_destroy'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_reset_crc':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:130: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_calculate_crc':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:173: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_reset_zstream':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:980: undefined reference to `inflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_compare_ICC_profile_with_sRGB':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2362: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2363: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2375: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2376: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2362: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2363: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2375: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2376: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngread.o): in function `png_read_destroy':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_decompress_chunk':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:662: undefined reference to `inflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwrite.o): in function `png_write_destroy':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_deflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:395: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:413: undefined reference to `deflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:417: undefined reference to `deflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_text_compress':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_compress_IDAT':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:981: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_deflate_claim..0':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:395: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:413: undefined reference to `deflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:417: undefined reference to `deflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_compress_IDAT':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:981: undefined reference to `deflate'
+make: *** [makefile:23: verf_gridtobs_prepfits] Error 1
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_prepfits_ozone.fd==========
+==========================================================
+rm *.o
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel  -c -o calcape.o calcape.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel  -c -o adddate.o adddate.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel  -c -o getbak.o getbak.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel  -c -o getfct.o getfct.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel  -c -o getprof.o getprof.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel  -c -o ireadpb.o ireadpb.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel  -c -o raddate.o raddate.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel  -c -o setterp.o setterp.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel  -c -o ufbxy3.o ufbxy3.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel  -c -o w3fb13.o w3fb13.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel  -c -o prepfits.o prepfits.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -mcmodel=medium -shared-intel -shared-intel -o verf_gridtobs_prepfits_ozone calcape.o adddate.o getbak.o getfct.o getprof.o ireadpb.o raddate.o setterp.o ufbxy3.o w3fb13.o prepfits.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a  /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4_DA.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a(dec_jpeg2000.c.o): in function `dec_jpeg2000_':
+/lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:82: undefined reference to `jas_stream_memopen'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:87: undefined reference to `jpc_decode'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:136: undefined reference to `jas_matrix_create'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:137: undefined reference to `jas_image_readcmpt'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:149: undefined reference to `jas_matrix_destroy'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:150: undefined reference to `jas_stream_close'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:151: undefined reference to `jas_image_destroy'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_reset_crc':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:130: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_calculate_crc':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:173: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_reset_zstream':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:980: undefined reference to `inflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_compare_ICC_profile_with_sRGB':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2362: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2363: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2375: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2376: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2362: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2363: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2375: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2376: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngread.o): in function `png_read_destroy':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_decompress_chunk':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:662: undefined reference to `inflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwrite.o): in function `png_write_destroy':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_deflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:395: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:413: undefined reference to `deflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:417: undefined reference to `deflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_text_compress':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_compress_IDAT':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:981: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_deflate_claim..0':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:395: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:413: undefined reference to `deflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:417: undefined reference to `deflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_compress_IDAT':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:981: undefined reference to `deflate'
+make: *** [makefile:14: verf_gridtobs_prepfits_ozone] Error 1
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_prepfits_pm.fd==========
+==========================================================
+rm *.o
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -mcmodel=medium -shared-intel  -c -o calcape.o calcape.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -mcmodel=medium -shared-intel  -c -o adddate.o adddate.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -mcmodel=medium -shared-intel  -c -o getbak.o getbak.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -mcmodel=medium -shared-intel  -c -o getfct.o getfct.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -mcmodel=medium -shared-intel  -c -o getprof.o getprof.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -mcmodel=medium -shared-intel  -c -o ireadpb.o ireadpb.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -mcmodel=medium -shared-intel  -c -o raddate.o raddate.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -mcmodel=medium -shared-intel  -c -o setterp.o setterp.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -mcmodel=medium -shared-intel  -c -o ufbxy3.o ufbxy3.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -mcmodel=medium -shared-intel  -c -o w3fb13.o w3fb13.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -mcmodel=medium -shared-intel  -c -o prepfits.o prepfits.f
+ifort -i4 -g -traceback -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -mcmodel=medium -shared-intel -shared-intel -o verf_gridtobs_prepfits_pm calcape.o adddate.o getbak.o getfct.o getprof.o ireadpb.o raddate.o setterp.o ufbxy3.o w3fb13.o prepfits.o /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a  /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4_DA.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a(dec_jpeg2000.c.o): in function `dec_jpeg2000_':
+/lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:82: undefined reference to `jas_stream_memopen'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:87: undefined reference to `jpc_decode'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:136: undefined reference to `jas_matrix_create'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:137: undefined reference to `jas_image_readcmpt'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:149: undefined reference to `jas_matrix_destroy'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:150: undefined reference to `jas_stream_close'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:151: undefined reference to `jas_image_destroy'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_reset_crc':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:130: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_calculate_crc':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:173: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_reset_zstream':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:980: undefined reference to `inflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_compare_ICC_profile_with_sRGB':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2362: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2363: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2375: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2376: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2362: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2363: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2375: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2376: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngread.o): in function `png_read_destroy':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_decompress_chunk':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:662: undefined reference to `inflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwrite.o): in function `png_write_destroy':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_deflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:395: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:413: undefined reference to `deflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:417: undefined reference to `deflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_text_compress':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_compress_IDAT':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:981: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_deflate_claim..0':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:395: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:413: undefined reference to `deflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:417: undefined reference to `deflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_compress_IDAT':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:981: undefined reference to `deflate'
+make: *** [makefile:14: verf_gridtobs_prepfits_pm] Error 1
+                                                          
+                                                          
+==========================================================
+========compiling verf_gridtobs_writemask.fd==========
+==========================================================
+rm -rf *.o *.lst
+ifort -i4 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4  -c -o writemask.o writemask.f
+ifort -i4 -I/lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/include_4 -g  -o verf_gridtobs_writemask writemask.o  /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a  /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/cray-mpich-8.1.7/w3emc/2.9.0/lib64/libw3emc_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bufr/11.5.0/lib64/libbufr_4.a /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/bacio/2.4.1/lib/libbacio_4.a /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a(dec_jpeg2000.c.o): in function `dec_jpeg2000_':
+/lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:82: undefined reference to `jas_stream_memopen'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:87: undefined reference to `jpc_decode'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:136: undefined reference to `jas_matrix_create'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:137: undefined reference to `jas_image_readcmpt'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:149: undefined reference to `jas_matrix_destroy'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:150: undefined reference to `jas_stream_close'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/dec_jpeg2000.c:151: undefined reference to `jas_image_destroy'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/libs/hpc-stack/intel-19.1.3.304/g2/3.4.3/lib64/libg2_4.a(enc_jpeg2000.c.o): in function `enc_jpeg2000_':
+/lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/enc_jpeg2000.c:167: undefined reference to `jas_stream_memopen'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/enc_jpeg2000.c:174: undefined reference to `jas_stream_memopen'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/enc_jpeg2000.c:179: undefined reference to `jpc_encode'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/enc_jpeg2000.c:188: undefined reference to `jas_stream_close'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /lfs/h1/emc/nceplibs/noscrub/hpc-stack/src/v1.2.0/pkg/g2-v3.4.3/src/enc_jpeg2000.c:189: undefined reference to `jas_stream_close'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_reset_crc':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:130: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_calculate_crc':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:173: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_reset_zstream':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:980: undefined reference to `inflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(png.o): in function `png_compare_ICC_profile_with_sRGB':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2362: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2363: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2375: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2376: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2362: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2363: undefined reference to `adler32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2375: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/png.c:2376: undefined reference to `crc32'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngread.o): in function `png_read_destroy':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngread.c:979: undefined reference to `inflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_decompress_chunk':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:662: undefined reference to `inflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_zlib_inflate':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:467: undefined reference to `inflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngrutil.o): in function `png_inflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:407: undefined reference to `inflateReset2'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:429: undefined reference to `inflateValidate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngrutil.c:416: undefined reference to `inflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwrite.o): in function `png_write_destroy':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwrite.c:945: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_deflate_claim':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:395: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:413: undefined reference to `deflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:417: undefined reference to `deflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_text_compress':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:580: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_compress_IDAT':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:981: undefined reference to `deflate'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_deflate_claim..0':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:395: undefined reference to `deflateEnd'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:413: undefined reference to `deflateReset'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:417: undefined reference to `deflateInit2_'
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a(pngwutil.o): in function `png_compress_IDAT':
+/tmp/root/spack-stage/spack-stage-libpng-1.6.37-4ohkronuhlyherusoszzrmur5ewvlwzh/spack-src/pngwutil.c:981: undefined reference to `deflate'
+make: *** [makefile:14: verf_gridtobs_writemask] Error 1

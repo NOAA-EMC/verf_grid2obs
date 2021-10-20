@@ -80,7 +80,7 @@ do
               filnam="aqm.t${cyc}z.25pm"
               filbufr="anowpm.pb.tm024"
               avg_hr=30
-              INDIR=/gpfs/hps/nco/ops/com/aqm/$envir/aqm
+              INDIR=/lfs/h1/ops/canned/com/aqm/${VER}/aqm
               COMBUFR_IN1=$COMBUFR/hourly.$vdayp1
               COMBUFR_IN2=$COMBUFR/hourly.$vdayp2
               network="pm"
@@ -90,7 +90,7 @@ do
               filnam="aqm.t${cyc}z.25pm"
               filbufr="anowpm.pb.tm024"
               avg_hr=30
-              INDIR=/gpfs/hps/nco/ops/com/aqm/$envir/aqm
+              INDIR=/lfs/h1/ops/canned/com/aqm/${VER}/aqm
               COMBUFR_IN1=$COMBUFR/hourly.$vdayp1
               COMBUFR_IN2=$COMBUFR/hourly.$vdayp2
               network="pm"

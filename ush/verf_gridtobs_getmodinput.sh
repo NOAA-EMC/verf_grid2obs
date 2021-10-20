@@ -27,8 +27,7 @@ copygb=${copygb:-$COPYGB}
 wgrib2=${wgrib2:-$WGRIB2}
 cnvgrib=${cnvgrib:-$CNVGRIB}
 copygb2=${copygb2:-$COPYGB2}
-##wgrib=/nco/sib/wx11bv/wgrib/wgrib
-##copygb=/nco/sib/wx11bv/copygb/copygb
+
 
 domain=$1
 
@@ -39,6 +38,7 @@ rm -rf input_$domain hour_$domain GRD* AWIP3D* nonzero_$domain
 #####################################
 # Determine the first available file
 #####################################
+echo "getmodinput" $vcyc ${domain}.cycles
 grep "$vcyc" ${domain}.cycles
 err_grep=$?
 
@@ -50,6 +50,7 @@ then
    for pcyc in `cat ${domain}.cycles`
    do
      pfhr=`expr $vcyc - $pcyc`
+     echo $pcyc $pfhr
      if [ $pfhr -lt 0 ]; then pfhr=`expr $pfhr + 24`; fi
      if [ $pfhr -le $ifhr ]; then ifhr=$pfhr; fi
    done
@@ -190,6 +191,7 @@ do
                  cp GRD${fhr}.1 GRD${fhr}
                else
                  gribfile=${DIRIN}.${aday}/${acyc}/ensprod/${runnam}.t${acyc}z.${filnam1}.grib2
+		 echo "srmean" $gribfile
                  $WGRIB2 $gribfile | grep "${fhra} hour fcst" | $WGRIB2 -i $gribfile -grib GRD${fhr}.1
                  cp GRD${fhr}.1 GRD${fhr}
                fi
@@ -257,11 +259,11 @@ do
            if [ -e ${DIRIN}.${aday}/${acyc}/atmos/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} ]
            then
              cp ${DIRIN}.${aday}/${acyc}/atmos/${runnam}.t${acyc}z.${filnam1}${fhrg}${tmkk} TMP${fhr}
-             $WGRIB2 TMP${fhr} | grep  -F -f gfs_parmlist | $WGRIB2 -i -grib  GRD${fhr} TMP${fhr}
+             wgrib2 TMP${fhr} | grep  -F -f gfs_parmlist | $WGRIB2 -i -grib  GRD${fhr} TMP${fhr}
              rm -f -r TMP${fhr}
              if [ $domain = "gfs12" -o $domain = "gfs12ak" ]
              then
-             $WGRIB2 GRD${fhr} -set_grib_type same -new_grid_winds earth -new_grid ${cgrid} GRD${fhr}.1
+             wgrib2 GRD${fhr} -set_grib_type same -new_grid_winds earth -new_grid ${cgrid} GRD${fhr}.1
              mv GRD${fhr}.1 GRD${fhr}
              fi
            fi
@@ -417,7 +419,7 @@ do
     $EXECverf_gridtobs/verf_gridtobs_writemask < firewx >>writemask${fhr}.out
     export err=$?; err_chk
 
-    $GRBINDEX maskout.grb maskouti.grb
+    $GRB2INDEX maskout.grb maskouti.grb
     cp maskout.grb firemask${ifire}.grb
     cp maskouti.grb firemask${ifire}i.grb
 
