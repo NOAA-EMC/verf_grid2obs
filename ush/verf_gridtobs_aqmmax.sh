@@ -473,6 +473,6 @@ fi
 #####################################################################
 
 msg='JOB $job HAS COMPLETED NORMALLY.'
-postmsg "$jlogfile" "$msg"
+###postmsg "$jlogfile" "$msg"
 
 ############## END OF SCRIPT #######################
