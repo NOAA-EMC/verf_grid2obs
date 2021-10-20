@@ -51,16 +51,16 @@ export SENDDBN=${SENDDBN:-YES}
 export SENDECF=${SENDECF:-YES}
  
 export DCOMROOT=${DCOMROOT:-/lfs/h1/ops/$envir/dcom}
-export HOMEverf_gridtobs=${HOMEverf_gridtobs:-${NWROOT}/verf_gridtobs.${model_ver}}
+export HOMEverf_gridtobs=${HOMEverf_gridtobs:-${PACKAGEROOT}/verf_gridtobs.${model_ver}}
 export EXECverf_gridtobs=${EXECverf_gridtobs:-$HOMEverf_gridtobs/exec}
 export FIXverf_gridtobs=${FIXverf_gridtobs:-$HOMEverf_gridtobs/fix}
 export PARMverf_gridtobs=${PARMverf_gridtobs:-$HOMEverf_gridtobs/parm}
 export USHverf_gridtobs=${USHverf_gridtobs:-$HOMEverf_gridtobs/ush}
 
 # JY - set the following for dumpjb call
-export HOMEobsproc_dump=${HOMEobsproc_dump:-$NWROOT/obsproc_dump.${obsproc_dump_ver}}
-export USHobsproc_dump=${USHobsproc_dump:-${HOMEobsproc_dump}/ush}
-export HOMEobsproc_shared_bufr_dumplist=${HOMEobsproc_shared_bufr_dumplist:-$NWROOT/obsproc_shared/bufr_dumplist.${obsproc_shared_bufr_dumplist_ver}}
+#export HOMEobsproc_dump=${HOMEobsproc_dump:-$PACKAGEROOT/obsproc_dump.${obsproc_dump_ver}}
+#export USHobsproc_dump=${USHobsproc_dump:-${HOMEobsproc_dump}/ush}
+#export HOMEobsproc_shared_bufr_dumplist=${HOMEobsproc_shared_bufr_dumplist:-$PACKAGEROOT/obsproc_shared/bufr_dumplist.${obsproc_shared_bufr_dumplist_ver}}
 
 # Run setpdy and initialize PDY variables
 setpdy.sh
